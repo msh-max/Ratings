@@ -39,7 +39,15 @@ def validate(conn: sqlite3.Connection, run_id: str) -> ValidationReport:
     rep.hard["duplicate_snapshots"] = int(conn.execute(
         "SELECT COUNT(*) - COUNT(DISTINCT place_id) FROM place_snapshots WHERE run_id=?",
         (run_id,)).fetchone()[0])
-    rep.hard["discovered_without_data"] = len(unfetched_ids(conn, run_id))
+    # Every discovered ID has a snapshot this run, or a fetch_errors row, or is counted in
+    # runs.unfetched (free mode only: the caps bound and older data, if any, is carried forward).
+    run = conn.execute("SELECT free_only, unfetched FROM runs WHERE run_id=?", (run_id,)).fetchone()
+    free = bool(run["free_only"]) if run is not None and run["free_only"] is not None else False
+    counted = (run["unfetched"] or 0) if free else 0
+    missing = len(unfetched_ids(conn, run_id))
+    rep.hard["discovered_without_data"] = max(0, missing - counted)
+    if free:
+        rep.soft["unfetched"] = min(missing, counted)
     rep.soft["rating_without_reviews"] = _count(
         conn, "rating IS NOT NULL AND (user_rating_count IS NULL OR user_rating_count < 1)", run_id)
     rep.soft["country_unknown"] = _count(conn, "country_code IS NULL", run_id)

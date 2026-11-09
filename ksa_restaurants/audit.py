@@ -2,7 +2,11 @@
 
 No geometric filter is applied to results (Google's terms forbid point-in-polygon analysis on
 Places coordinates): a found place is IN SCOPE when its addressComponents country is SA and its
-types intersect the configured types; it is MATCHED when it has a snapshot in this run.
+types intersect the configured types. ``recall`` measures DISCOVERY (the coverage metric): an
+in-scope place is MATCHED when Phase 1 of this run found its ID. ``fetched_recall`` also requires
+a snapshot in this run (below 1 in free mode when the caps leave IDs unfetched). Exit code 3
+applies to the discovery recall only. In free mode the audit is limited to the remaining free
+Nearby Search Pro calls and is subject to the same free-cap guard.
 Only leaves whose circumscribed circle lies inside the run bbox are sampled (a cell-geometry test),
 so that a sub-country ``--bbox`` run is not penalised for places outside its own area.
 """
@@ -17,7 +21,9 @@ from dataclasses import dataclass
 
 from .config import AUDIT_MASK, Config
 from .context import RunContext, run_all
+from .cost import FreeCapExhausted, sku_key
 from .db import transaction
+from .fetch_plan import remaining_calls
 from .discover import cell_from_row
 from .geo import Cell, circle_inside_bbox, circumscribed_radius_m
 from .parse import country_code
@@ -64,10 +70,16 @@ class AuditResult:
     matched: int
     recall: float | None
     out_of_scope_share: float | None
+    fetched: int = 0
+    fetched_recall: float | None = None
 
 
 async def _audit_cell(ctx: RunContext, cell: Cell, place_type: str) -> None:
-    resp = await ctx.search_nearby("audit", nearby_body(ctx.cfg, cell), AUDIT_MASK)
+    try:
+        resp = await ctx.search_nearby("audit", nearby_body(ctx.cfg, cell), AUDIT_MASK)
+    except FreeCapExhausted:
+        log.warning("audit: free cap of nearby_search/pro reached; cell %s not audited", cell.cell_id)
+        return
     with transaction(ctx.conn) as conn:
         conn.executemany("INSERT OR IGNORE INTO audit_found VALUES (?,?,?,?,?,?)",
                          [(ctx.run_id, cell.cell_id, place_type, p["id"], country_code(p),
@@ -77,10 +89,13 @@ async def _audit_cell(ctx: RunContext, cell: Cell, place_type: str) -> None:
 
 
 def _classify(conn: sqlite3.Connection, run_id: str, cfg: Config,
-              rows: list[sqlite3.Row]) -> tuple[int, int, int, int, int]:
-    """(found, saudi_found, in_scope, matched, out_of_scope) for a list of audit_found rows."""
+              rows: list[sqlite3.Row]) -> tuple[int, int, int, int, int, int]:
+    """(found, saudi_found, in_scope, matched, out_of_scope, fetched) for audit_found rows.
+
+    matched = in scope and discovered in Phase 1 of the run; fetched = in scope with a snapshot.
+    """
     wanted = set(cfg.types)
-    found = saudi = in_scope = matched = out = 0
+    found = saudi = in_scope = matched = out = fetched = 0
     for r in rows:
         found += 1
         if r["country_code"] != "SA":
@@ -88,11 +103,13 @@ def _classify(conn: sqlite3.Connection, run_id: str, cfg: Config,
         saudi += 1
         if wanted & set(json.loads(r["types_json"])):
             in_scope += 1
-            matched += conn.execute("SELECT 1 FROM place_snapshots WHERE run_id=? AND place_id=?",
+            matched += conn.execute("SELECT 1 FROM cell_places WHERE run_id=? AND place_id=? LIMIT 1",
+                                    (run_id, r["place_id"])).fetchone() is not None
+            fetched += conn.execute("SELECT 1 FROM place_snapshots WHERE run_id=? AND place_id=?",
                                     (run_id, r["place_id"])).fetchone() is not None
         else:
             out += 1
-    return found, saudi, in_scope, matched, out
+    return found, saudi, in_scope, matched, out, fetched
 
 
 def audit_stats(conn: sqlite3.Connection, run_id: str, cfg: Config) -> AuditResult:
@@ -102,18 +119,21 @@ def audit_stats(conn: sqlite3.Connection, run_id: str, cfg: Config) -> AuditResu
         for c in cells:
             rows = conn.execute("SELECT * FROM audit_found WHERE run_id=? AND cell_id=? AND type=?",
                                 (run_id, c[0], c[1])).fetchall()
-            found, _, in_scope, matched, out = _classify(conn, run_id, cfg, rows)
+            found, _, in_scope, matched, out, fetched = _classify(conn, run_id, cfg, rows)
             conn.execute("UPDATE audit_cells SET found=?, in_scope=?, matched=?, out_of_scope=?, "
-                         "recall=? WHERE run_id=? AND cell_id=? AND type=?",
+                         "recall=?, fetched=?, fetched_recall=? WHERE run_id=? AND cell_id=? AND type=?",
                          (found, in_scope, matched, out, matched / in_scope if in_scope else None,
-                          run_id, c[0], c[1]))
+                          fetched, fetched / in_scope if in_scope else None, run_id, c[0], c[1]))
     distinct = conn.execute("SELECT place_id, MIN(country_code) AS country_code, MIN(types_json) "
                             "AS types_json FROM audit_found WHERE run_id=? GROUP BY place_id",
                             (run_id,)).fetchall()
-    found, saudi, in_scope, matched, out = _classify(conn, run_id, cfg, distinct)
+    found, saudi, in_scope, matched, out, fetched = _classify(conn, run_id, cfg, distinct)
     recall = matched / in_scope if in_scope else None
-    conn.execute("UPDATE runs SET audit_recall=? WHERE run_id=?", (recall, run_id))
-    return AuditResult(len(cells), found, in_scope, matched, recall, out / saudi if saudi else None)
+    fetched_recall = fetched / in_scope if in_scope else None
+    conn.execute("UPDATE runs SET audit_recall=?, audit_fetched_recall=? WHERE run_id=?",
+                 (recall, fetched_recall, run_id))
+    return AuditResult(len(cells), found, in_scope, matched, recall, out / saudi if saudi else None,
+                       fetched, fetched_recall)
 
 
 async def audit(ctx: RunContext, n_cells: int) -> AuditResult:
@@ -122,6 +142,12 @@ async def audit(ctx: RunContext, n_cells: int) -> AuditResult:
         "SELECT cell_id, type FROM audit_cells WHERE run_id=?", (ctx.run_id,))}
     todo = [(c, t) for c, t in sample_cells(ctx.conn, ctx.run_id, ctx.cfg, n_cells)
             if (c.cell_id, t) not in done]
+    if ctx.cfg.free_only:  # plan within the remaining free Nearby Search Pro calls
+        left = remaining_calls(ctx.conn, ctx.run_id, ctx.cfg).get(sku_key("nearby_search", AUDIT_MASK), 0)
+        if left is not None and left < len(todo):
+            log.warning("audit: only %d free Nearby Search Pro calls left this month; auditing %d of "
+                        "%d cells", left, left, len(todo))
+            todo = todo[:left]
     await run_all(_audit_cell(ctx, c, t) for c, t in todo)
     result = audit_stats(ctx.conn, ctx.run_id, ctx.cfg)
     log.info("audit: %s %s", result, ctx.progress())

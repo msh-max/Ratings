@@ -38,6 +38,9 @@ jobs:
       - name: End-to-end smoke test (fake Places client, no API key)
         run: |
           set -euo pipefail
-          rm -rf /tmp/ci.sqlite /tmp/ci.sqlite-wal /tmp/ci.sqlite-shm /tmp/ci-exports /tmp/ci-summary
+          rm -rf /tmp/ci*.sqlite* /tmp/ci-exports /tmp/ci-summary
+          # free mode, Riyadh (the defaults)
           ksa-restaurants --fake --db /tmp/ci.sqlite run --out /tmp/ci-exports --summary-dir /tmp/ci-summary
           ksa-restaurants --fake --db /tmp/ci.sqlite smoke --out /tmp/ci-exports/smoke --summary-dir /tmp/ci-summary/smoke
+          # paid mode, country-wide
+          ksa-restaurants --fake --db /tmp/ci-paid.sqlite --area saudi --allow-paid run --out /tmp/ci-exports/paid --summary-dir /tmp/ci-summary/paid

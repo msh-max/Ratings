@@ -30,7 +30,7 @@ def test_fake_run_resume_and_warm_start(tmp_path):
     tail = ["--out", out, "--summary-dir", sdir, "--audit-cells", "30"]
     r = CliRunner().invoke(main, args + ["--run-id", "2026-10-02T0100", "run"] + tail)
     assert r.exit_code == 0, r.output
-    assert "Places found this run" in r.output and "no previous run" in r.output
+    assert "Places fetched" in r.output and "no previous run" in r.output
     first = _calls(db)["2026-10-02T0100"]
     r = CliRunner().invoke(main, args + ["--run-id", "2026-10-02T0100", "run"] + tail)
     assert r.exit_code == 0 and _calls(db)["2026-10-02T0100"] == first  # no-op resume
@@ -47,7 +47,7 @@ def test_fake_run_resume_and_warm_start(tmp_path):
 
 def test_budget_abort_exit_code_and_step_by_step(tmp_path):
     db = str(tmp_path / "b.sqlite")
-    args = ["--fake", "--db", db, "--run-id", "x1"]
+    args = ["--fake", "--db", db, "--run-id", "x1", "--allow-paid"]
     r = CliRunner().invoke(main, args + ["--max-budget-usd", "0.5", "run", "--out", str(tmp_path / "e"),
                                          "--summary-dir", str(tmp_path / "s")])
     assert r.exit_code == 2 and "BUDGET ABORT" in r.output

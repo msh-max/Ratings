@@ -1,4 +1,8 @@
-"""Test 5: audit recall is 1.0 on a correct run and < 1 when places are removed from the DB."""
+"""Test 5: audit recall is 1.0 on a correct run and < 1 when places are removed from the DB.
+
+Recall measures discovery (found in-scope IDs present in cell_places this run); fetched_recall
+additionally needs a snapshot this run.
+"""
 
 from __future__ import annotations
 
@@ -38,12 +42,17 @@ async def test_audit_recall_one_then_below_one(world, dbpath, tmp_path):
     in_scope = [r[0] for r in ctx.conn.execute("SELECT DISTINCT place_id, types_json FROM audit_found "
                                                "WHERE country_code='SA'")
                 if set(json.loads(r[1])) & set(ctx.cfg.types)]
+    assert a.fetched_recall == 1.0
     removed = in_scope[: len(in_scope) // 4]
     ctx.conn.executemany("DELETE FROM place_snapshots WHERE place_id=?", [(p,) for p in removed])
     ctx.conn.executemany("DELETE FROM places WHERE place_id=?", [(p,) for p in removed])
     calls_before = client.total_calls
     again = await audit(ctx, ctx.cfg.audit_cells)
     assert client.total_calls == calls_before  # audited cells are not re-queried
+    assert again.recall == 1.0  # discovery is unaffected by missing data
+    assert abs(again.fetched_recall - (len(in_scope) - len(removed)) / len(in_scope)) < 1e-9
+    ctx.conn.executemany("DELETE FROM cell_places WHERE place_id=?", [(p,) for p in removed])
+    again = await audit(ctx, ctx.cfg.audit_cells)
     assert again.recall is not None and again.recall < 1.0
     assert abs(again.recall - (len(in_scope) - len(removed)) / len(in_scope)) < 1e-9
     assert audit_stats(ctx.conn, "r1", ctx.cfg).recall == again.recall

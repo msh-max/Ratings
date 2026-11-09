@@ -6,10 +6,11 @@ and every page of a paginated Text Search is one call.
 
 from __future__ import annotations
 
+import math
 from collections.abc import Mapping
 from dataclasses import dataclass
 
-from .config import Pricing
+from .config import Config, Pricing
 
 TIER_ORDER = ["ids_only", "essentials", "pro", "enterprise", "atmosphere"]
 
@@ -114,3 +115,87 @@ class CostModel:
         """(gross, net) USD for a mapping ``(endpoint, sku) -> calls``."""
         ls = self.lines(counts)
         return round(sum(c.gross_usd for c in ls), 4), round(sum(c.net_usd for c in ls), 4)
+
+
+# ----- free mode: per-SKU free caps, instruments ----------------------------------------------
+
+class FreeCapExhausted(RuntimeError):
+    """A metered call would exceed the usable free monthly cap of its SKU (free mode only)."""
+
+    def __init__(self, sku_key: str) -> None:
+        self.sku_key = sku_key
+        super().__init__(f"free monthly cap of {sku_key} is exhausted; call not made")
+
+
+def sku_key(endpoint: str, mask: str) -> str:
+    """``endpoint/sku`` billed for a call with ``mask`` (e.g. ``text_search/atmosphere``)."""
+    return f"{endpoint}/{detect_sku(endpoint, mask)}"
+
+
+def usable_cap(cfg: Config, key: str) -> int | None:
+    """floor(cap x margin) for an ``endpoint/sku`` key; ``None`` = unlimited.
+
+    IDs-only SKUs are always unlimited (Phase 1 must never be limited). A SKU missing from
+    ``free_caps`` has no known free allowance and is therefore usable 0 times in free mode.
+    """
+    if key.endswith("/ids_only"):
+        return None
+    if key not in cfg.free_caps:
+        return 0
+    cap = cfg.free_caps[key]
+    return None if cap is None else max(0, math.floor(cap * cfg.free_cap_margin + 1e-9))
+
+
+def free_remaining(cfg: Config, mtd: Mapping[str, int]) -> dict[str, int | None]:
+    """Usable calls left this month per ``endpoint/sku`` (``None`` = unlimited)."""
+    keys = set(cfg.free_caps) | set(mtd)
+    out: dict[str, int | None] = {}
+    for k in sorted(keys):
+        cap = usable_cap(cfg, k)
+        out[k] = None if cap is None else max(0, cap - mtd.get(k, 0))
+    return out
+
+
+@dataclass(frozen=True)
+class Instrument:
+    """A paid-tier way of fetching place data: an endpoint with a field-mask tier."""
+
+    label: str      # I1..I6
+    endpoint: str   # text_search, nearby_search, place_details
+    tier: str       # atmosphere or enterprise (mask tier)
+
+    @property
+    def name(self) -> str:
+        """``endpoint/tier``, e.g. ``text_search/atmosphere``."""
+        return f"{self.endpoint}/{self.tier}"
+
+    def mask(self, cfg: Config) -> str:
+        """The field mask this instrument sends."""
+        return cfg.mask(self.endpoint, self.tier)
+
+    def key(self, cfg: Config) -> str:
+        """The ``endpoint/sku`` its calls are billed at (normally equal to :attr:`name`)."""
+        return sku_key(self.endpoint, self.mask(cfg))
+
+
+INSTRUMENTS: list[Instrument] = [
+    Instrument("I1", "text_search", "atmosphere"), Instrument("I2", "text_search", "enterprise"),
+    Instrument("I3", "nearby_search", "atmosphere"), Instrument("I4", "nearby_search", "enterprise"),
+    Instrument("I5", "place_details", "atmosphere"), Instrument("I6", "place_details", "enterprise"),
+]
+
+
+def instruments_for(cfg: Config, endpoint: str) -> list[Instrument]:
+    """Instruments of an endpoint in fill order for ``cfg.tier`` (auto: atmosphere first)."""
+    tiers = {"auto": ["atmosphere", "enterprise"], "atmosphere": ["atmosphere"],
+             "enterprise": ["enterprise"]}[cfg.tier]
+    by_tier = {i.tier: i for i in INSTRUMENTS if i.endpoint == endpoint}
+    return [by_tier[t] for t in tiers]
+
+
+def instrument_by_name(name: str) -> Instrument:
+    """Look up an instrument by ``endpoint/tier``."""
+    for i in INSTRUMENTS:
+        if i.name == name:
+            return i
+    raise KeyError(name)

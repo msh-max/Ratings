@@ -1,7 +1,9 @@
-# Monthly refresh of the Saudi restaurants dataset (SPEC §10).
+# Monthly refresh of the restaurants dataset: Riyadh, free mode ($0) by default.
 #
 # Runs on the 2nd of every month at 01:00 UTC, or by hand (Actions → Monthly refresh → Run workflow).
-# Needs one repository secret: GOOGLE_MAPS_API_KEY (Places API (New) enabled, billing on).
+# Needs one repository secret: GOOGLE_MAPS_API_KEY (Places API (New) enabled, billing account
+# attached; in free mode every SKU stays below its free monthly cap, so nothing is charged).
+# The Cloud project must be dedicated to this pipeline: usage by anything else eats the free caps.
 # See README.md ("Monthly automation") and docs/RUNBOOK.md.
 
 name: Monthly refresh
@@ -11,11 +13,14 @@ on:
     - cron: "0 1 2 * *"
   workflow_dispatch:
     inputs:
-      bbox:
-        description: "Optional bbox lat_lo,lng_lo,lat_hi,lng_hi (empty = whole Saudi Arabia)"
+      area:
+        description: "Area preset"
         required: false
-        default: ""
-        type: string
+        default: riyadh
+        type: choice
+        options:
+          - riyadh
+          - saudi
       types_preset:
         description: "Types preset"
         required: false
@@ -25,15 +30,21 @@ on:
           - restaurants
           - food_and_drink
       tier:
-        description: "Field-mask tier for the paid fetch"
+        description: "Field-mask tier (auto = Atmosphere instruments first, then Enterprise)"
         required: false
-        default: atmosphere
+        default: auto
         type: choice
         options:
-          - atmosphere
+          - auto
           - enterprise
+          - atmosphere
+      allow_paid:
+        description: "PAID mode: no free caps; costs money (country-wide estimate in COSTS.md)"
+        required: false
+        default: false
+        type: boolean
       max_budget_usd:
-        description: "Abort before any paid call if the estimate exceeds this (USD)"
+        description: "Only with allow_paid: abort before any paid call if the estimate exceeds this (USD)"
         required: false
         default: "1000"
         type: string
@@ -71,9 +82,10 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       # Inputs are passed through env (never interpolated into scripts) to avoid shell injection.
       # On the scheduled trigger inputs are empty, so the defaults below apply.
-      IN_BBOX: ${{ inputs.bbox || '' }}
+      IN_AREA: ${{ inputs.area || 'riyadh' }}
       IN_TYPES_PRESET: ${{ inputs.types_preset || 'restaurants' }}
-      IN_TIER: ${{ inputs.tier || 'atmosphere' }}
+      IN_TIER: ${{ inputs.tier || 'auto' }}
+      IN_ALLOW_PAID: ${{ inputs.allow_paid && 'true' || 'false' }}
       IN_MAX_BUDGET_USD: ${{ inputs.max_budget_usd || '1000' }}
       IN_AUDIT_CELLS: ${{ inputs.audit_cells || '100' }}
       IN_DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
@@ -99,8 +111,11 @@ jobs:
       - name: Validate inputs and compute release month
         run: |
           set -euo pipefail
-          if [[ -n "$IN_BBOX" && ! "$IN_BBOX" =~ ^-?[0-9.]+,-?[0-9.]+,-?[0-9.]+,-?[0-9.]+$ ]]; then
-            echo "::error::bbox must be lat_lo,lng_lo,lat_hi,lng_hi (got '$IN_BBOX')"; exit 1
+          if [[ ! "$IN_AREA" =~ ^(riyadh|saudi)$ ]]; then
+            echo "::error::area must be riyadh or saudi (got '$IN_AREA')"; exit 1
+          fi
+          if [[ ! "$IN_TIER" =~ ^(auto|enterprise|atmosphere)$ ]]; then
+            echo "::error::tier must be auto, enterprise or atmosphere (got '$IN_TIER')"; exit 1
           fi
           if [[ ! "$IN_MAX_BUDGET_USD" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
             echo "::error::max_budget_usd must be a number (got '$IN_MAX_BUDGET_USD')"; exit 1
@@ -131,20 +146,24 @@ jobs:
           fi
           echo "::add-mask::$GOOGLE_MAPS_API_KEY"
 
-      - name: Restore partial run from a workflow artifact (resume only)
-        if: env.IN_RUN_ID != ''
+      - name: Restore data/ from a workflow artifact (resume, or same-month free-cap accounting)
         run: |
           set -euo pipefail
           mkdir -p data
           restore_root="$RUNNER_TEMP/restore"
-          # Newest first; look at up to 10 unexpired artifacts from earlier refresh runs and take the
-          # first whose database already contains the requested run id.
+          # Newest first; look at up to 10 unexpired artifacts from earlier refresh runs.
+          # Resuming (run_id set): take the first whose database contains that run id.
+          # New run: take the newest artifact created THIS UTC month, if any. Its database holds
+          # every call made this month, including failed or dry runs that published no release,
+          # which the free-cap guard needs for month-to-date accounting.
+          month="$(date -u +%Y-%m)"
           candidates="$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" \
-            --jq '[.artifacts[] | select(.expired | not) | select(.name | startswith("ksa-data-"))][:10][] | "\(.workflow_run.id) \(.name)"' \
+            --jq '[.artifacts[] | select(.expired | not) | select(.name | startswith("ksa-data-"))][:10][] | "\(.workflow_run.id) \(.name) \(.created_at)"' \
             || true)"
           found=""
-          while read -r wr name; do
+          while read -r wr name created; do
             [[ -z "${wr:-}" ]] && continue
+            if [[ -z "$IN_RUN_ID" && "${created:0:7}" != "$month" ]]; then continue; fi
             dir="$restore_root/$name"
             rm -rf "$dir"; mkdir -p "$dir"
             if ! gh run download "$wr" --name "$name" --dir "$dir"; then
@@ -154,7 +173,10 @@ jobs:
           import sqlite3, sys
           con = sqlite3.connect(sys.argv[1])
           try:
-              row = con.execute("SELECT 1 FROM runs WHERE run_id = ?", (sys.argv[2],)).fetchone()
+              if sys.argv[2]:
+                  row = con.execute("SELECT 1 FROM runs WHERE run_id = ?", (sys.argv[2],)).fetchone()
+              else:
+                  row = con.execute("SELECT 1 FROM runs LIMIT 1").fetchone()
           except sqlite3.Error:
               row = None
           sys.exit(0 if row else 1)
@@ -166,10 +188,12 @@ jobs:
             fi
           done <<< "$candidates"
           if [[ -n "$found" ]]; then
-            echo "Restored data/ from artifact $found (contains run $IN_RUN_ID)."
+            echo "Restored data/ from artifact $found${IN_RUN_ID:+ (contains run $IN_RUN_ID)}."
             echo "RESTORED_FROM_ARTIFACT=1" >> "$GITHUB_ENV"
-          else
+          elif [[ -n "$IN_RUN_ID" ]]; then
             echo "::warning::No artifact contains run '$IN_RUN_ID'. Falling back to the latest release database; the run will start from scratch under that id."
+          else
+            echo "No artifact from $month; using the latest release database."
           fi
 
       - name: Download previous database from the latest data-* release
@@ -205,11 +229,14 @@ jobs:
           # One run id for every command of this job (the CLI default is the current UTC minute).
           run_id="${IN_RUN_ID:-$(date -u +%Y-%m-%dT%H%M)}"
           echo "Run id: $run_id"
-          common=(--db "$DB_PATH" --types-preset "$IN_TYPES_PRESET" --tier "$IN_TIER" --max-budget-usd "$IN_MAX_BUDGET_USD" --run-id "$run_id")
-          if [[ -n "$IN_BBOX" ]]; then common+=(--bbox "$IN_BBOX"); fi
+          common=(--db "$DB_PATH" --area "$IN_AREA" --types-preset "$IN_TYPES_PRESET" --tier "$IN_TIER" --run-id "$run_id")
+          if [[ "$IN_ALLOW_PAID" == "true" ]]; then
+            echo "::warning::PAID mode (allow_paid): calls are not limited to the free caps; budget $IN_MAX_BUDGET_USD USD."
+            common+=(--allow-paid --max-budget-usd "$IN_MAX_BUDGET_USD")
+          fi
 
           if [[ "$IN_DRY_RUN" == "true" ]]; then
-            echo "Dry run: discover + estimate only (no paid calls)."
+            echo "Dry run: discover + estimate only (no paid-tier calls)."
             ksa-restaurants "${common[@]}" discover
             # The estimate includes the audit's Nearby Search calls, so pass the same cell count as `run`.
             ksa-restaurants "${common[@]}" estimate --audit-cells "$IN_AUDIT_CELLS" | tee "$RUNNER_TEMP/estimate.txt"
@@ -222,7 +249,8 @@ jobs:
             exit 0
           fi
 
-          # Exit codes: 0 success, 2 budget abort (no paid call made), 3 audit/validation failure.
+          # Exit codes: 0 success (free mode: also when the caps left IDs unfetched; see the coverage
+          # line), 2 budget abort (paid mode; no paid call made), 3 audit/validation failure.
           set +e
           # The CLI's own summary copies (--summary-dir) go to a temp dir: the commit step below
           # publishes the copy in $EXPORTS_DIR, and nothing is written into the checked-out data/summary/.
@@ -288,7 +316,7 @@ jobs:
 
           notes="$RUNNER_TEMP/release-notes.md"
           {
-            echo "Monthly Saudi restaurants data for $RELEASE_MONTH."
+            echo "Monthly restaurants data ($IN_AREA) for $RELEASE_MONTH."
             echo
             echo "Workflow run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             echo

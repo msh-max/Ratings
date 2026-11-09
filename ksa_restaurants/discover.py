@@ -11,7 +11,7 @@ from .config import DISCOVER_MASK, Config
 from .context import RunContext, run_all
 from .db import transaction
 from .geo import Cell, can_split, children, seed_cells
-from .runs import previous_run_id, run_bbox
+from .runs import now_iso, previous_run_id, run_bbox
 
 log = logging.getLogger(__name__)
 CAP = 60
@@ -103,7 +103,19 @@ async def discover(ctx: RunContext, cold_start: bool = False) -> DiscoverStats:
         if not rows:
             break
         await run_all(_process(ctx, cell_from_row(r), r["type"]) for r in rows)
+    mark_discovered(conn, ctx.run_id)
     return discover_stats(conn, ctx.run_id)
+
+
+def mark_discovered(conn: sqlite3.Connection, run_id: str) -> int:
+    """Stamp ``last_discovered_*`` on every existing ``places`` row whose ID Phase 1 found."""
+    ts = now_iso()
+    with transaction(conn):
+        cur = conn.execute(
+            "UPDATE places SET last_discovered_run_id=?1, last_discovered_at=?2 WHERE place_id IN "
+            "(SELECT place_id FROM cell_places WHERE run_id=?1) "
+            "AND last_discovered_run_id IS NOT ?1", (run_id, ts))
+    return cur.rowcount
 
 
 def discover_stats(conn: sqlite3.Connection, run_id: str) -> DiscoverStats:

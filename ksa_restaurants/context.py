@@ -5,13 +5,15 @@ from __future__ import annotations
 import asyncio
 import logging
 import sqlite3
-from collections.abc import Awaitable, Iterable
+from collections import Counter
+from collections.abc import Awaitable, Callable, Iterable
 from dataclasses import dataclass, field
 from typing import Any, TypeVar
 
 from .config import Config
-from .cost import CostModel, detect_sku
+from .cost import CostModel, FreeCapExhausted, detect_sku, usable_cap
 from .places_client import PlacesApi
+from .runs import usage_for_guard
 
 T = TypeVar("T")
 log = logging.getLogger("ksa_restaurants")
@@ -26,9 +28,38 @@ class RunContext:
     cfg: Config
     client: PlacesApi
     cost: CostModel = field(init=False)
+    _in_flight: Counter[str] = field(init=False, default_factory=Counter)
 
     def __post_init__(self) -> None:
         self.cost = CostModel(self.cfg.pricing)
+
+    def _reserve(self, endpoint: str, mask: str) -> str:
+        """Hard free-cap guard, run before EVERY metered call. Returns the ``endpoint/sku`` key.
+
+        In free mode a call to a capped SKU is allowed only while month-to-date usage (all runs
+        started this UTC month, read from ``api_calls``) plus calls in flight is below
+        floor(cap x margin); otherwise :class:`FreeCapExhausted` is raised and nothing is sent.
+        The planner never schedules beyond the caps; this is the last line of defence.
+        """
+        key = f"{endpoint}/{detect_sku(endpoint, mask)}"
+        if self.cfg.free_only:
+            cap = usable_cap(self.cfg, key)
+            if cap is not None:
+                used = usage_for_guard(self.conn, self.run_id).get(key, 0) + self._in_flight[key]
+                if used >= cap:
+                    raise FreeCapExhausted(key)
+        self._in_flight[key] += 1
+        return key
+
+    async def _metered(self, phase: str, endpoint: str, mask: str,
+                       call: Callable[[], Awaitable[T]]) -> T:
+        key = self._reserve(endpoint, mask)  # before the request exists: nothing is sent on refusal
+        try:
+            resp = await call()
+            self.record(phase, endpoint, key.split("/", 1)[1])
+            return resp
+        finally:
+            self._in_flight[key] -= 1
 
     def record(self, phase: str, endpoint: str, sku: str, n: int = 1) -> None:
         """Add ``n`` successful calls to ``api_calls`` (committed immediately)."""
@@ -51,10 +82,8 @@ class RunContext:
         return f"calls={sum(counts.values())} cost=${self.cost.totals(counts)[0]:.2f}"
 
     async def search_text(self, phase: str, body: dict[str, Any], mask: str) -> dict[str, Any]:
-        """Metered Text Search."""
-        resp = await self.client.search_text(body, mask)
-        self.record(phase, "text_search", detect_sku("text_search", mask))
-        return resp
+        """Metered (and, in free mode, cap-guarded) Text Search."""
+        return await self._metered(phase, "text_search", mask, lambda: self.client.search_text(body, mask))
 
     async def search_text_all(self, phase: str, body: dict[str, Any],
                               mask: str) -> tuple[list[dict[str, Any]], int, bool]:
@@ -76,17 +105,14 @@ class RunContext:
         return places, pages, bool(token)
 
     async def search_nearby(self, phase: str, body: dict[str, Any], mask: str) -> dict[str, Any]:
-        """Metered Nearby Search."""
-        resp = await self.client.search_nearby(body, mask)
-        self.record(phase, "nearby_search", detect_sku("nearby_search", mask))
-        return resp
+        """Metered (and, in free mode, cap-guarded) Nearby Search."""
+        return await self._metered(phase, "nearby_search", mask,
+                                   lambda: self.client.search_nearby(body, mask))
 
     async def place_details(self, phase: str, place_id: str, mask: str) -> dict[str, Any]:
-        """Metered Place Details."""
-        resp = await self.client.place_details(place_id, mask, self.cfg.language,
-                                               self.cfg.region_code)
-        self.record(phase, "place_details", detect_sku("place_details", mask))
-        return resp
+        """Metered (and, in free mode, cap-guarded) Place Details."""
+        return await self._metered(phase, "place_details", mask, lambda: self.client.place_details(
+            place_id, mask, self.cfg.language, self.cfg.region_code))
 
 
 async def run_all(coros: Iterable[Awaitable[T]]) -> list[T]:

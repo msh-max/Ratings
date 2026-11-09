@@ -10,13 +10,14 @@ from typing import Any
 from .audit import AuditResult, audit, sample_cells
 from .config import AUDIT_MASK, Config
 from .context import RunContext
-from .cost import CostLine, CostModel, detect_sku
+from .cost import CostLine, CostModel, detect_sku, usable_cap
 from .discover import DiscoverStats, discover
 from .export import export
 from .fetch import FetchStats, fetch
-from .fetch_plan import Plan, build_plan, plan_totals
+from .fetch_plan import (FreeForecast, Plan, build_free_plan, build_plan, free_forecast, plan_totals,
+                         remaining_calls)
 from .geo import seed_cells
-from .runs import run_bbox, set_status
+from .runs import current_month, run_bbox, set_status
 from .validate import validate
 
 EXIT_OK, EXIT_ERROR, EXIT_BUDGET, EXIT_QUALITY = 0, 1, 2, 3
@@ -77,13 +78,86 @@ def ensure_discovered(conn: sqlite3.Connection, run_id: str, cfg: Config | None 
         raise DiscoveryIncomplete(f"discovery has not finished for run {run_id}; run `discover` first")
 
 
-def estimate(conn: sqlite3.Connection, run_id: str, cfg: Config, audit_cells: int) -> Estimate:
-    """Build (or load) the fetch plan and price the paid calls still to be made, audit included."""
+@dataclass
+class FreeEstimate:
+    """Free mode: planned calls per instrument within the month's remaining free caps."""
+
+    cfg: Config
+    forecast: FreeForecast
+    audit_calls: int
+    audit_key: str
+    audit_remaining: int | None
+    month: str
+    paid_equivalent_usd: float = 0.0
+
+    def counts(self) -> dict[tuple[str, str], int]:
+        """Planned calls per (endpoint, sku) (all within the free caps)."""
+        c: dict[tuple[str, str], int] = {}
+        for line in self.forecast.lines:
+            if line.planned:
+                ep, sku = line.key.split("/", 1)
+                c[(ep, sku)] = c.get((ep, sku), 0) + line.planned
+        if self.audit_calls:
+            ep, sku = self.audit_key.split("/", 1)
+            c[(ep, sku)] = c.get((ep, sku), 0) + self.audit_calls
+        return c
+
+    def render(self) -> str:
+        """Human-readable free-mode estimate (cost is always $0.00)."""
+        f, cfg = self.forecast, self.cfg
+        fmt = lambda v: "unlimited" if v is None else f"{v:,}"  # noqa: E731
+        out = [f"Free mode    : area {cfg.area}, tier {cfg.tier}, month {self.month} (UTC), margin "
+               f"{cfg.free_cap_margin:.2f} (usable = floor(cap x margin), month-to-date over all runs)",
+               f"Discovered   : {f.discovered:,} IDs (Phase 1, free); already fetched this run: "
+               f"{f.already_covered:,}",
+               f"  {'instrument':<30}{'planned':>9}{'remaining':>11}{'usable':>9}{'cap':>8}   covers"]
+        for ln in f.lines:
+            cov = f"{ln.covers:,} {'exact' if ln.exact else 'est.'}" if ln.planned else "-"
+            out.append(f"  {ln.instrument.label + ' ' + ln.instrument.name:<30}{ln.planned:>9,}"
+                       f"{fmt(ln.remaining):>11}{fmt(ln.usable):>9}{fmt(ln.cap):>8}   {cov}")
+        out.append(f"  {'audit ' + self.audit_key:<30}{self.audit_calls:>9,}{fmt(self.audit_remaining):>11}"
+                   f"{fmt(usable_cap(cfg, self.audit_key)):>9}{fmt(cfg.free_caps.get(self.audit_key)):>8}")
+        todo = f.discovered - f.already_covered
+        out.append(f"Expected     : {f.covered_text + f.covered_nearby_est + f.covered_details:,} of "
+                   f"{todo:,} uncovered IDs fetched (Text Search {f.covered_text:,} exact, Nearby "
+                   f"~{f.covered_nearby_est:,} est., Details {f.covered_details:,} exact); expected "
+                   f"unfetched {f.unfetched_est:,}")
+        out.append(f"Estimated cost: $0.00 (free mode: every planned call is within the remaining "
+                   f"free monthly caps); would cost ${self.paid_equivalent_usd:,.2f} at list prices "
+                   f"if paid (informational)")
+        return "\n".join(out)
+
+
+def free_estimate(conn: sqlite3.Connection, run_id: str, cfg: Config, audit_cells: int) -> FreeEstimate:
+    """Persist Round T (once) and forecast Rounds T, N, D and the audit within the free caps."""
+    build_free_plan(conn, run_id, cfg)
+    fc = free_forecast(conn, run_id, cfg)
+    key = f"nearby_search/{detect_sku('nearby_search', AUDIT_MASK)}"
+    left = remaining_calls(conn, run_id, cfg).get(key, 0)
+    calls = pending_audit_calls(conn, run_id, cfg, audit_cells)
+    est = FreeEstimate(cfg, fc, calls if left is None else min(calls, left), key, left, current_month())
+    est.paid_equivalent_usd = CostModel(cfg.pricing).totals(est.counts())[0]
+    return est
+
+
+def pending_audit_calls(conn: sqlite3.Connection, run_id: str, cfg: Config, audit_cells: int) -> int:
+    """Audit Nearby Search calls still to be made for the sampled cells."""
+    done = {(r[0], r[1]) for r in conn.execute("SELECT cell_id, type FROM audit_cells WHERE run_id=?", (run_id,))}
+    return sum((c.cell_id, t) not in done for c, t in sample_cells(conn, run_id, cfg, audit_cells))
+
+
+def estimate(conn: sqlite3.Connection, run_id: str, cfg: Config,
+             audit_cells: int) -> Estimate | FreeEstimate:
+    """Build (or load) the fetch plan and forecast the calls still to be made, audit included.
+
+    Free mode returns a :class:`FreeEstimate` ($0.00); paid mode prices the min-cost plan.
+    """
     ensure_discovered(conn, run_id, cfg)
+    if cfg.free_only:
+        return free_estimate(conn, run_id, cfg, audit_cells)
     plan = build_plan(conn, run_id, cfg)
     pending = plan_totals(conn, run_id, cfg, pending_only=True)
-    done = {(r[0], r[1]) for r in conn.execute("SELECT cell_id, type FROM audit_cells WHERE run_id=?", (run_id,))}
-    audit_calls = sum((c.cell_id, t) not in done for c, t in sample_cells(conn, run_id, cfg, audit_cells))
+    audit_calls = pending_audit_calls(conn, run_id, cfg, audit_cells)
     est = Estimate(plan, pending, audit_calls, detect_sku("nearby_search", AUDIT_MASK), [], 0.0, 0.0)
     model = CostModel(cfg.pricing)
     est.lines = model.lines(est.counts())
@@ -91,8 +165,11 @@ def estimate(conn: sqlite3.Connection, run_id: str, cfg: Config, audit_cells: in
     return est
 
 
-def check_budget(est: Estimate, budget: float) -> None:
-    """Raise :class:`BudgetExceeded` if the gross estimate is above ``budget``."""
+def check_budget(est: Estimate | FreeEstimate, budget: float) -> None:
+    """Raise :class:`BudgetExceeded` if the gross estimate is above ``budget`` (paid mode only;
+    in free mode ``--max-budget-usd`` is ignored and the free-cap guard applies instead)."""
+    if isinstance(est, FreeEstimate):
+        return
     if est.gross_usd > budget:
         raise BudgetExceeded(f"estimated cost ${est.gross_usd:,.2f} exceeds --max-budget-usd "
                              f"${budget:,.2f}; no paid call was made")
@@ -101,7 +178,7 @@ def check_budget(est: Estimate, budget: float) -> None:
 
 
 def finalize(ctx: RunContext, out_dir: Path, all_countries: bool,
-             summary_dir: Path | None) -> tuple[dict[str, Any], int]:
+             summary_dir: Path | None, city: str | None = None) -> tuple[dict[str, Any], int]:
     """Validate, set the run status, write exports; return (summary, exit code)."""
     rep = validate(ctx.conn, ctx.run_id)
     recall = ctx.conn.execute("SELECT audit_recall FROM runs WHERE run_id=?", (ctx.run_id,)).fetchone()[0]
@@ -112,7 +189,7 @@ def finalize(ctx: RunContext, out_dir: Path, all_countries: bool,
     else:
         status, code = "completed", EXIT_OK
     set_status(ctx.conn, ctx.run_id, status)
-    summary = export(ctx.conn, ctx.run_id, ctx.cfg, out_dir, all_countries, summary_dir)
+    summary = export(ctx.conn, ctx.run_id, ctx.cfg, out_dir, all_countries, summary_dir, city)
     return summary, code
 
 
@@ -121,7 +198,7 @@ class RunResult:
     """What ``run`` did."""
 
     discovered: DiscoverStats
-    estimate: Estimate
+    estimate: Estimate | FreeEstimate
     fetched: FetchStats
     audit: AuditResult | None
     summary: dict[str, Any]
@@ -129,8 +206,8 @@ class RunResult:
 
 
 async def run_all_phases(ctx: RunContext, *, cold_start: bool, out_dir: Path, all_countries: bool,
-                         summary_dir: Path | None) -> RunResult:
-    """Discover -> estimate + budget guard -> fetch -> audit -> validate/export."""
+                         summary_dir: Path | None, city: str | None = None) -> RunResult:
+    """Discover -> estimate (+ budget guard in paid mode) -> fetch -> audit -> validate/export."""
     disc = await discover(ctx, cold_start)
     est = estimate(ctx.conn, ctx.run_id, ctx.cfg, ctx.cfg.audit_cells)
     try:
@@ -140,5 +217,5 @@ async def run_all_phases(ctx: RunContext, *, cold_start: bool, out_dir: Path, al
         raise
     fetched = await fetch(ctx)
     result = await audit(ctx, ctx.cfg.audit_cells) if ctx.cfg.audit_cells > 0 else None
-    summary, code = finalize(ctx, out_dir, all_countries, summary_dir)
+    summary, code = finalize(ctx, out_dir, all_countries, summary_dir, city)
     return RunResult(disc, est, fetched, result, summary, code)

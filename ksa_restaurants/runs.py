@@ -6,7 +6,7 @@ import json
 import sqlite3
 from datetime import datetime, timezone
 
-from .config import OPERATIONAL_FIELDS, Config
+from .config import AREAS, OPERATIONAL_FIELDS, Config, config_from_stored
 from .geo import BBox, saudi_bbox
 
 FINISHED = ("completed", "audit_failed", "validation_failed")
@@ -22,29 +22,45 @@ def default_run_id() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M")
 
 
+def current_month() -> str:
+    """Current UTC calendar month, ``YYYY-MM`` (the period of Google's free caps)."""
+    return datetime.now(timezone.utc).strftime("%Y-%m")
+
+
 def run_bbox(cfg: Config) -> BBox:
-    """The run's bbox: ``cfg.bbox`` or the padded Saudi bounding box."""
-    return tuple(cfg.bbox) if cfg.bbox else saudi_bbox(cfg.boundary_buffer_deg)  # type: ignore[return-value]
+    """The run's bbox: ``cfg.bbox``, else the area preset (``saudi`` = padded Saudi bbox)."""
+    if cfg.bbox:
+        return tuple(cfg.bbox)  # type: ignore[return-value]
+    preset = AREAS[cfg.area]
+    return preset if preset else saudi_bbox(cfg.boundary_buffer_deg)
 
 
 def open_run(conn: sqlite3.Connection, run_id: str, cfg: Config) -> Config:
     """Create the run, or resume it with its stored config (CLI operational settings win)."""
-    row = conn.execute("SELECT config_json FROM runs WHERE run_id=?", (run_id,)).fetchone()
-    if row:
-        stored = Config.model_validate_json(row[0])
+    stored = load_run_config(conn, run_id)
+    if stored is not None:
         return stored.model_copy(update={k: getattr(cfg, k) for k in OPERATIONAL_FIELDS})
     conn.execute(
-        "INSERT INTO runs(run_id, started_at, status, config_json, bbox_json, types_json, tier) "
-        "VALUES (?,?,?,?,?,?,?)",
+        "INSERT INTO runs(run_id, started_at, status, config_json, bbox_json, types_json, tier, "
+        "area, free_only) VALUES (?,?,?,?,?,?,?,?,?)",
         (run_id, now_iso(), "running", cfg.model_dump_json(), json.dumps(list(run_bbox(cfg))),
-         json.dumps(cfg.types), cfg.tier))
+         json.dumps(cfg.types), cfg.tier, cfg.area, int(cfg.free_only)))
     return cfg
 
 
 def load_run_config(conn: sqlite3.Connection, run_id: str) -> Config | None:
-    """Stored config of a run, or None."""
+    """Stored config of a run, or None (runs from before free mode load as paid ``saudi``)."""
     row = conn.execute("SELECT config_json FROM runs WHERE run_id=?", (run_id,)).fetchone()
-    return Config.model_validate_json(row[0]) if row else None
+    return config_from_stored(row[0]) if row else None
+
+
+def month_to_date_usage(conn: sqlite3.Connection, month: str | None = None) -> dict[str, int]:
+    """Calls per ``endpoint/sku`` over ALL runs (smoke runs and the current run included) whose
+    ``started_at`` falls in ``month`` (default: the current UTC month)."""
+    month = month or current_month()
+    return {f"{r[0]}/{r[1]}": int(r[2]) for r in conn.execute(
+        "SELECT a.endpoint, a.sku, SUM(a.calls) FROM api_calls a JOIN runs r ON r.run_id=a.run_id "
+        "WHERE substr(r.started_at, 1, 7)=? GROUP BY a.endpoint, a.sku", (month,))}
 
 
 def latest_run_id(conn: sqlite3.Connection) -> str | None:
@@ -75,3 +91,20 @@ def set_status(conn: sqlite3.Connection, run_id: str, status: str, notes: str | 
     finished = now_iso() if status != "running" else None
     conn.execute("UPDATE runs SET status=?, finished_at=?, notes=COALESCE(?, notes) WHERE run_id=?",
                  (status, finished, notes, run_id))
+
+
+def usage_for_guard(conn: sqlite3.Connection, run_id: str) -> dict[str, int]:
+    """Month-to-date usage as the free-cap guard and planner see it.
+
+    :func:`month_to_date_usage` of the current UTC month; if ``run_id`` started in an earlier
+    month (a run resumed after the month changed) its own calls are added too, conservatively,
+    because some of them were made this month.
+    """
+    usage = month_to_date_usage(conn)
+    row = conn.execute("SELECT substr(started_at, 1, 7) FROM runs WHERE run_id=?", (run_id,)).fetchone()
+    if row and row[0] != current_month():
+        for r in conn.execute("SELECT endpoint, sku, SUM(calls) FROM api_calls WHERE run_id=? "
+                              "GROUP BY endpoint, sku", (run_id,)):
+            key = f"{r[0]}/{r[1]}"
+            usage[key] = usage.get(key, 0) + int(r[2])
+    return usage

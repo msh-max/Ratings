@@ -1,4 +1,7 @@
-"""Tests 2 and 4: fetch correctness, one snapshot per place per run, plan optimality, budget guard."""
+"""Tests 2 and 4: fetch correctness, one snapshot per place per run, plan optimality, budget guard.
+
+The plan/budget tests exercise paid mode (``--allow-paid``, ``free_only=False``).
+"""
 
 from __future__ import annotations
 
@@ -44,7 +47,7 @@ async def test_fetch_stores_every_place_with_correct_fields(world, dbpath):
 
 
 async def test_estimate_equals_actual_paid_calls(world, dbpath):
-    ctx, client = make_ctx(dbpath, world)
+    ctx, client = make_ctx(dbpath, world, cfg=make_config(free_only=False))
     await discover(ctx)
     est = estimate(ctx.conn, "r1", ctx.cfg, ctx.cfg.audit_cells)
     assert est.plan.text_jobs > 0 and est.plan.details_jobs > 0 and est.audit_calls > 0
@@ -59,7 +62,7 @@ async def test_estimate_equals_actual_paid_calls(world, dbpath):
 
 
 async def test_budget_guard_aborts_before_any_paid_call(world, dbpath, tmp_path):
-    ctx, client = make_ctx(dbpath, world, cfg=make_config(max_budget_usd=0.5))
+    ctx, client = make_ctx(dbpath, world, cfg=make_config(max_budget_usd=0.5, free_only=False))
     with pytest.raises(BudgetExceeded):
         await run_all_phases(ctx, cold_start=False, out_dir=tmp_path / "x", all_countries=False,
                              summary_dir=None)
@@ -71,7 +74,7 @@ async def test_budget_guard_aborts_before_any_paid_call(world, dbpath, tmp_path)
 
 
 async def test_removed_place_becomes_fetch_error(world, dbpath):
-    ctx, client = make_ctx(dbpath, world)
+    ctx, client = make_ctx(dbpath, world, cfg=make_config(free_only=False))
     await discover(ctx)
     estimate(ctx.conn, "r1", ctx.cfg, 0)
     gone = ctx.conn.execute("SELECT place_id FROM fetch_jobs WHERE kind='details' LIMIT 1").fetchone()[0]
@@ -88,7 +91,7 @@ async def test_removed_place_becomes_fetch_error(world, dbpath):
 
 
 async def test_places_returned_by_text_search_but_not_discovered_are_kept(world, dbpath):
-    ctx, _ = make_ctx(dbpath, world)
+    ctx, _ = make_ctx(dbpath, world, cfg=make_config(free_only=False))
     await discover(ctx)
     estimate(ctx.conn, "r1", ctx.cfg, 0)
     job = ctx.conn.execute("SELECT c.* FROM fetch_jobs j JOIN cells c ON c.cell_id=j.cell_id AND c.type=j.type "
