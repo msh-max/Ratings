@@ -12,8 +12,8 @@ from typing import Any, TypeVar
 
 from .config import Config
 from .cost import CostModel, FreeCapExhausted, detect_sku, usable_cap
-from .places_client import PlacesApi
-from .runs import usage_for_guard
+from .places_client import BILLABLE_ATTEMPTS, PlacesApi
+from .runs import now_iso, usage_for_guard
 
 T = TypeVar("T")
 log = logging.getLogger("ksa_restaurants")
@@ -53,20 +53,39 @@ class RunContext:
 
     async def _metered(self, phase: str, endpoint: str, mask: str,
                        call: Callable[[], Awaitable[T]]) -> T:
+        """Guarded call; records the HTTP attempts Google may have billed.
+
+        One logical call is recorded once when it succeeds. Retries inside the real client are
+        not double-counted, except attempts Google may have billed (a 200, or a read timeout /
+        read error after the request was sent; see ``BILLABLE_ATTEMPTS``), which are all
+        recorded, also when the logical call finally fails.
+        """
         key = self._reserve(endpoint, mask)  # before the request exists: nothing is sent on refusal
+        sku = key.split("/", 1)[1]
+        attempts: list[int] = []
+        token = BILLABLE_ATTEMPTS.set(attempts)
         try:
             resp = await call()
-            self.record(phase, endpoint, key.split("/", 1)[1])
+        except BaseException:
+            if attempts:
+                self.record(phase, endpoint, sku, len(attempts))
+            raise
+        else:
+            self.record(phase, endpoint, sku, max(1, len(attempts)))
             return resp
         finally:
+            BILLABLE_ATTEMPTS.reset(token)
             self._in_flight[key] -= 1
 
     def record(self, phase: str, endpoint: str, sku: str, n: int = 1) -> None:
-        """Add ``n`` successful calls to ``api_calls`` (committed immediately)."""
+        """Add ``n`` (possibly) billed calls to ``api_calls`` and stamp ``runs.last_call_at``
+        (committed immediately; the stamp lets month-to-date accounting see a run that started
+        in an earlier month but made calls in this one)."""
         self.conn.execute(
             "INSERT INTO api_calls(run_id, phase, endpoint, sku, calls) VALUES (?,?,?,?,?) "
             "ON CONFLICT(run_id, phase, endpoint, sku) DO UPDATE SET calls = calls + excluded.calls",
             (self.run_id, phase, endpoint, sku, n))
+        self.conn.execute("UPDATE runs SET last_call_at=? WHERE run_id=?", (now_iso(), self.run_id))
 
     def call_counts(self) -> dict[tuple[str, str], int]:
         """Calls so far in this run per (endpoint, sku)."""

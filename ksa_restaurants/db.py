@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS runs (
   bbox_json TEXT, types_json TEXT, tier TEXT, api_calls_json TEXT, est_cost_usd REAL,
   places_total INTEGER, places_saudi INTEGER, audit_recall REAL, notes TEXT, area TEXT,
   free_only INTEGER, unfetched INTEGER, coverage_json TEXT, plan_built_at TEXT,
-  audit_fetched_recall REAL);
+  audit_fetched_recall REAL, last_call_at TEXT);
 CREATE TABLE IF NOT EXISTS cells (
   run_id TEXT, cell_id TEXT, type TEXT, lat_lo REAL, lng_lo REAL, lat_hi REAL, lng_hi REAL,
   depth INTEGER, parent_id TEXT,
@@ -75,7 +75,8 @@ CREATE INDEX IF NOT EXISTS idx_snapshots_run_place ON place_snapshots(run_id, pl
 #: Columns added after the first release; ``connect`` adds them to an older database.
 ADDED_COLUMNS: dict[str, list[tuple[str, str]]] = {
     "runs": [("area", "TEXT"), ("free_only", "INTEGER"), ("unfetched", "INTEGER"),
-             ("coverage_json", "TEXT"), ("plan_built_at", "TEXT"), ("audit_fetched_recall", "REAL")],
+             ("coverage_json", "TEXT"), ("plan_built_at", "TEXT"), ("audit_fetched_recall", "REAL"),
+             ("last_call_at", "TEXT")],
     "places": [("fetched_via", "TEXT"), ("last_discovered_run_id", "TEXT"),
                ("last_discovered_at", "TEXT")],
     "place_snapshots": [("sku", "TEXT")],

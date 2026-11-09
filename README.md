@@ -8,6 +8,19 @@ instrument) service attributes such as dine-in, delivery and outdoor seating. Ea
 a snapshot, so you get rating and review-count history. The output is a SQLite database plus
 compressed exports shaped for a web UI.
 
+**At a glance**
+
+- **Default: Riyadh metro area, $0.** Every command runs in free mode for Riyadh unless you pass
+  `--area saudi` / `--allow-paid`. Free mode never sends a call beyond 90 % of a SKU's free monthly
+  cap (month to date, all runs in the database), so nothing is billed.
+- **What Google still requires:** a **billing account attached** to the Cloud project (Places API
+  (New) cannot be enabled without one, even though nothing is charged within the free caps); a
+  **dedicated Cloud project** used by nothing else (other usage is invisible to the pipeline and
+  eats the caps); and a **Cloud Billing budget alert at $1** so any charge is noticed the same day.
+- **The first live run is `smoke`:**
+  `ksa-restaurants smoke --out data/exports/smoke --summary-dir data/exports/smoke`
+  (one ~2×2 km cell in central Riyadh, a few dozen free calls), then check the billing report.
+
 The data comes only from the official **Google Places API (New)**. No web pages are scraped. A free
 discovery pass finds every place ID in the area, a planner fetches as much data as the free caps
 allow (oldest data first), an audit measures discovery recall against an independent search, and
@@ -32,13 +45,17 @@ the free caps were checked by hand against Google's documentation (2026-11-09), 
 call is still to come.
 
 After adding a key, the first thing to run is the smoke test: one ~2×2 km cell in central Riyadh,
-in free mode, a few dozen free calls. It writes to its own database and export folder so it does
-not touch the main dataset:
+in free mode, a few dozen free calls. It uses the main database and writes its exports to a
+`smoke` subfolder:
 
 ```bash
 export GOOGLE_MAPS_API_KEY=...
-ksa-restaurants --db data/smoke.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
+ksa-restaurants --db data/ksa_restaurants.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
 ```
+
+The smoke test runs against the main database on purpose: its paid-tier calls then count toward
+the month's free caps, its places are central Riyadh and belong to the dataset anyway, and its
+different bbox means it is never used as the warm start of a monthly run.
 
 Then check the Cloud billing report (see [The three musts for $0](#the-three-musts-for-0)). A field
 name the live API rejects shows up as an HTTP 400 `INVALID_ARGUMENT` error; remove the field with
@@ -155,7 +172,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install -e .
 export GOOGLE_MAPS_API_KEY=...        # never commit it
 
-ksa-restaurants --db data/smoke.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
+ksa-restaurants --db data/ksa_restaurants.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
 ksa-restaurants --run-id 2026-12-02T0100 discover    # Riyadh, free and unlimited (IDs-only mask)
 ksa-restaurants --run-id 2026-12-02T0100 estimate    # planned calls per instrument, $0.00
 ksa-restaurants --run-id 2026-12-02T0100 run         # all phases; reuses the discovery above
@@ -193,7 +210,9 @@ ksa-restaurants --db data/ksa_restaurants.sqlite --tier enterprise --free-cap-ma
     `city` (the addressComponents locality) matches NAME, case-insensitively — for callers who want
     strictly the Riyadh locality rather than the metro bbox. Default off.
 - `smoke` = `run` on a fixed ~2×2 km bbox in central Riyadh (`24.682,46.675,24.700,46.695`). In
-  free mode it uses a few dozen free calls; in paid mode its default budget is 5 USD.
+  free mode it uses a few dozen free calls; in paid mode its default budget is 5 USD. Run it
+  against the main database (the default `--db`) so that its calls count toward the month's free
+  caps; its bbox differs from the monthly run's, so it is never used as a warm start.
 - A run keeps the mode it was started in: continuing a paid run needs `--allow-paid`, and a free
   run cannot be continued with `--allow-paid` (start a new run id instead).
 

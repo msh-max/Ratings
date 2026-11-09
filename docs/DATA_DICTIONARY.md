@@ -123,6 +123,7 @@ One row per pipeline run.
 | coverage_json | TEXT (JSON) | Pipeline | Copy of `summary.json` → `coverage`, written at export/report time. |
 | plan_built_at | TEXT | Pipeline | When the fetch plan (Round T in free mode, the whole plan in paid mode) was persisted; a resumed run does not plan Round T again. |
 | audit_fetched_recall | REAL | Pipeline | Overall audit `fetched_recall` (null if no audit). |
+| last_call_at | TEXT | Pipeline | UTC time of the run's last recorded metered call. Month-to-date accounting counts a run in every month from its `started_at` to this (falling back to `finished_at`), so a run that spans the month change counts in both months. |
 
 ## cells
 

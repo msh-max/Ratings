@@ -54,13 +54,22 @@ def load_run_config(conn: sqlite3.Connection, run_id: str) -> Config | None:
     return config_from_stored(row[0]) if row else None
 
 
-def month_to_date_usage(conn: sqlite3.Connection, month: str | None = None) -> dict[str, int]:
-    """Calls per ``endpoint/sku`` over ALL runs (smoke runs and the current run included) whose
-    ``started_at`` falls in ``month`` (default: the current UTC month)."""
+def month_to_date_usage(conn: sqlite3.Connection, month: str | None = None,
+                        include_run: str | None = None) -> dict[str, int]:
+    """Calls per ``endpoint/sku`` that may have been made in ``month`` (default: the current UTC
+    month), over ALL runs: smoke runs and the current run included.
+
+    ``api_calls`` has no per-call timestamp, so a run counts in full in every month from the one
+    it started in to the one of its last call (``runs.last_call_at``; ``finished_at`` for runs
+    recorded before that column existed). A run that spans the month change therefore counts in
+    both months - conservative, never an undercount. ``include_run`` is counted in any case.
+    """
     month = month or current_month()
     return {f"{r[0]}/{r[1]}": int(r[2]) for r in conn.execute(
         "SELECT a.endpoint, a.sku, SUM(a.calls) FROM api_calls a JOIN runs r ON r.run_id=a.run_id "
-        "WHERE substr(r.started_at, 1, 7)=? GROUP BY a.endpoint, a.sku", (month,))}
+        "WHERE substr(r.started_at, 1, 7)=?1 OR r.run_id=?2 OR (substr(r.started_at, 1, 7)<?1 AND "
+        "substr(COALESCE(r.last_call_at, r.finished_at, ''), 1, 7)>=?1) "
+        "GROUP BY a.endpoint, a.sku", (month, include_run))}
 
 
 def latest_run_id(conn: sqlite3.Connection) -> str | None:
@@ -96,15 +105,8 @@ def set_status(conn: sqlite3.Connection, run_id: str, status: str, notes: str | 
 def usage_for_guard(conn: sqlite3.Connection, run_id: str) -> dict[str, int]:
     """Month-to-date usage as the free-cap guard and planner see it.
 
-    :func:`month_to_date_usage` of the current UTC month; if ``run_id`` started in an earlier
-    month (a run resumed after the month changed) its own calls are added too, conservatively,
-    because some of them were made this month.
+    :func:`month_to_date_usage` of the current UTC month, always including ``run_id``'s own calls
+    (a run resumed after the month changed counts all of its calls, conservatively, because some
+    of them were made this month).
     """
-    usage = month_to_date_usage(conn)
-    row = conn.execute("SELECT substr(started_at, 1, 7) FROM runs WHERE run_id=?", (run_id,)).fetchone()
-    if row and row[0] != current_month():
-        for r in conn.execute("SELECT endpoint, sku, SUM(calls) FROM api_calls WHERE run_id=? "
-                              "GROUP BY endpoint, sku", (run_id,)):
-            key = f"{r[0]}/{r[1]}"
-            usage[key] = usage.get(key, 0) + int(r[2])
-    return usage
+    return month_to_date_usage(conn, include_run=run_id)

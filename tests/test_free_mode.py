@@ -38,7 +38,10 @@ def _months_ago(n: int) -> str:
 
 
 def _set_started(conn, run_id: str, months_ago: int) -> None:
-    conn.execute("UPDATE runs SET started_at=? WHERE run_id=?", (_months_ago(months_ago), run_id))
+    """Move a whole run (start, last call, finish) ``months_ago`` months back."""
+    ts = _months_ago(months_ago)
+    conn.execute("UPDATE runs SET started_at=?1, last_call_at=?1, finished_at=CASE WHEN finished_at "
+                 "IS NULL THEN NULL ELSE ?1 END WHERE run_id=?2", (ts, run_id))
 
 
 def _snap_ids(conn, run_id: str) -> set[str]:

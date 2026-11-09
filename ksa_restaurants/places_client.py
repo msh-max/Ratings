@@ -7,6 +7,7 @@ The API key is read from ``GOOGLE_MAPS_API_KEY`` and is only ever placed in the
 from __future__ import annotations
 
 import asyncio
+import contextvars
 import logging
 import os
 import random
@@ -18,6 +19,20 @@ import httpx
 BASE_URL = "https://places.googleapis.com/v1"
 RETRY_STATUSES = {429, 500, 502, 503, 504}
 log = logging.getLogger(__name__)
+
+#: Set by the caller (``RunContext``) to a list before a logical call; :class:`PlacesClient`
+#: appends one entry per HTTP attempt that Google may have billed: every 200 response, and every
+#: attempt that failed after the request was sent (read timeout / read error), since Google may
+#: have answered it with a billed 200 that never arrived. Attempts answered 429/5xx/4xx and
+#: connect failures are not billed and are not appended.
+BILLABLE_ATTEMPTS: contextvars.ContextVar[list[int] | None] = contextvars.ContextVar(
+    "billable_attempts", default=None)
+
+
+def _note_billable() -> None:
+    attempts = BILLABLE_ATTEMPTS.get()
+    if attempts is not None:
+        attempts.append(1)
 
 _HINTS = {
     400: "INVALID_ARGUMENT: the request was rejected. Most often a field name in the field mask "
@@ -134,9 +149,12 @@ class PlacesClient:
                     resp = await self._http.request(method, path, headers={"X-Goog-FieldMask": mask},
                                                     **kwargs)
                 except (httpx.TimeoutException, httpx.NetworkError) as exc:
+                    if isinstance(exc, (httpx.ReadTimeout, httpx.ReadError)):
+                        _note_billable()  # sent; Google may have billed a 200 we never received
                     last = exc
                     continue
             if resp.status_code == 200:
+                _note_billable()
                 return resp.json()
             try:
                 payload = resp.json()

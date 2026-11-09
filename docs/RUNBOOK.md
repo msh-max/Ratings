@@ -18,7 +18,10 @@ Option placement: common options (`--db`, `--run-id`, `--area`, `--bbox`, `--all
 
 ## After the first real run: check the Cloud billing report
 
-The pipeline can only count the calls it made itself. After the first real run (and the smoke
+The pipeline can only count the calls it made itself. Run `smoke` against the main database
+(`--db data/ksa_restaurants.sqlite`, the default): its calls then count toward the month's free
+caps, its places are central Riyadh and belong to the dataset anyway, and its different bbox means
+it is never used as the warm start of a monthly run. After the first real run (and the smoke
 test), open Google Cloud Console → Billing → Reports for the billing account, filter on the
 dedicated project and the Places API SKUs, and check that the cost is $0.00 and that the usage per
 SKU matches the `free_mode.mtd_usage` figures in `summary.json`. A budget alert at $1 (Billing →
@@ -118,8 +121,8 @@ spent calls between planning and execution, e.g. two runs at once) marks its job
 ## Changing the free-cap margin
 
 The pipeline uses at most floor(cap × margin) calls per SKU per month; the default margin 0.9
-leaves 100 of each 1,000-call cap for calls it cannot see (a smoke test run against another database
-file, a manual test with the same key). Lower it when something else must share the project for a
+leaves 100 of each 1,000-call cap for calls it cannot see (a manual test with the same key, a run
+against another database file). Lower it when something else must share the project for a
 while, e.g. for the rest of the month:
 
 ```bash
@@ -202,7 +205,7 @@ code change. Put the names (without the `places.` prefix) in a JSON file and pas
 
 ```bash
 echo '{"exclude_fields": ["reviewSummary"]}' > ksa-config.json
-ksa-restaurants --config ksa-config.json --db data/smoke.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
+ksa-restaurants --config ksa-config.json --db data/ksa_restaurants.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
 ```
 
 The same file can override `fields_pro`, `fields_enterprise`, `fields_atmosphere`, `types`,

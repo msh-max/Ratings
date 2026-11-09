@@ -93,7 +93,10 @@ async def _text_job(ctx: RunContext, job: sqlite3.Row) -> None:
     places: list[dict[str, Any]] = []
     pages, token, status = 0, None, "done"
     via = f"text_search/{detect_sku('text_search', mask)}"
-    while pages < 3:  # every follow-up page repeats every original parameter plus pageToken
+    # Free mode: never more pages than the plan reserved for this job on its instrument (should
+    # Google paginate differently than in Phase 1, the IDs left over go to Rounds N and D).
+    max_pages = min(3, job["pages"] or 1) if inst else 3
+    while pages < max_pages:  # every follow-up page repeats every original parameter plus pageToken
         req = dict(body) if token is None else {**body, "pageToken": token}
         try:
             resp = await ctx.search_text("fetch", req, mask)

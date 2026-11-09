@@ -32,11 +32,14 @@ The caps are in the config (`free_caps`, editable with `--config`). The pipeline
 (`--free-cap-margin`): 900 per instrument and 4,500 Nearby Search Pro calls for the audit.
 
 **Month to date.** `usable_remaining[sku] = usable[sku] − Σ api_calls.calls` over **all** runs in
-the database whose `runs.started_at` falls in the current UTC month (smoke runs, dry runs and the
-current run included; a run resumed after the month changed also counts its own calls). The
-planner never schedules more than that, and a runtime guard re-checks it before every metered
-call. Calls made outside this database (another tool on the same project, a smoke test run against
-a different database file) are invisible to it; that is what the margin is for.
+the database that were active in the current UTC month: started in it, or started earlier with
+their last call (`runs.last_call_at`) in it, so a run that spans the month change counts in full
+in both months (smoke runs, dry runs and the current run included). Every HTTP attempt Google may
+have billed is counted, including a retry after a read timeout; attempts answered 429/5xx are not.
+The planner never schedules more than that, and a runtime guard re-checks it before every metered
+call. Calls made outside this database (another tool on the same project, any run against a
+different database file; run `smoke` against the main database for this reason) are invisible to
+it; that is what the margin is for.
 
 ### Capacity
 
