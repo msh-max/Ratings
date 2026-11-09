@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ksa-restaurants"
+version = "0.1.0"
+description = "Monthly, resumable, cost-optimised enumeration of every restaurant in Saudi Arabia via the Google Places API (New)."
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2",
+    "shapely>=2",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+ksa-restaurants = "ksa_restaurants.cli:main"
+
+[tool.setuptools]
+packages = ["ksa_restaurants"]
+
+[tool.setuptools.package-data]
+ksa_restaurants = ["data/saudi_boundary.geojson"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

@@ -1,0 +1,337 @@
+# Monthly refresh of the Saudi restaurants dataset (SPEC §10).
+#
+# Runs on the 2nd of every month at 01:00 UTC, or by hand (Actions → Monthly refresh → Run workflow).
+# Needs one repository secret: GOOGLE_MAPS_API_KEY (Places API (New) enabled, billing on).
+# See README.md ("Monthly automation") and docs/RUNBOOK.md.
+
+name: Monthly refresh
+
+on:
+  schedule:
+    - cron: "0 1 2 * *"
+  workflow_dispatch:
+    inputs:
+      bbox:
+        description: "Optional bbox lat_lo,lng_lo,lat_hi,lng_hi (empty = whole Saudi Arabia)"
+        required: false
+        default: ""
+        type: string
+      types_preset:
+        description: "Types preset"
+        required: false
+        default: restaurants
+        type: choice
+        options:
+          - restaurants
+          - food_and_drink
+      tier:
+        description: "Field-mask tier for the paid fetch"
+        required: false
+        default: atmosphere
+        type: choice
+        options:
+          - atmosphere
+          - enterprise
+      max_budget_usd:
+        description: "Abort before any paid call if the estimate exceeds this (USD)"
+        required: false
+        default: "1000"
+        type: string
+      audit_cells:
+        description: "Number of leaf cells to audit with Nearby Search"
+        required: false
+        default: "100"
+        type: string
+      dry_run:
+        description: "Only run discover + estimate (free; no paid calls, no release)"
+        required: false
+        default: false
+        type: boolean
+      run_id:
+        description: "Resume this run id (e.g. 2026-12-02T0100). Empty = new run"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: monthly-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      DB_PATH: data/ksa_restaurants.sqlite
+      EXPORTS_DIR: data/exports
+      GH_TOKEN: ${{ github.token }}
+      # Inputs are passed through env (never interpolated into scripts) to avoid shell injection.
+      # On the scheduled trigger inputs are empty, so the defaults below apply.
+      IN_BBOX: ${{ inputs.bbox || '' }}
+      IN_TYPES_PRESET: ${{ inputs.types_preset || 'restaurants' }}
+      IN_TIER: ${{ inputs.tier || 'atmosphere' }}
+      IN_MAX_BUDGET_USD: ${{ inputs.max_budget_usd || '1000' }}
+      IN_AUDIT_CELLS: ${{ inputs.audit_cells || '100' }}
+      IN_DRY_RUN: ${{ inputs.dry_run && 'true' || 'false' }}
+      IN_RUN_ID: ${{ inputs.run_id || '' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install package
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Validate inputs and compute release month
+        run: |
+          set -euo pipefail
+          if [[ -n "$IN_BBOX" && ! "$IN_BBOX" =~ ^-?[0-9.]+,-?[0-9.]+,-?[0-9.]+,-?[0-9.]+$ ]]; then
+            echo "::error::bbox must be lat_lo,lng_lo,lat_hi,lng_hi (got '$IN_BBOX')"; exit 1
+          fi
+          if [[ ! "$IN_MAX_BUDGET_USD" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "::error::max_budget_usd must be a number (got '$IN_MAX_BUDGET_USD')"; exit 1
+          fi
+          if [[ ! "$IN_AUDIT_CELLS" =~ ^[0-9]+$ ]]; then
+            echo "::error::audit_cells must be a non-negative integer (got '$IN_AUDIT_CELLS')"; exit 1
+          fi
+          if [[ -n "$IN_RUN_ID" && ! "$IN_RUN_ID" =~ ^[A-Za-z0-9._:-]+$ ]]; then
+            echo "::error::run_id may only contain letters, digits and . _ : - (got '$IN_RUN_ID')"; exit 1
+          fi
+          # Release month: from the run id when resuming (YYYY-MM...), otherwise the current UTC month.
+          if [[ "$IN_RUN_ID" =~ ^([0-9]{4}-[0-9]{2}) ]]; then
+            month="${BASH_REMATCH[1]}"
+          else
+            month="$(date -u +%Y-%m)"
+          fi
+          echo "RELEASE_MONTH=$month" >> "$GITHUB_ENV"
+          echo "Release month: $month"
+
+      - name: Mask API key
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${GOOGLE_MAPS_API_KEY:-}" ]]; then
+            echo "::error::Repository secret GOOGLE_MAPS_API_KEY is not set (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+          echo "::add-mask::$GOOGLE_MAPS_API_KEY"
+
+      - name: Restore partial run from a workflow artifact (resume only)
+        if: env.IN_RUN_ID != ''
+        run: |
+          set -euo pipefail
+          mkdir -p data
+          restore_root="$RUNNER_TEMP/restore"
+          # Newest first; look at up to 10 unexpired artifacts from earlier refresh runs and take the
+          # first whose database already contains the requested run id.
+          candidates="$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" \
+            --jq '[.artifacts[] | select(.expired | not) | select(.name | startswith("ksa-data-"))][:10][] | "\(.workflow_run.id) \(.name)"' \
+            || true)"
+          found=""
+          while read -r wr name; do
+            [[ -z "${wr:-}" ]] && continue
+            dir="$restore_root/$name"
+            rm -rf "$dir"; mkdir -p "$dir"
+            if ! gh run download "$wr" --name "$name" --dir "$dir"; then
+              echo "::warning::Could not download artifact $name from run $wr"; continue
+            fi
+            if [[ -f "$dir/ksa_restaurants.sqlite" ]] && python - "$dir/ksa_restaurants.sqlite" "$IN_RUN_ID" <<'PY'
+          import sqlite3, sys
+          con = sqlite3.connect(sys.argv[1])
+          try:
+              row = con.execute("SELECT 1 FROM runs WHERE run_id = ?", (sys.argv[2],)).fetchone()
+          except sqlite3.Error:
+              row = None
+          sys.exit(0 if row else 1)
+          PY
+            then
+              found="$name"
+              cp -a "$dir"/. data/
+              break
+            fi
+          done <<< "$candidates"
+          if [[ -n "$found" ]]; then
+            echo "Restored data/ from artifact $found (contains run $IN_RUN_ID)."
+            echo "RESTORED_FROM_ARTIFACT=1" >> "$GITHUB_ENV"
+          else
+            echo "::warning::No artifact contains run '$IN_RUN_ID'. Falling back to the latest release database; the run will start from scratch under that id."
+          fi
+
+      - name: Download previous database from the latest data-* release
+        if: env.RESTORED_FROM_ARTIFACT != '1'
+        run: |
+          set -euo pipefail
+          mkdir -p data
+          tag="$(gh release list --limit 100 --json tagName,isDraft \
+            --jq '[.[] | select(.isDraft | not) | select(.tagName | startswith("data-"))][0].tagName // ""' \
+            || true)"
+          if [[ -z "$tag" ]]; then
+            echo "No data-* release found. This is the first run; starting with an empty database."
+            exit 0
+          fi
+          echo "Latest data release: $tag"
+          prev="$RUNNER_TEMP/prev"
+          rm -rf "$prev"; mkdir -p "$prev"
+          if gh release download "$tag" --pattern 'ksa_restaurants.sqlite.gz' --dir "$prev"; then
+            gunzip -c "$prev/ksa_restaurants.sqlite.gz" > "$DB_PATH"
+            rm -f "$DB_PATH-wal" "$DB_PATH-shm"
+            echo "Restored $DB_PATH from $tag ($(du -h "$DB_PATH" | cut -f1))."
+          else
+            echo "::warning::Release $tag has no ksa_restaurants.sqlite.gz; starting with an empty database."
+          fi
+
+      - name: Run pipeline
+        id: run
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: |
+          set -euo pipefail
+          common=(--db "$DB_PATH" --types-preset "$IN_TYPES_PRESET" --tier "$IN_TIER" --max-budget-usd "$IN_MAX_BUDGET_USD")
+          if [[ -n "$IN_BBOX" ]]; then common+=(--bbox "$IN_BBOX"); fi
+          if [[ -n "$IN_RUN_ID" ]]; then common+=(--run-id "$IN_RUN_ID"); fi
+
+          if [[ "$IN_DRY_RUN" == "true" ]]; then
+            echo "Dry run: discover + estimate only (no paid calls)."
+            ksa-restaurants "${common[@]}" discover
+            ksa-restaurants "${common[@]}" estimate | tee "$RUNNER_TEMP/estimate.txt"
+            {
+              echo "## Dry run estimate"
+              echo '```'
+              cat "$RUNNER_TEMP/estimate.txt"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # Exit codes: 0 success, 2 budget abort (no paid call made), 3 audit/validation failure.
+          set +e
+          ksa-restaurants "${common[@]}" run --audit-cells "$IN_AUDIT_CELLS"
+          code=$?
+          set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          case "$code" in
+            0) echo "Run succeeded." ;;
+            2) echo "::error::Budget abort (exit 2): the estimate exceeds max_budget_usd=$IN_MAX_BUDGET_USD. No paid call was made. See docs/RUNBOOK.md." ;;
+            3) echo "::error::Audit or validation failure (exit 3). No release is published. See docs/RUNBOOK.md." ;;
+            *) echo "::error::Pipeline failed with exit code $code. Resume with the same run_id; see docs/RUNBOOK.md." ;;
+          esac
+          exit "$code"
+
+      - name: Add report to job summary
+        if: always()
+        run: |
+          set -euo pipefail
+          if [[ -f "$EXPORTS_DIR/report.md" ]]; then
+            cat "$EXPORTS_DIR/report.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload data/ as workflow artifact (resume aid)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ksa-data-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/
+          retention-days: 30
+          if-no-files-found: warn
+          include-hidden-files: true
+
+      - name: Publish release data-${{ env.RELEASE_MONTH }}
+        if: success() && env.IN_DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          tag="data-$RELEASE_MONTH"
+          summary="$EXPORTS_DIR/summary.json"
+          report="$EXPORTS_DIR/report.md"
+          for f in "$DB_PATH" "$summary" "$report"; do
+            [[ -f "$f" ]] || { echo "::error::Expected file $f is missing"; exit 1; }
+          done
+
+          # Fold any WAL content into the main file before compressing it.
+          python - "$DB_PATH" <<'PY'
+          import sqlite3, sys
+          con = sqlite3.connect(sys.argv[1])
+          con.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+          con.close()
+          PY
+          gz="$RUNNER_TEMP/ksa_restaurants.sqlite.gz"
+          gzip -c -9 "$DB_PATH" > "$gz"
+
+          assets=("$gz")
+          shopt -s nullglob
+          for f in "$EXPORTS_DIR"/*; do
+            [[ -f "$f" ]] && assets+=("$f")
+          done
+          shopt -u nullglob
+          echo "Assets:"; printf '  %s\n' "${assets[@]}"
+
+          notes="$RUNNER_TEMP/release-notes.md"
+          {
+            echo "Monthly Saudi restaurants data for $RELEASE_MONTH."
+            echo
+            echo "Workflow run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo "Files: ksa_restaurants.sqlite.gz (full database with history), places_latest.csv.gz / .jsonl.gz,"
+            echo "snapshots.csv.gz, frontend_feed.json.gz, summary.json, report.md. See docs/DATA_DICTIONARY.md."
+            echo
+            echo "Data © Google — Powered by Google. Read docs/TERMS.md before using this data."
+          } > "$notes"
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag exists; replacing its assets."
+            gh release upload "$tag" "${assets[@]}" --clobber
+            gh release edit "$tag" --notes-file "$notes"
+          else
+            gh release create "$tag" "${assets[@]}" --title "$tag" --notes-file "$notes" --target "$GITHUB_SHA"
+          fi
+
+      - name: Commit monthly summary to the default branch
+        if: success() && env.IN_DRY_RUN != 'true'
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          summary="$PWD/$EXPORTS_DIR/summary.json"
+          report="$PWD/$EXPORTS_DIR/report.md"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          for attempt in 1 2 3; do
+            wt="$RUNNER_TEMP/publish-$attempt"
+            git fetch --depth=1 origin "$DEFAULT_BRANCH"
+            git worktree add --detach "$wt" FETCH_HEAD
+            mkdir -p "$wt/data/summary"
+            cp "$summary" "$wt/data/summary/latest.json"
+            cp "$summary" "$wt/data/summary/$RELEASE_MONTH.json"
+            cp "$report" "$wt/data/summary/latest.md"
+            git -C "$wt" add data/summary/latest.json "data/summary/$RELEASE_MONTH.json" data/summary/latest.md
+            if git -C "$wt" diff --cached --quiet; then
+              echo "Summary unchanged; nothing to commit."
+              exit 0
+            fi
+            git -C "$wt" commit -m "data: monthly summary $RELEASE_MONTH" \
+              -m "Workflow run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            if git -C "$wt" push origin "HEAD:refs/heads/$DEFAULT_BRANCH"; then
+              echo "Pushed summary to $DEFAULT_BRANCH."
+              exit 0
+            fi
+            echo "::warning::Push attempt $attempt failed (branch moved?); retrying."
+            git worktree remove --force "$wt"
+            sleep $((attempt * 10))
+          done
+          echo "::error::Could not push the summary to $DEFAULT_BRANCH after 3 attempts."
+          exit 1
