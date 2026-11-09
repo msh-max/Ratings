@@ -240,15 +240,18 @@ async def audit_cmd(o: Options, audit_cells: int, min_recall: float) -> int:
 
 @main.command("export")
 @export_options
+@click.option("--min-recall", type=float, default=0.97, show_default=True,
+              help="Status audit_failed and exit 3 if the run's audit recall is below this.")
 @click.pass_obj
 @command
-async def export_cmd(o: Options, out: Path, all_countries: bool, summary_dir: Path) -> int:
+async def export_cmd(o: Options, out: Path, all_countries: bool, summary_dir: Path,
+                     min_recall: float) -> int:
     """Phase 4: validate, set the run status, write exports, summary.json and report.md."""
     async def body(ctx: RunContext) -> int:
         summary, code = finalize(ctx, out, all_countries, summary_dir)
         click.echo(one_screen(summary))
         return code
-    return await _with_run(o, False, body) or 0
+    return await _with_run(o, False, body, min_recall=min_recall) or 0
 
 
 @main.command()

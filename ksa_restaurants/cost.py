@@ -20,39 +20,45 @@ ENDPOINT_SKUS: dict[str, list[str]] = {
 }
 
 _FIELDS_BY_TIER: dict[str, list[str]] = {
-    "ids_only": ["id", "name", "attributions", "nextPageToken"],
-    "essentials": ["addressComponents", "adrFormatAddress", "formattedAddress", "location",
+    "ids_only": ["id", "name", "attributions", "nextPageToken", "consumerAlert", "movedPlace",
+                 "movedPlaceId"],
+    "essentials": ["addressComponents", "addressDescriptor", "adrFormatAddress", "formattedAddress", "location",
                    "plusCode", "postalAddress", "shortFormattedAddress", "types", "viewport"],
     "pro": ["accessibilityOptions", "businessStatus", "containingPlaces", "displayName",
-            "googleMapsLinks", "googleMapsUri", "iconBackgroundColor", "iconMaskBaseUri",
-            "photos", "primaryType", "primaryTypeDisplayName", "pureServiceAreaBusiness",
-            "subDestinations", "timeZone", "utcOffsetMinutes"],
+            "googleMapsLinks", "googleMapsTypeLabel", "googleMapsUri", "iconBackgroundColor",
+            "iconMaskBaseUri", "openingDate", "photos", "primaryType", "primaryTypeDisplayName",
+            "pureServiceAreaBusiness", "searchUri", "subDestinations", "timeZone",
+            "utcOffsetMinutes"],
     "enterprise": ["currentOpeningHours", "currentSecondaryOpeningHours",
                    "internationalPhoneNumber", "nationalPhoneNumber", "priceLevel", "priceRange",
                    "rating", "regularOpeningHours", "regularSecondaryOpeningHours",
-                   "userRatingCount", "websiteUri"],
+                   "transitStation", "userRatingCount", "websiteUri"],
     "atmosphere": ["allowsDogs", "curbsidePickup", "delivery", "dineIn", "editorialSummary",
-                   "evChargeOptions", "fuelOptions", "generativeSummary", "goodForChildren",
+                   "evChargeAmenitySummary", "evChargeOptions", "fuelOptions", "generativeSummary", "goodForChildren",
                    "goodForGroups", "goodForWatchingSports", "liveMusic", "menuForChildren",
-                   "outdoorSeating", "parkingOptions", "paymentOptions", "reservable", "restroom",
+                   "neighborhoodSummary", "outdoorSeating", "parkingOptions", "paymentOptions", "reservable", "restroom",
                    "reviews", "reviewSummary", "servesBeer", "servesBreakfast", "servesBrunch",
                    "servesCocktails", "servesCoffee", "servesDessert", "servesDinner",
                    "servesLunch", "servesVegetarianFood", "servesWine", "takeout"],
 }
 FIELD_TIER: dict[str, str] = {f: t for t, fs in _FIELDS_BY_TIER.items() for f in fs}
+#: Per-endpoint exceptions to FIELD_TIER (Place Details bills ``photos`` as IDs Only, while
+#: Text Search and Nearby Search bill ``places.photos`` as Pro).
+ENDPOINT_FIELD_TIER: dict[str, dict[str, str]] = {"place_details": {"photos": "ids_only"}}
 
 
-def field_tier(path: str) -> str:
+def field_tier(path: str, endpoint: str | None = None) -> str:
     """Tier of one mask entry (``places.`` prefix and sub-paths ignored; unknown = atmosphere)."""
     if path == "*" or path == "places.*":
         return "atmosphere"
     name = path.removeprefix("places.").split(".")[0]
-    return FIELD_TIER.get(name, "atmosphere")
+    override = ENDPOINT_FIELD_TIER.get(endpoint or "", {})
+    return override.get(name) or FIELD_TIER.get(name, "atmosphere")
 
 
 def detect_sku(endpoint: str, mask: str) -> str:
     """SKU billed for a call: the highest field tier, rounded up to a SKU the endpoint has."""
-    needed = max((TIER_ORDER.index(field_tier(p.strip())) for p in mask.split(",") if p.strip()),
+    needed = max((TIER_ORDER.index(field_tier(p.strip(), endpoint)) for p in mask.split(",") if p.strip()),
                  default=0)
     for sku in ENDPOINT_SKUS[endpoint]:
         if TIER_ORDER.index(sku) >= needed:

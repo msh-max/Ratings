@@ -93,6 +93,9 @@ async def discover(ctx: RunContext, cold_start: bool = False) -> DiscoverStats:
         cells, source = initial_cells(ctx, place_type, cold_start)
         with transaction(conn):
             _insert_pending(conn, ctx.run_id, place_type, cells)
+        if not cells:
+            log.warning("discover %s: the bbox has no seed cell over Saudi Arabia; nothing to "
+                        "discover", place_type)
         log.info("discover %s: %d start cells (%s)", place_type, len(cells), source)
     while True:
         rows = conn.execute("SELECT * FROM cells WHERE run_id=? AND status='pending' "

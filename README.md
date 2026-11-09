@@ -18,6 +18,26 @@ manual work.
 > permitted** by those terms. Get legal review or talk to Google sales before you rely on this
 > data, and read **[docs/TERMS.md](docs/TERMS.md)** (quotes, URLs, attribution rules, alternatives).
 
+## Status
+
+The pipeline is complete and tested against a synthetic in-memory Places API (`--fake`; the unit
+tests and CI run it end to end). **The live API path has not yet been exercised against Google**:
+there was no API key in the environment it was built in. Request bodies, headers and field names were
+checked by hand against Google's documentation (2026-11-09), but the first real call is still to come.
+
+After adding a key, the first thing to run is the smoke test: one ~2×2 km cell in central Riyadh,
+budget 5 USD, a few dollars at most (usually $0 net of the monthly free calls). It writes to its
+own database and export folder so it does not touch the main dataset:
+
+```bash
+export GOOGLE_MAPS_API_KEY=...
+ksa-restaurants --db data/smoke.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
+```
+
+It prints the cost and the one-screen summary. A field name the live API rejects shows up as an
+HTTP 400 `INVALID_ARGUMENT` error; remove the field with `exclude_fields` in a `--config` JSON file
+(see [docs/RUNBOOK.md](docs/RUNBOOK.md)), no code change needed.
+
 ## How it works
 
 ```
@@ -34,8 +54,10 @@ manual work.
 1. **Discover.** The country is covered by 1° seed cells (cells over sea or other countries are
    dropped using a bundled Saudi boundary). For each cell and each place type, Text Search runs
    with the IDs-only field mask, which is free. Text Search returns at most 60 results per query.
-   A cell that returns 60 is split into four and searched again, down to about 220 m. A cell that
-   returns fewer than 60 is complete. Every cell is saved in SQLite as soon as it is processed.
+   A cell that returns 60 results (or still has a `nextPageToken` after the third page) is split
+   into four and searched again, down to about 220 m (`min_cell_deg` 0.002°). A cell that returns
+   fewer than 60 is complete. A cell still saturated at the minimum size is kept as a
+   `saturated_leaf`, fetched anyway and reported as a coverage risk. Every cell is saved in SQLite as soon as it is processed.
    From the second month on, discovery starts from last month's leaf cells (warm start).
 2. **Fetch.** From the discovered ID sets the pipeline builds a fetch plan by greedy weighted set
    cover: re-run Text Search with the full field mask where a page returns enough new places,
@@ -65,21 +87,38 @@ python -m venv .venv && source .venv/bin/activate
 pip install -e .
 export GOOGLE_MAPS_API_KEY=...        # never commit it
 
-ksa-restaurants smoke                 # ~2×2 km of central Riyadh, budget 5 USD; prints the cost
-ksa-restaurants discover              # whole country, free (IDs-only mask)
-ksa-restaurants estimate              # exact paid cost of this run, free
-ksa-restaurants run                   # all phases; resumes the discovery above if you pass the same --run-id
+ksa-restaurants --db data/smoke.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
+ksa-restaurants --run-id 2026-12-02T0100 discover    # whole country, free (IDs-only mask)
+ksa-restaurants --run-id 2026-12-02T0100 estimate    # exact paid cost of this run, free
+ksa-restaurants --run-id 2026-12-02T0100 run         # all phases; reuses the discovery above
 ```
 
 `discover` and `estimate` are free. Use them to learn the exact monthly cost before you pay
-anything. The run id defaults to the current time (`YYYY-MM-DDTHHMM`); pass `--run-id` with the
-same value to `discover`, `estimate` and `run` if you want `run` to reuse that discovery.
+anything. The run id defaults to the current UTC time (`YYYY-MM-DDTHHMM`) for `discover`, `run`
+and `smoke` (`smoke-YYYY-MM-DDTHHMM` for `smoke`); the other commands default to the most recently
+started run in the database. Pass the same `--run-id` to `discover`, `estimate` and `run` so that
+`run` reuses that discovery, or to resume an interrupted run.
 
-Common options (see `ksa-restaurants --help`): `--db`, `--bbox lat_lo,lng_lo,lat_hi,lng_hi`,
-`--types-preset restaurants|food_and_drink`, `--type` (repeatable), `--tier enterprise|atmosphere`,
-`--language en|ar`, `--qps`, `--concurrency`, `--max-budget-usd`, `--fake`, `--run-id`,
-`--cold-start`, `--include-reviews`, `-v`. Subcommands: `discover`, `estimate`, `fetch`, `audit`,
-`export`, `report`, `run`, `smoke`.
+**Option placement.** Common options go *before* the subcommand, subcommand options *after* it:
+
+```bash
+ksa-restaurants --db data/ksa_restaurants.sqlite --types-preset food_and_drink --max-budget-usd 1500 run --audit-cells 200 --out data/exports
+```
+
+- Common options (`ksa-restaurants --help`): `--db PATH` (default `data/ksa_restaurants.sqlite`),
+  `--bbox lat_lo,lng_lo,lat_hi,lng_hi` (default whole Saudi Arabia),
+  `--types-preset restaurants|food_and_drink`, `--type` (repeatable; overrides the preset),
+  `--tier enterprise|atmosphere` (default `atmosphere`), `--language en|ar`, `--qps` (default 9),
+  `--concurrency` (default 8), `--max-budget-usd` (default 1000), `--fake`, `--run-id`,
+  `--cold-start`, `--include-reviews`, `--config PATH` (JSON file overriding config fields: field
+  lists, `exclude_fields`, prices, `seed_cell_deg`, `min_cell_deg`, ...), `-v`/`-vv`.
+- Subcommands: `discover`, `estimate`, `fetch`, `audit`, `export`, `report`, `run`, `smoke`.
+  - `--audit-cells N` (default 100, 0 disables the audit) and `--min-recall X` (default 0.97) on
+    `estimate`, `audit`, `run`, `smoke`. `export` also takes `--min-recall`.
+  - `--out DIR` (default `data/exports`), `--all-countries`, `--summary-dir DIR` (default
+    `data/summary`; writes `latest.json`, `YYYY-MM.json`, `latest.md`) on `export`, `run`, `smoke`.
+- `smoke` = `run` on a fixed ~2×2 km bbox in central Riyadh (`24.682,46.675,24.700,46.695`) with a
+  default budget of 5 USD (an explicit `--max-budget-usd` wins).
 
 ### Fake mode
 
@@ -87,7 +126,7 @@ Common options (see `ksa-restaurants --help`): `--db`, `--bbox lat_lo,lng_lo,lat
 It runs the full pipeline, which is useful for development and is what CI runs:
 
 ```bash
-ksa-restaurants --fake --db /tmp/fake.sqlite run
+ksa-restaurants --fake --db /tmp/fake.sqlite run --out /tmp/fake-exports --summary-dir /tmp/fake-summary
 ```
 
 ## Monthly automation (GitHub Actions)
@@ -108,13 +147,16 @@ Setup, once:
 What a run does:
 
 - Restores the previous database from the latest `data-*` release (none on the first run, which is fine).
-- Runs `ksa-restaurants run` with the key from the secret.
+- Runs `ksa-restaurants <common options> --run-id <YYYY-MM-DDTHHMM> run --audit-cells N --out data/exports
+  --summary-dir <temp dir>` with the key from the secret. (The dry run runs `discover`, then
+  `estimate --audit-cells N`, so the figure includes the audit.)
 - Always uploads `data/` as a workflow artifact, kept 30 days. It lets you resume a failed run.
 - On success, publishes the GitHub Release **`data-YYYY-MM`** with `ksa_restaurants.sqlite.gz`,
   all files from `data/exports/` (`places_latest.csv.gz`, `places_latest.jsonl.gz`,
   `snapshots.csv.gz`, `frontend_feed.json.gz`, `summary.json`, `report.md`).
 - Commits `data/summary/latest.json`, `data/summary/YYYY-MM.json` and `data/summary/latest.md`
-  to the default branch as `github-actions[bot]`.
+  (copies of `data/exports/summary.json` and `report.md`; `YYYY-MM` is the release month) to the
+  default branch as `github-actions[bot]`.
 
 Manual inputs: `bbox`, `types_preset`, `tier`, `max_budget_usd`, `audit_cells`, `dry_run`, and
 `run_id` (to resume a failed run; see [docs/RUNBOOK.md](docs/RUNBOOK.md)). Only one refresh runs
@@ -184,23 +226,31 @@ Credible estimates put Saudi food-and-drink places on Google Maps at about 100k�
 | Code | Meaning |
 |---|---|
 | 0 | Success |
+| 1 | Error: a rejected key, billing disabled, API not enabled, a field the API rejects, discovery not finished before `estimate`/`fetch`/`audit`, or any unexpected exception. Resume with the same `--run-id`. |
 | 2 | Budget abort: the estimate exceeds `--max-budget-usd`. No paid call was made. |
 | 3 | Audit recall below `--min-recall`, or a hard validation failure. |
-| other non-zero | Unexpected error (for example a rejected key, billing disabled, API not enabled). Resume with the same `--run-id`. |
+
+Run statuses in the `runs` table: `running` (in progress, or crashed and resumable),
+`completed`, `audit_failed`, `validation_failed`, `budget_aborted`.
 
 ## Repository layout
 
 ```
 ksa_restaurants/            Python package (CLI `ksa-restaurants`)
-  places_client.py          Places API (New) client, retries, rate limit; FakePlacesClient
-  fetch_plan.py             minimum-cost fetch plan (greedy weighted set cover)
-  cost.py                   price table, SKU detection from field mask, free-tier netting
+  cli.py                    command line (click)
+  pipeline.py               phase orchestration, estimate, budget guard
+  discover.py               Phase 1 quadtree          fetch_plan.py  minimum-cost plan (set cover)
+  fetch.py                  Phase 2 + final sweep     audit.py       Phase 3 Nearby Search audit
+  validate.py, summary.py, export.py                  Phase 4
+  places_client.py          Places API (New) HTTP client, retries, rate limit
+  fake.py                   FakePlacesClient + synthetic world (tests, --fake)
+  config.py, cost.py        types, field masks, prices; SKU detection, free-tier netting
+  db.py, runs.py, parse.py  SQLite schema, run lifecycle, Place JSON -> row
   geo.py                    seed grid, cell ids, boundary pruning, distances
   data/saudi_boundary.geojson  simplified Natural Earth boundary (public domain)
-  ...                       other modules (discovery, storage, audit, export, CLI)
 tests/                      pytest suite (runs against FakePlacesClient)
-data/                       working directory: SQLite DB and exports (git-ignored)
-  summary/                  monthly summaries committed by the workflow
+data/                       working directory: SQLite DB (data/*.sqlite*) and data/exports/ are git-ignored
+  summary/                  monthly summaries committed by the workflow (latest.json, YYYY-MM.json, latest.md)
 docs/                       DATA_DICTIONARY, RUNBOOK, COSTS, TERMS
 .github/workflows/          ci.yml, monthly-refresh.yml
 ```

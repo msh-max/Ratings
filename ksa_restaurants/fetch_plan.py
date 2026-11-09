@@ -40,27 +40,37 @@ def pages_for(n: int) -> int:
     return min(3, math.ceil(n / 20))
 
 
-def greedy_cover(pairs: dict[tuple[str, str], set[str]], p_text: float,
-                 p_details: float) -> tuple[list[tuple[str, str, int]], set[str]]:
-    """Return (chosen text jobs ``(cell_id, type, pages)`` in pick order, IDs left for Details)."""
+def greedy_cover(pairs: dict[tuple[str, str], set[str]], p_text: float, p_details: float,
+                 pages: dict[tuple[str, str], int] | None = None,
+                 ) -> tuple[list[tuple[str, str, int]], set[str]]:
+    """Return (chosen text jobs ``(cell_id, type, pages)`` in pick order, IDs left for Details).
+
+    ``pages`` gives the page count of each pair when known (Phase 1's actual page count, which
+    Phase 2 repeats exactly because it sends the identical request); default ``ceil(n/20)``.
+    """
+    pages = pages or {}
+
+    def npages(key: tuple[str, str]) -> int:
+        return max(pages_for(len(pairs[key])), min(3, pages.get(key, 0)))
+
     uncovered: set[str] = set().union(*pairs.values()) if pairs else set()
-    heap = [(-len(s) / pages_for(len(s)), cid, t) for (cid, t), s in pairs.items() if s]
+    heap = [(-len(s) / npages((cid, t)), cid, t) for (cid, t), s in pairs.items() if s]
     heapq.heapify(heap)
     chosen: list[tuple[str, str, int]] = []
     while heap:
         neg_ratio, cid, t = heapq.heappop(heap)
         s = pairs[(cid, t)]
-        pages = pages_for(len(s))
+        n_pages = npages((cid, t))
         gain = len(s & uncovered)
         if gain == 0:
             continue
-        ratio = gain / pages
+        ratio = gain / n_pages
         if ratio < -neg_ratio - 1e-12:  # stale key: re-insert with the true ratio
             heapq.heappush(heap, (-ratio, cid, t))
             continue
-        if pages * p_text > gain * p_details:
+        if n_pages * p_text > gain * p_details:
             break
-        chosen.append((cid, t, pages))
+        chosen.append((cid, t, n_pages))
         uncovered -= s
     return chosen, uncovered
 
@@ -73,6 +83,11 @@ def build_plan(conn: sqlite3.Connection, run_id: str, cfg: Config) -> Plan:
     """Build and persist the plan unless one already exists for the run; return its totals."""
     if not conn.execute("SELECT 1 FROM fetch_jobs WHERE run_id=? LIMIT 1", (run_id,)).fetchone():
         pairs: dict[tuple[str, str], set[str]] = defaultdict(set)
+        # Google can return a short page that still carries a nextPageToken, so the page count of
+        # a pair is what Phase 1 actually needed, not just ceil(n/20).
+        pages = {(r[0], r[1]): r[2] or 0 for r in conn.execute(
+            "SELECT cell_id, type, discover_calls FROM cells WHERE run_id=? "
+            "AND status IN ('leaf','saturated_leaf')", (run_id,))}
         for cid, t, pid in conn.execute(
                 "SELECT cp.cell_id, cp.type, cp.place_id FROM cell_places cp JOIN cells c ON "
                 "c.run_id=cp.run_id AND c.cell_id=cp.cell_id AND c.type=cp.type WHERE cp.run_id=? "
@@ -81,9 +96,9 @@ def build_plan(conn: sqlite3.Connection, run_id: str, cfg: Config) -> Plan:
         cost = CostModel(cfg.pricing)
         text_sku, details_sku = _skus(cfg)
         chosen, rest = greedy_cover(dict(pairs), cost.unit_price("text_search", text_sku),
-                                    cost.unit_price("place_details", details_sku))
-        rows: list[tuple[object, ...]] = [(run_id, i + 1, "text", cid, t, None, pages, "pending")
-                for i, (cid, t, pages) in enumerate(chosen)]
+                                    cost.unit_price("place_details", details_sku), pages)
+        rows: list[tuple[object, ...]] = [(run_id, i + 1, "text", cid, t, None, n, "pending")
+                for i, (cid, t, n) in enumerate(chosen)]
         rows += [(run_id, len(chosen) + i + 1, "details", None, None, pid, 1, "pending")
                  for i, pid in enumerate(sorted(rest))]
         with transaction(conn):

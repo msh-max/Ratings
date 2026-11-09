@@ -1,6 +1,6 @@
 # Costs
 
-Short version: **run `ksa-restaurants discover` then `ksa-restaurants estimate`.** Both are free and
+Short version: **run `discover` then `estimate` with the same `--run-id`.** Both are free and
 print the exact paid cost of the month before you spend anything. The numbers below are planning
 estimates only.
 
@@ -37,7 +37,10 @@ and unlimited.
 **Phase 2 — fetch.** Phase 1 gives, for each populated leaf (cell, type), its ID set and result
 count `n`. Fetching every leaf with Text Search would cost
 
-    pages_naive = Σ over leaves of ceil(n / 20)
+    pages_naive = Σ over leaves of pages(leaf),   pages(leaf) = max(ceil(n / 20), Phase-1 pages) ≤ 3
+
+(Phase 2 sends exactly the Phase 1 request with a bigger mask, so it needs the same number of pages;
+Google can return a short page that still has a `nextPageToken`.)
 
 But a place is often in several leaves (cell edges, several types). The fetch planner (greedy
 weighted set cover) only takes a leaf as a Text Search job while it is cheaper than fetching its
@@ -113,13 +116,16 @@ Notes:
 ## Exact figure, for free
 
 ```bash
-ksa-restaurants discover          # free: IDs-only Text Search
-ksa-restaurants estimate          # prints text jobs, pages, Details jobs, gross and net USD
+ksa-restaurants --run-id 2026-12-02T0100 discover                   # free: IDs-only Text Search
+ksa-restaurants --run-id 2026-12-02T0100 estimate --audit-cells 100  # text jobs, pages, Details jobs, gross and net USD
 ```
 
-`estimate` prices the actual fetch plan for this month's discovered IDs at the configured tier.
-`run` and `fetch` abort with exit code 2 before the first paid call if that figure exceeds
-`--max-budget-usd`. In GitHub Actions, run the workflow with `dry_run` ticked to get the same
+`estimate` prices the actual fetch plan for this month's discovered IDs at the configured tier, plus
+the audit's Nearby Search calls (`--audit-cells`, default 100; `0` leaves the audit out). It also
+persists the plan, so a later `run`/`fetch` with the same `--run-id` executes exactly that plan.
+`run`, `fetch` and `audit` abort with exit code 2 before the first paid call if the gross figure
+exceeds `--max-budget-usd` (`fetch` prices the plan without the audit). The guard prices the calls
+still to be made, so a resumed run is checked against what is left. In GitHub Actions, run the workflow with `dry_run` ticked to get the same
 figure in the job summary.
 
 ## Runtime

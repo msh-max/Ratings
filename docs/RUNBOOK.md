@@ -1,7 +1,16 @@
 # Runbook
 
-Operating the monthly refresh. Exit codes: `0` success, `2` budget abort, `3` audit or validation
-failure, anything else an unexpected error.
+Operating the monthly refresh. Exit codes: `0` success, `1` error (API/key/billing problem, a
+rejected field, or an unexpected exception), `2` budget abort, `3` audit or validation failure.
+
+Run statuses (`SELECT run_id, status, notes FROM runs`): `running` (in progress, or crashed and
+resumable), `completed`, `audit_failed`, `validation_failed`, `budget_aborted` (the reason is in
+`notes`). Warm start and month-over-month comparison use the latest earlier run with the same bbox
+whose status is `completed`, `audit_failed` or `validation_failed`.
+
+Option placement: common options (`--db`, `--run-id`, `--bbox`, `--types-preset`, `--tier`,
+`--max-budget-usd`, `--qps`, `--config`, `--fake`, ...) go **before** the subcommand; `--audit-cells`,
+`--min-recall`, `--out`, `--all-countries`, `--summary-dir` go **after** it.
 
 ## Before anything: default branch
 
@@ -22,7 +31,10 @@ called again and no duplicate snapshots are created. Paid calls already made are
 ksa-restaurants --run-id 2026-12-02T0100 run      # same id as the failed run, same --db
 ```
 
-Use the same options (`--types-preset`, `--tier`, `--bbox`) as the original run.
+A resumed run uses the configuration stored with it (bbox, types, tier, language, field masks,
+prices); `--bbox`, `--types-preset`, `--tier` etc. given on resume are ignored. Only the operational
+settings given on the command line apply: `--qps`, `--concurrency`, `--max-budget-usd`,
+`--audit-cells`, `--min-recall`.
 
 **In GitHub Actions:**
 
@@ -86,9 +98,32 @@ SELECT code, count(*) FROM fetch_errors WHERE run_id = :run GROUP BY code;
 `out_of_scope_share` is not a failure. It tells you what share of Saudi food places the preset does
 not cover (for example cafes and bakeries with the `restaurants` preset).
 
-After investigation you can finish the same run locally with a different threshold
-(`ksa-restaurants --run-id <id> audit --min-recall 0.95`, then `export` and `report`) and publish
-by hand (see "Local run"). Do not lower the threshold without understanding the misses.
+After investigation you can finish the same run locally with a different threshold and publish by
+hand (see "Local run"). `export` re-evaluates the run status with its own `--min-recall`:
+
+```bash
+ksa-restaurants --run-id 2026-12-02T0100 audit --min-recall 0.95
+ksa-restaurants --run-id 2026-12-02T0100 export --min-recall 0.95
+ksa-restaurants --run-id 2026-12-02T0100 report
+```
+
+Do not lower the threshold without understanding the misses.
+
+## A field the live API rejects (exit 1, HTTP 400 INVALID_ARGUMENT)
+
+The field masks are built from config lists, so a field name Google rejects can be dropped without a
+code change. Put the names (without the `places.` prefix) in a JSON file and pass it with `--config`:
+
+```bash
+echo '{"exclude_fields": ["reviewSummary"]}' > ksa-config.json
+ksa-restaurants --config ksa-config.json --db data/smoke.sqlite smoke --out data/exports/smoke --summary-dir data/exports/smoke
+```
+
+The same file can override `fields_pro`, `fields_enterprise`, `fields_atmosphere`, `types`,
+`text_queries`, `seed_cell_deg`, `min_cell_deg` and `pricing` (see `ksa_restaurants/config.py`). A
+run stores its config, so a resumed run keeps the config it started with: start a new run id after
+changing it. For the monthly workflow, commit the file and add `--config ksa-config.json` to the
+`common=(...)` array in the "Run pipeline" step.
 
 ## Raising the quota
 
@@ -97,8 +132,9 @@ Default Google quota is believed to be 600 requests per minute per method. The c
 
 1. Google Cloud Console → Google Maps Platform → Quotas → Places API (New). Request a higher
    per-minute limit for Text Search, Place Details and Nearby Search.
-2. After approval, pass `--qps` (and if useful `--concurrency`). For the monthly workflow, add
-   `--qps N` to the `common=(...)` array in the "Run pipeline" step.
+2. After approval, pass `--qps` (and if useful `--concurrency`) before the subcommand, e.g.
+   `ksa-restaurants --qps 15 --concurrency 12 run`. For the monthly workflow, add `--qps N` to the
+   `common=(...)` array in the "Run pipeline" step.
 
 Do not raise `--qps` above the granted quota: the client retries 429 responses with backoff, but
 the run gets slower, not faster.
@@ -151,23 +187,19 @@ python3.12 -m venv .venv && source .venv/bin/activate
 pip install -e .
 export GOOGLE_MAPS_API_KEY=...
 
-# Optional: continue the published history instead of starting empty
-mkdir -p data
-gh release download data-2026-11 --pattern 'ksa_restaurants.sqlite.gz' --dir /tmp
-gunzip -c /tmp/ksa_restaurants.sqlite.gz > data/ksa_restaurants.sqlite
-
-ksa-restaurants discover && ksa-restaurants estimate     # free
-ksa-restaurants run --audit-cells 100                    # paid
+ksa-restaurants --run-id 2026-12-02T0100 discover                   # free
+ksa-restaurants --run-id 2026-12-02T0100 estimate --audit-cells 100  # free
+ksa-restaurants --run-id 2026-12-02T0100 run --audit-cells 100       # paid
 ```
+
+To continue the published history instead of starting with an empty database, first download
+`ksa_restaurants.sqlite.gz` from the latest `data-YYYY-MM` release (GitHub release page or
+`gh release download`) and unpack it to `data/ksa_restaurants.sqlite` with `gunzip -c`.
 
 Keep the laptop awake; a full run takes one to a few hours (see COSTS.md). If it stops, re-run with
 the same `--run-id`.
 
-A local run is not published automatically. To publish it, create the release yourself:
-
-```bash
-gzip -c data/ksa_restaurants.sqlite > /tmp/ksa_restaurants.sqlite.gz
-gh release create data-2026-12 /tmp/ksa_restaurants.sqlite.gz data/exports/* --title data-2026-12 --notes "Local run"
-```
-
-The next scheduled run will then start from that database.
+A local run is not published automatically. To publish it, create a release named `data-YYYY-MM`
+yourself (GitHub release page or `gh release create`) with `ksa_restaurants.sqlite.gz` (the
+database compressed with `gzip -c`) and every file in `data/exports/`. The next scheduled run will
+then start from that database.

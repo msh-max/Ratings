@@ -201,14 +201,18 @@ jobs:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: |
           set -euo pipefail
-          common=(--db "$DB_PATH" --types-preset "$IN_TYPES_PRESET" --tier "$IN_TIER" --max-budget-usd "$IN_MAX_BUDGET_USD")
+          # Common options go BEFORE the subcommand; subcommand options (--audit-cells, --out, ...) after it.
+          # One run id for every command of this job (the CLI default is the current UTC minute).
+          run_id="${IN_RUN_ID:-$(date -u +%Y-%m-%dT%H%M)}"
+          echo "Run id: $run_id"
+          common=(--db "$DB_PATH" --types-preset "$IN_TYPES_PRESET" --tier "$IN_TIER" --max-budget-usd "$IN_MAX_BUDGET_USD" --run-id "$run_id")
           if [[ -n "$IN_BBOX" ]]; then common+=(--bbox "$IN_BBOX"); fi
-          if [[ -n "$IN_RUN_ID" ]]; then common+=(--run-id "$IN_RUN_ID"); fi
 
           if [[ "$IN_DRY_RUN" == "true" ]]; then
             echo "Dry run: discover + estimate only (no paid calls)."
             ksa-restaurants "${common[@]}" discover
-            ksa-restaurants "${common[@]}" estimate | tee "$RUNNER_TEMP/estimate.txt"
+            # The estimate includes the audit's Nearby Search calls, so pass the same cell count as `run`.
+            ksa-restaurants "${common[@]}" estimate --audit-cells "$IN_AUDIT_CELLS" | tee "$RUNNER_TEMP/estimate.txt"
             {
               echo "## Dry run estimate"
               echo '```'
@@ -220,7 +224,10 @@ jobs:
 
           # Exit codes: 0 success, 2 budget abort (no paid call made), 3 audit/validation failure.
           set +e
-          ksa-restaurants "${common[@]}" run --audit-cells "$IN_AUDIT_CELLS"
+          # The CLI's own summary copies (--summary-dir) go to a temp dir: the commit step below
+          # publishes the copy in $EXPORTS_DIR, and nothing is written into the checked-out data/summary/.
+          ksa-restaurants "${common[@]}" run --audit-cells "$IN_AUDIT_CELLS" \
+            --out "$EXPORTS_DIR" --summary-dir "$RUNNER_TEMP/cli-summary"
           code=$?
           set -e
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
@@ -228,7 +235,7 @@ jobs:
             0) echo "Run succeeded." ;;
             2) echo "::error::Budget abort (exit 2): the estimate exceeds max_budget_usd=$IN_MAX_BUDGET_USD. No paid call was made. See docs/RUNBOOK.md." ;;
             3) echo "::error::Audit or validation failure (exit 3). No release is published. See docs/RUNBOOK.md." ;;
-            *) echo "::error::Pipeline failed with exit code $code. Resume with the same run_id; see docs/RUNBOOK.md." ;;
+            *) echo "::error::Pipeline failed with exit code $code. Resume with run_id=$run_id; see docs/RUNBOOK.md." ;;
           esac
           exit "$code"
 

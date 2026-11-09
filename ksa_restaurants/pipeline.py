@@ -15,7 +15,8 @@ from .discover import DiscoverStats, discover
 from .export import export
 from .fetch import FetchStats, fetch
 from .fetch_plan import Plan, build_plan, plan_totals
-from .runs import set_status
+from .geo import seed_cells
+from .runs import run_bbox, set_status
 from .validate import validate
 
 EXIT_OK, EXIT_ERROR, EXIT_BUDGET, EXIT_QUALITY = 0, 1, 2, 3
@@ -61,17 +62,24 @@ class Estimate:
         return "\n".join(out)
 
 
-def ensure_discovered(conn: sqlite3.Connection, run_id: str) -> None:
-    """Raise :class:`DiscoveryIncomplete` unless Phase 1 has finished for the run."""
+def ensure_discovered(conn: sqlite3.Connection, run_id: str, cfg: Config | None = None) -> None:
+    """Raise :class:`DiscoveryIncomplete` unless Phase 1 has finished for the run.
+
+    A run whose bbox has no seed cell at all (e.g. a bbox entirely at sea) has nothing to
+    discover; with ``cfg`` given that case counts as finished (an empty run), not as an error.
+    """
     started = conn.execute("SELECT 1 FROM cells WHERE run_id=? LIMIT 1", (run_id,)).fetchone()
     pending = conn.execute("SELECT 1 FROM cells WHERE run_id=? AND status='pending' LIMIT 1", (run_id,)).fetchone()
+    if not started and cfg is not None and not seed_cells(run_bbox(cfg), cfg.seed_cell_deg, True,
+                                                          cfg.boundary_buffer_deg):
+        return
     if not started or pending:
         raise DiscoveryIncomplete(f"discovery has not finished for run {run_id}; run `discover` first")
 
 
 def estimate(conn: sqlite3.Connection, run_id: str, cfg: Config, audit_cells: int) -> Estimate:
     """Build (or load) the fetch plan and price the paid calls still to be made, audit included."""
-    ensure_discovered(conn, run_id)
+    ensure_discovered(conn, run_id, cfg)
     plan = build_plan(conn, run_id, cfg)
     pending = plan_totals(conn, run_id, cfg, pending_only=True)
     done = {(r[0], r[1]) for r in conn.execute("SELECT cell_id, type FROM audit_cells WHERE run_id=?", (run_id,))}
