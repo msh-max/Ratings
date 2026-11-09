@@ -106,10 +106,11 @@ def seed_cells(bbox: BBox, step: float, prune: bool = True, buffer_deg: float = 
     """Regular grid of ``step``-degree cells over ``bbox`` (edge cells clipped to the bbox).
 
     With ``prune`` the cells not intersecting the buffered boundary (sea, neighbours) are dropped.
-    Cell IDs are ``"<row>_<col>"``.
+    Cell IDs are ``"<row>_<col>"`` zero-padded to 3 digits (e.g. ``"008_011"``) so that the seed
+    part has a fixed length and child digits (0-3) appended to it can never be ambiguous.
     """
     lats, lngs = grid_edges(bbox[0], bbox[2], step), grid_edges(bbox[1], bbox[3], step)
-    cells = [Cell(f"{r}_{c}", lats[r], lngs[c], lats[r + 1], lngs[c + 1])
+    cells = [Cell(f"{r:03d}_{c:03d}", lats[r], lngs[c], lats[r + 1], lngs[c + 1])
              for r in range(len(lats) - 1) for c in range(len(lngs) - 1)]
     return [c for c in cells if not prune or cell_intersects_boundary(c, buffer_deg)]
 

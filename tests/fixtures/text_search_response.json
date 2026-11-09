@@ -1,0 +1,82 @@
+{
+  "places": [
+    {
+      "name": "places/ChIJs5ydyTiuEmsR0fRSlU0C7k0",
+      "id": "ChIJs5ydyTiuEmsR0fRSlU0C7k0",
+      "types": ["restaurant", "food", "point_of_interest", "establishment"],
+      "nationalPhoneNumber": "011 465 0000",
+      "internationalPhoneNumber": "+966 11 465 0000",
+      "formattedAddress": "Olaya St, Al Olaya, Riyadh 12214, Saudi Arabia",
+      "shortFormattedAddress": "Olaya St, Al Olaya, Riyadh",
+      "addressComponents": [
+        {"longText": "Olaya Street", "shortText": "Olaya St", "types": ["route"], "languageCode": "en"},
+        {"longText": "Al Olaya", "shortText": "Al Olaya", "types": ["sublocality_level_1", "sublocality", "political"], "languageCode": "en"},
+        {"longText": "Riyadh", "shortText": "Riyadh", "types": ["locality", "political"], "languageCode": "en"},
+        {"longText": "Riyadh Province", "shortText": "Riyadh Province", "types": ["administrative_area_level_1", "political"], "languageCode": "en"},
+        {"longText": "Saudi Arabia", "shortText": "SA", "types": ["country", "political"], "languageCode": "en"},
+        {"longText": "12214", "shortText": "12214", "types": ["postal_code"], "languageCode": "en"}
+      ],
+      "plusCode": {"globalCode": "7HQ8MM46+2V", "compoundCode": "MM46+2V Riyadh Saudi Arabia"},
+      "location": {"latitude": 24.6951227, "longitude": 46.6847106},
+      "viewport": {"low": {"latitude": 24.69, "longitude": 46.68}, "high": {"latitude": 24.70, "longitude": 46.69}},
+      "rating": 4.4,
+      "googleMapsUri": "https://maps.google.com/?cid=5614839447135925457",
+      "websiteUri": "https://example.sa/",
+      "regularOpeningHours": {
+        "openNow": true,
+        "periods": [
+          {"open": {"day": 0, "hour": 12, "minute": 0}, "close": {"day": 0, "hour": 23, "minute": 30}},
+          {"open": {"day": 1, "hour": 12, "minute": 0}, "close": {"day": 1, "hour": 23, "minute": 30}}
+        ],
+        "weekdayDescriptions": ["Monday: 12:00 – 11:30 PM", "Tuesday: Closed", "Wednesday: Closed", "Thursday: Closed", "Friday: Closed", "Saturday: Closed", "Sunday: 12:00 – 11:30 PM"],
+        "nextCloseTime": "2026-11-09T20:30:00Z"
+      },
+      "utcOffsetMinutes": 180,
+      "businessStatus": "OPERATIONAL",
+      "priceLevel": "PRICE_LEVEL_MODERATE",
+      "priceRange": {"startPrice": {"currencyCode": "SAR", "units": "50"}, "endPrice": {"currencyCode": "SAR", "units": "100"}},
+      "userRatingCount": 2310,
+      "displayName": {"text": "Najd Village", "languageCode": "en"},
+      "primaryTypeDisplayName": {"text": "Restaurant", "languageCode": "en-US"},
+      "primaryType": "restaurant",
+      "takeout": true,
+      "delivery": false,
+      "dineIn": true,
+      "reservable": true,
+      "servesDinner": true,
+      "editorialSummary": {"text": "Traditional Najdi dishes served in a heritage-style setting.", "languageCode": "en"},
+      "reviewSummary": {"text": {"text": "People praise the kabsa and the setting.", "languageCode": "en-US"}, "flagContentUri": "https://www.google.com/local/review/rap/report", "disclosureText": {"text": "Summarized with Gemini", "languageCode": "en-US"}},
+      "paymentOptions": {"acceptsCreditCards": true, "acceptsDebitCards": true, "acceptsCashOnly": false, "acceptsNfc": true},
+      "parkingOptions": {"freeParkingLot": true},
+      "accessibilityOptions": {"wheelchairAccessibleEntrance": true},
+      "photos": [
+        {"name": "places/ChIJs5ydyTiuEmsR0fRSlU0C7k0/photos/AUc7tXX", "widthPx": 4032, "heightPx": 3024,
+         "authorAttributions": [{"displayName": "A Reviewer", "uri": "https://maps.google.com/maps/contrib/1", "photoUri": "https://lh3.googleusercontent.com/a/x"}]}
+      ],
+      "pureServiceAreaBusiness": false
+    },
+    {
+      "name": "places/ChIJbahrainOnly000000000000",
+      "id": "ChIJbahrainOnly000000000000",
+      "types": ["fast_food_restaurant", "restaurant", "food", "point_of_interest", "establishment"],
+      "addressComponents": [
+        {"longText": "Manama", "shortText": "Manama", "types": ["locality", "political"], "languageCode": "en"},
+        {"longText": "Bahrain", "shortText": "BH", "types": ["country", "political"], "languageCode": "en"}
+      ],
+      "location": {"latitude": 26.2235, "longitude": 50.5876},
+      "displayName": {"text": "Bahrain Burger", "languageCode": "en"},
+      "userRatingCount": 0
+    },
+    {
+      "name": "places/ChIJnoCountry0000000000000",
+      "id": "ChIJnoCountry0000000000000",
+      "types": ["meal_takeaway"],
+      "addressComponents": [
+        {"longText": "Riyadh", "shortText": "Riyadh", "types": ["locality", "political"], "languageCode": "en"}
+      ],
+      "location": {"latitude": 24.7, "longitude": 46.7},
+      "displayName": {"text": "مطعم", "languageCode": "ar"}
+    }
+  ],
+  "nextPageToken": "AeeoHcK9xSzE3s"
+}

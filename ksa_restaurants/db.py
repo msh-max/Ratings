@@ -90,8 +90,3 @@ def transaction(conn: sqlite3.Connection) -> Iterator[sqlite3.Connection]:
         raise
     conn.execute("COMMIT")
 
-
-def scalar(conn: sqlite3.Connection, sql: str, params: tuple = ()) -> object:
-    """Return the first column of the first row (or None)."""
-    row = conn.execute(sql, params).fetchone()
-    return None if row is None else row[0]
