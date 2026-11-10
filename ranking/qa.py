@@ -4,7 +4,7 @@ from __future__ import annotations
 import re
 from typing import Any, TextIO
 
-from rapidfuzz import fuzz, process
+from rapidfuzz import fuzz
 
 from .normalize import canonical_key, has_arabic
 
@@ -21,10 +21,9 @@ def duplicate_suspects(places: list[dict[str, Any]], low: int = 85, high: int = 
     if len(latin) < 2:
         return out
     group = [keys[i] for i in latin]
-    matrix = process.cdist(group, group, scorer=fuzz.token_set_ratio, score_cutoff=low, workers=1)
     for a in range(len(group)):
         for b in range(a + 1, len(group)):
-            r = float(matrix[a][b])
+            r = float(fuzz.token_set_ratio(group[a], group[b], score_cutoff=low))
             if low <= r < high:
                 out.append((r, places[latin[a]]["name"], places[latin[b]]["name"]))
     return sorted(out, key=lambda t: (-t[0], t[1], t[2]))

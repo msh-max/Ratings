@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import yaml
-from rapidfuzz import fuzz, process
+from rapidfuzz import fuzz
 
 MERGE_THRESHOLD = 92
 
@@ -208,13 +208,12 @@ def cluster_mentions(mentions: list[dict[str, Any]], aliases: Aliases | None = N
         for group in (latin, arabic):
             if len(group) < 2:
                 continue
-            matrix = process.cdist(group, group, scorer=fuzz.token_set_ratio,
-                                   score_cutoff=threshold, workers=1)
             subset_links: dict[str, list[str]] = {}
             for i in range(len(group)):
                 for j in range(i + 1, len(group)):
                     a, b = group[i], group[j]
-                    if matrix[i][j] < threshold or aliases.kept_apart(a, b):
+                    if (fuzz.token_set_ratio(a, b, score_cutoff=threshold) < threshold
+                            or aliases.kept_apart(a, b)):
                         continue
                     ta, tb = set(a.split()), set(b.split())
                     if _numbers(ta) != _numbers(tb):      # "Sample 1" is not "Sample 12"

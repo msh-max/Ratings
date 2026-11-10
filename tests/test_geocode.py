@@ -16,6 +16,8 @@ def test_accept_rule():
     assert accept("Sample Bistro", good) == (24.7612, 46.6401)
     assert accept("The Sample Bistro Restaurant", good) == (24.7612, 46.6401)
     assert accept("Sample Bistro", {**good, "name": "Unrelated Pharmacy"}) is None
+    assert accept("Marble", {**good, "name": "Red Marble Market"}) is None    # contained, not the same
+    assert accept("Al-Sample House", {**good, "name": "El Sample House"}) == (24.7612, 46.6401)
     assert accept("Sample Bistro", {**good, "lat": "21.5", "lon": "39.2"}) is None
     assert accept("Sample Bistro", {"name": "Sample Bistro"}) is None
     # falls back to the first part of display_name when name is empty
@@ -69,3 +71,10 @@ def test_http_error_is_not_cached(tmp_path):
     g = Geocoder(tmp_path / "c.json", client=client, sleep=lambda s: None)
     assert g.locate("Sample Bistro") is None
     assert g.cache == {}
+
+
+def test_prefers_amenity_candidates(tmp_path):
+    payload = [{"name": "Sample Bistro", "lat": "24.80", "lon": "46.70", "category": "highway"},
+               {"name": "Sample Bistro", "lat": "24.76", "lon": "46.64", "category": "amenity"}]
+    g = Geocoder(tmp_path / "c.json", client=_mock_client([], payload), sleep=lambda s: None)
+    assert g.locate("Sample Bistro") == (24.76, 46.64)

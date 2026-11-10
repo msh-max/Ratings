@@ -125,7 +125,7 @@
       "price_band": null,
       "tier": "nominee",
       "position": null,
-      "note": "Nominated: Afternoon Tea.",
+      "note": "Nominated: Afternoon Tea; European. (listed as Al Faisaliah Hotel)",
       "entry_url": null,
       "branch": null
     },
@@ -209,7 +209,7 @@
       "price_band": null,
       "tier": "nominee",
       "position": null,
-      "note": "Nominated: Breakfast.",
+      "note": "Nominated: Breakfast; Casual Dining. (listed as Prince Sultan Bin Abdulaziz Rd)",
       "entry_url": null,
       "branch": null
     },
@@ -526,18 +526,6 @@
       "branch": null
     },
     {
-      "name": "Flour & Firewood",
-      "name_ar": null,
-      "cuisine": null,
-      "area": "Prince Sultan Bin Abdulaziz Rd",
-      "price_band": null,
-      "tier": "nominee",
-      "position": null,
-      "note": "Nominated: Casual Dining.",
-      "entry_url": null,
-      "branch": null
-    },
-    {
       "name": "Jamie's Italian Riyadh",
       "name_ar": null,
       "cuisine": null,
@@ -722,18 +710,6 @@
       "name_ar": null,
       "cuisine": null,
       "area": "Bujairi Terrace",
-      "price_band": null,
-      "tier": "nominee",
-      "position": null,
-      "note": "Nominated: European.",
-      "entry_url": null,
-      "branch": null
-    },
-    {
-      "name": "The Globe",
-      "name_ar": null,
-      "cuisine": null,
-      "area": "Al Faisaliah Hotel",
       "price_band": null,
       "tier": "nominee",
       "position": null,

@@ -88,6 +88,7 @@ def test_cli_build_writes_outputs(repo, capsys):
         {k: v for k, v in month.items() if k != "places"}
     assert [p["id"] for p in site["places"]] == [p["id"] for p in month["places"]]
     assert set(site["places"][0]["mentions"][0]) <= {"source_id", "tier", "position", "weight", "url"}
+    assert "name_ar" not in site["places"][0] and "name_ar" in month["places"][0]   # nulls omitted
     assert latest_month(repo) == "2026-11"
     assert main(["--root", str(repo), "qa", "--month", "2026-11"]) == 0
     out = capsys.readouterr().out

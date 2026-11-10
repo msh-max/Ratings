@@ -1,0 +1,37 @@
+{
+  "source_id": "timeout-riyadh-restaurant-awards-2025",
+  "source_name": "Time Out Riyadh Restaurant Awards 2025 — winners (partial)",
+  "publisher": "Time Out",
+  "source_type": "award",
+  "language": "en",
+  "url": "https://www.timeoutriyadh.com/food-drink/restaurant-awards-2025",
+  "published_at": "2025-09-10",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "timeoutriyadh.com, timeoutdoha.com, timeoutdubai.com, hoteliermiddleeast.com, caterermiddleeast.com and arabianbusiness.com all returned bot-protection blocks (403/405) to this session, so the full winners page could not be read. Fourth edition, ceremony 10 Sep 2025 at voco Riyadh; shortlist of 240+ venues in 26 categories. Only two category winners could be confirmed from search-result summaries of Time Out pages tagged Restaurant Awards 2025; Restaurant of the Year 2025, other winners and highly commended venues are missing. A 2026 edition appears to exist (Time Out 2026 guide pages mention venues crowned at the awards) but could not be verified, so no 2026 file was written.",
+  "entries": [
+    {
+      "name": "Phet Phet",
+      "name_ar": null,
+      "cuisine": "Thai",
+      "area": null,
+      "price_band": null,
+      "tier": "winner",
+      "position": null,
+      "note": "Best Thai 2025 (per Time Out category page summary).",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "San Carlo Cicchetti",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": null,
+      "price_band": null,
+      "tier": "winner",
+      "position": null,
+      "note": "Best Italian 2025 (per Time Out category page summary).",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

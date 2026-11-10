@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Unit tests
+        run: python -m pytest -q
+      - name: Validate extracts and build (no writes, no network)
+        run: |
+          month=$(ls -1d data/sources/????-??/ 2>/dev/null | xargs -r -n1 basename | sort | tail -n1)
+          if [ -z "$month" ]; then
+            echo "No extract months under data/sources/ yet; skipping build check."
+            exit 0
+          fi
+          echo "Checking month $month"
+          python -m ranking build --month "$month" --check --no-geocode

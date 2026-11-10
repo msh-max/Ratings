@@ -203,7 +203,7 @@ publishers:
     language: en
   - id: fodors
     name: Fodor's
-    match: ["fodor"]
+    match: ["fodors", "fodor s"]
     type: editorial
     language: en
   - id: sayidaty

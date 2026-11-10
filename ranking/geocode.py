@@ -34,7 +34,12 @@ def result_name(result: dict[str, Any]) -> str:
 
 
 def accept(place_name: str, result: dict[str, Any], threshold: int = ACCEPT_RATIO) -> tuple[float, float] | None:
-    """Return (lat, lng) if the candidate's name fuzzy-matches (>= 80) and lies in the bbox."""
+    """Return (lat, lng) if the candidate's name fuzzy-matches (>= 80) and lies in the bbox.
+
+    The match uses rapidfuzz token_sort_ratio on normalised names (word order and words like
+    "Restaurant" ignored). token_set_ratio is deliberately not used: it scores "Marble" vs
+    "Red Marble Market" at 100.
+    """
     try:
         lat, lng = float(result["lat"]), float(result["lon"])
     except (KeyError, TypeError, ValueError):
@@ -42,7 +47,7 @@ def accept(place_name: str, result: dict[str, Any], threshold: int = ACCEPT_RATI
     if not in_bbox(lat, lng):
         return None
     a, b = canonical_key(place_name), canonical_key(result_name(result))
-    if not a or not b or fuzz.token_set_ratio(a, b) < threshold:
+    if not a or not b or fuzz.token_sort_ratio(a, b) < threshold:
         return None
     return round(lat, 6), round(lng, 6)
 
@@ -109,7 +114,9 @@ class Geocoder:
             if not candidate:
                 continue
             results = self.search(f"{candidate} Riyadh")
-            for r in results or []:
+            # restaurants/cafes first, then Nominatim's own order
+            ranked = sorted(results or [], key=lambda r: r.get("category") != "amenity")
+            for r in ranked:
                 hit = accept(candidate, r)
                 if hit:
                     return hit

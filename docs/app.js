@@ -6,7 +6,7 @@
   var DATA_URL = (typeof window.DATA_URL === "string" && window.DATA_URL) || "data/restaurants.json";
   var LEAFLET_JS = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js";
   var LEAFLET_CSS = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css";
-  var PAGE = 40;
+  var PAGE = 40, MAX_BADGES = 6, MAX_AWARDS = 3;
   var TYPE_LABEL = { guide: "Guide", ranking: "Ranking", award: "Award", editorial: "Editorial",
                      official: "Official", community: "Community" };
   var TYPE_ORDER = ["guide", "ranking", "award", "editorial", "official", "community"];
@@ -140,12 +140,16 @@
       '<span class="score" title="Score">' + (p.score || 0).toFixed(1) + "</span>" +
       '<span class="conf ' + esc(p.confidence) + '" title="' + esc(confTitle) + '">' + esc(p.confidence) + "</span></div>" +
       (p.why ? '<p class="why">' + esc(p.why) + "</p>" : "") +
-      (p.awards && p.awards.length ? '<ul class="awards" aria-label="Awards">' +
-        p.awards.map(function (a) { return "<li>" + esc(a) + "</li>"; }).join("") + "</ul>" : "") +
-      '<div class="badges" aria-label="Sources">' + p.mentions.map(badge).join("") + "</div>" +
+      (p.awards && p.awards.length ? '<p class="awards"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v2h4v3a5 5 0 0 1-4.6 5A5 5 0 0 1 13 15.9V18h3v3H8v-3h3v-2.1A5 5 0 0 1 7.6 13 5 5 0 0 1 3 8V5h4zm0 4H5v1a3 3 0 0 0 2 2.8zm10 0v3.8A3 3 0 0 0 19 8V7z"/></svg>' +
+        '<span class="aw-list" title="Awards"><span>' + p.awards.slice(0, MAX_AWARDS).map(esc).join("</span><span>") + "</span>" +
+        (p.awards.length > MAX_AWARDS ? '<span class="more-n">+' + (p.awards.length - MAX_AWARDS) + " more</span>" : "") +
+        "</span></p>" : "") +
+      '<div class="badges" aria-label="Sources">' + p.mentions.slice(0, MAX_BADGES).map(badge).join("") +
+        (p.mentions.length > MAX_BADGES ? '<button type="button" class="badge more-badges" data-expand="' + esc(p.id) +
+          '">+' + (p.mentions.length - MAX_BADGES) + " more sources</button>" : "") + "</div>" +
       (p.branches && p.branches.length ? '<p class="branches">Branches named by sources: ' +
         p.branches.map(nameHtml).join(", ") + "</p>" : "") +
-      (p.lat != null ? '<div class="card-foot"><span></span><button type="button" data-map="' + esc(p.id) + '">Show on map</button></div>' : "") +
+      (p.lat != null && p.lng != null ? '<div class="card-foot"><span></span><button type="button" data-map="' + esc(p.id) + '">Show on map</button></div>' : "") +
       "</li>";
   }
 
@@ -244,7 +248,7 @@
     });
     if (fit && pts.length) map.fitBounds(pts, { padding: [30, 30], maxZoom: 14 });
     $("map-note").textContent = (pts.length ? pts.length + " shown on the map. " : "No mapped restaurants match. ") +
-      (missing ? missing + " without coordinates (not found on OpenStreetMap) are only in the list. " : "") +
+      (missing ? missing + " without coordinates are only in the list. " : "") +
       "Green = strong, amber = medium, grey = single source.";
   }
 
@@ -341,6 +345,15 @@
     $("cards").addEventListener("click", function (e) {
       var b = e.target.closest("button[data-map]");
       if (b) focusOnMap(b.getAttribute("data-map"));
+      var x = e.target.closest("button[data-expand]");
+      if (x) {
+        var p = places.filter(function (q) { return q.id === x.getAttribute("data-expand"); })[0];
+        if (!p) return;
+        var box = x.parentNode;
+        box.innerHTML = p.mentions.map(badge).join("");
+        var aw = box.parentNode.querySelector(".aw-list");
+        if (aw) aw.innerHTML = "<span>" + p.awards.map(esc).join("</span><span>") + "</span>";
+      }
     });
     $("theme-toggle").addEventListener("click", function () {
       var root = document.documentElement;

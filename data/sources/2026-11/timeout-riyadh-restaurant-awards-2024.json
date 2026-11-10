@@ -1,0 +1,73 @@
+{
+  "source_id": "timeout-riyadh-restaurant-awards-2024",
+  "source_name": "Time Out Riyadh Restaurant Awards 2024 — winners (partial)",
+  "publisher": "Time Out",
+  "source_type": "award",
+  "language": "en",
+  "url": "https://www.timeoutriyadh.com/food-drink/riyadh-restaurant-of-the-year",
+  "published_at": "2024-09-11",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "timeoutriyadh.com, timeoutdoha.com, timeoutdubai.com, hoteliermiddleeast.com, caterermiddleeast.com and arabianbusiness.com all returned bot-protection blocks (403/405) to this session, so the full winners page could not be read. Third edition, ceremony 11 Sep 2024 at voco Riyadh, 24 categories (one winner and two highly commended each). Only the 5 winners named in search-result summaries of Time Out and Hotelier Middle East headlines are recorded; the other ~19 category winners and all highly commended venues are missing. Re-read when the pages are reachable.",
+  "entries": [
+    {
+      "name": "Myazu",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "winner",
+      "position": null,
+      "note": "Restaurant of the Year 2024 (MFC restaurant).",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Beefbar",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "winner",
+      "position": null,
+      "note": "Best Steakhouse 2024.",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Bagatelle",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "winner",
+      "position": null,
+      "note": "Best French Restaurant 2024.",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Carbone",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "winner",
+      "position": null,
+      "note": "Best Italian 2024.",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Flamingo Room by tashas",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "winner",
+      "position": null,
+      "note": "Best European 2024.",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

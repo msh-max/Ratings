@@ -202,19 +202,21 @@ SITE_MENTION_KEYS = ("source_id", "tier", "position", "weight")
 def site_copy(output: dict[str, Any]) -> dict[str, Any]:
     """Slim copy for docs/data/restaurants.json (the page joins mentions to `sources`).
 
-    Mentions keep source_id, tier, position and weight (notes already feed `why`), plus url only when it is an
-    entry's own page (differs from the source URL). Everything else is identical.
+    Mentions keep source_id, tier, position and weight (notes already feed `why`), plus url
+    only when it is an entry's own page (differs from the source URL). Place fields that are
+    null or empty are omitted. The full record stays in data/rankings/.
     """
     src_url = {s["source_id"]: s["url"] for s in output["sources"]}
     places = []
     for p in output["places"]:
         mentions = []
         for m in p["mentions"]:
-            slim = {k: m[k] for k in SITE_MENTION_KEYS}
+            slim = {k: m[k] for k in SITE_MENTION_KEYS if m[k] not in (None, "", [])}
             if m["url"] and m["url"] != src_url.get(m["source_id"]):
                 slim["url"] = m["url"]
             mentions.append(slim)
-        places.append({**p, "mentions": mentions})
+        slim_place = {k: v for k, v in p.items() if v not in (None, "", [])}
+        places.append({**slim_place, "mentions": mentions})
     return {**output, "site_format": "slim-mentions", "places": places}
 
 

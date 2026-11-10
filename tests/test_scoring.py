@@ -134,3 +134,24 @@ def test_confidence():
     assert confidence(3) == "strong"
     assert confidence(2) == "medium"
     assert confidence(1) == "single"
+
+
+def test_every_registered_publisher_matches_its_own_name(registry):
+    for pub in registry.publishers:
+        assert registry.publisher(pub["name"])["id"] == pub["id"], pub["name"]
+
+
+@pytest.mark.parametrize("raw,pid", [
+    ("Fodor's Travel", "fodors"), ("Harper's Bazaar Arabia", "harpersbazaar-arabia"),
+    ("What's On Saudi Arabia", "whatson-saudi"), ("Condé Nast Traveller Middle East", "cntraveller"),
+    ("50 Best (The 50)", "mena50best"), ("Gault & Millau", "gaultmillau"), ("Time Out Riyadh", "timeout"),
+    ("r/Riyadh", "reddit"), ("سيدتي", "sayidaty"), ("Diriyah Company", "diriyah"),
+    ("FACT Magazine", "fact"), ("The National News", "thenational"),
+])
+def test_publisher_matching(registry, raw, pid):
+    assert registry.publisher(raw)["id"] == pid
+
+
+def test_unknown_publisher_and_type_defaults(registry):
+    assert registry.publisher("Totally New Blog") is None
+    assert registry.publisher_key("Totally New Blog") == "totally new blog"

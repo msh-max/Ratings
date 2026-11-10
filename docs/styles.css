@@ -134,7 +134,7 @@ main { padding-top: 12px; padding-bottom: 24px; min-height: 60vh; }
 .rank.top { background: var(--accent); color: var(--accent-ink); }
 .title { min-width: 0; flex: 1; }
 .title h3 { margin: 0; font-size: 1.1rem; line-height: 1.25; overflow-wrap: anywhere; }
-.title .name-ar { display: block; font-family: var(--font-ar); font-size: 1.05rem; color: var(--muted); font-weight: 600; margin-top: 1px; }
+.title .name-ar { display: block; text-align: left; font-family: var(--font-ar); font-size: 1.05rem; color: var(--muted); font-weight: 600; margin-top: 1px; }
 .meta { margin: 2px 0 0; color: var(--muted); font-size: .88rem; overflow-wrap: anywhere; }
 .meta .price { color: var(--text); font-weight: 600; letter-spacing: .05em; }
 .scoreline { display: flex; align-items: center; gap: 10px; font-size: .85rem; }
@@ -144,8 +144,10 @@ main { padding-top: 12px; padding-bottom: 24px; min-height: 60vh; }
 .conf { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
 .conf.strong { color: var(--c-strong); } .conf.medium { color: var(--c-medium); } .conf.single { color: var(--c-single); }
 .why { margin: 0; font-size: .93rem; }
-.awards { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.awards li { font-size: .78rem; font-weight: 600; padding: 2px 8px; border-radius: 8px; background: var(--surface-2); }
+.awards { margin: 0; font-size: .82rem; font-weight: 600; color: var(--text); display: flex; gap: 6px; align-items: baseline; }
+.awards svg { flex: none; width: 14px; height: 14px; fill: var(--c-medium); transform: translateY(2px); }
+.aw-list { min-width: 0; }
+.aw-list span + span::before { content: " · "; color: var(--muted); font-weight: 400; }
 .badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .badge {
   display: inline-flex; align-items: center; gap: 4px; font-size: .78rem; line-height: 1.2; padding: 5px 9px;
@@ -160,6 +162,8 @@ main { padding-top: 12px; padding-bottom: 24px; min-height: 60vh; }
 .t-editorial { background: var(--t-editorial-bg); color: var(--t-editorial); }
 .t-official { background: var(--t-official-bg); color: var(--t-official); }
 .t-community { background: var(--t-community-bg); color: var(--t-community); }
+.more-badges { border: 1px dashed var(--border); background: none; color: var(--muted); font: inherit; font-size: .78rem; font-weight: 600; cursor: pointer; }
+.aw-list .more-n { color: var(--muted); font-weight: 500; }
 .branches { margin: 0; font-size: .82rem; color: var(--muted); }
 .card-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: .82rem; }
 .card-foot button {
