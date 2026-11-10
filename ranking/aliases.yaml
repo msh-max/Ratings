@@ -15,4 +15,99 @@
 #     - [Em Sherif, Em Sherif Cafe]
 #
 # `python -m ranking qa` prints near-duplicate pairs (token_set_ratio 85-92) to review here.
-{}
+
+# ---- 2026-11 decisions (from `python -m ranking qa` duplicate suspects)
+
+# Same Korean-American steakhouse; Curly Tales and Scene Now both describe the October 2024 opening.
+# "Akira Back" (the chef's Japanese restaurant) and "Namu by Akira Back" stay separate places.
+AB Steak:
+  - AB Steak by Chef Akira Back
+
+# Aseeb Najd is the same Al Yasmin restaurant (Wego, What's On); Aseeb Zallal is its Diriyah branch.
+Aseeb:
+  - Aseeb Najd
+  - Aseeb Zallal
+  - عسيب نجد
+
+# Daniel Boulud's ten-seat chef's counter at the Four Seasons, Kingdom Centre (all sources agree).
+Julien:
+  - Julien by Daniel Boulud
+  - Julien at Café Boulud
+
+# One Riyadh Front steakhouse (FACT nominates "Lucca" in its Steakhouse category).
+Lucca:
+  - Lucca Steak House
+  - Lucca Steakhouse
+
+# Same Hilton Riyadh Olaya brasserie under three spellings.
+Parea:
+  - Parea Greek Brasserie
+  - Parea Mediterranean Brasserie
+
+# Yawmiyat by Dalal: one restaurant, spelling only. (Yawmiyat Bistronomy is kept apart below.)
+Yawmiyat By Dalal:
+  - Yawmiyat bydalal
+
+# Same Riyadh Indian brand: the Turki Square and Levels Mall branches trade under both names.
+Zafran:
+  - Zafran Indian Bistro
+  - Zafran Indian Kitchen
+
+# Transliteration of حكاية بحر.
+Hekayat Bahr:
+  - Hekayet Bahr
+
+# Michelin and Gault&Millau both list the room separately from Hōchō; two spellings of it here.
+The Rubi Room at Hōchō:
+  - Ruby Room - Hocho
+  - Ruby Room
+
+# Same coffee chain ("½ Million" in FACT, "Half Million" in Riyadh Key).
+Half Million:
+  - ½ Million
+  - 1/2 Million
+
+_distinct:
+  # Gault&Millau rates both separately (13/20 chef George Chartouni vs 12.5/20 chef Dalal).
+  - [Yawmiyat By Dalal, Yawmiyat Bistronomy by Dalal and George]
+  # Separate room: separate Michelin entry ("Creative") and separate Gault&Millau rating.
+  - [Hōchō, The Rubi Room at Hōchō]
+  # Kayzo by Myazu (As Sulimaniyah, Japanese) vs KAZO (Le Méridien, Pan-Asian).
+  - [Kayzo, KAZO]
+  # The chef's Japanese restaurant is not the steakhouse.
+  - [Akira Back, AB Steak]
+  # Em Sherif (fine dining), Em Sherif Café (The Zone) and Em Sherif Sea Café (Laysen Valley).
+  - [Em Sherif, Em Sherif Café]
+  - [Em Sherif, Em Sherif Sea Café]
+  - [Em Sherif Café, Em Sherif Sea Café]
+  # The flagship tashas café and its separate Flamingo Room restaurant.
+  - [Flamingo Room by tashas, tashas]
+  # Hotel lobby lounges and other "... Lounge" venues are unrelated places.
+  - [The Lounge, Chorisia Lounge]
+  - [The Lounge, Obaya Lounge]
+  - [The Lounge, Offwhite Lounge]
+  - [The Lounge, Savoy Lounge]
+  - [The Lounge, Stella Sky Lounge]
+  - [The Lounge, African Lounge]
+  - [The Lounge, Artur Lounge]
+  - [The Lounge, Fish Lounge]
+  - [The Lounge, Florya Steak Lounge]
+  - [The Lounge, Lobby Lounge]
+  - [The Lounge, Sage & Sirloin Lounge]
+  - [The Lounge, The Mandarin Lounge]
+  # Crowne Plaza's "The Palace" is not Korean Palace.
+  - [The Palace, Korean Palace]
+  # Different villas.
+  - [The Villa Restaurant, Villa Beirut]
+  - [The Villa Restaurant, Villa Fayrouz]
+  - [The Villa Restaurant, Villa Mamas]
+  # Different Italian venues.
+  - [V Italian Cafe, V Restaurant]
+  # Different steakhouses / brasseries sharing a generic word.
+  - [JW Steakhouse, Lucca Steakhouse]
+  - [JW Steakhouse, Sultan's Steakhouse]
+  - [JW Steakhouse, Wildfire Brazilian Steakhouse]
+  - [56th Avenue Diner, Avenue M]
+  - [La Brasserie, Emily's Brasserie]
+  - [La Brasserie, Parea]
+  - [La Brasserie, VARI Brasserie and Grill]

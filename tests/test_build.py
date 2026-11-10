@@ -71,8 +71,10 @@ def test_build_is_deterministic(repo):
 
 
 def test_why_never_adds_text():
-    counted = [{"note": "  grills over  charcoal ", "_publisher_name": "X", "tier": "listed", "position": None},
-               {"note": "Grills over charcoal.", "_publisher_name": "Y", "tier": "listed", "position": None}]
+    counted = [{"note": "  grills over  charcoal ", "_publisher_name": "X", "tier": "listed",
+                "position": None, "source_type": "editorial", "weight": 3},
+               {"note": "Grills over charcoal.", "_publisher_name": "Y", "tier": "listed",
+                "position": None, "source_type": "editorial", "weight": 3}]
     assert synthesise_why(counted) == "Grills over charcoal."
 
 
@@ -85,7 +87,7 @@ def test_cli_build_writes_outputs(repo, capsys):
     site = json.loads((repo / "docs/data/restaurants.json").read_text())
     assert month == latest
     assert {k: v for k, v in site.items() if k not in ("places", "site_format")} == \
-        {k: v for k, v in month.items() if k != "places"}
+        {k: v for k, v in month.items() if k not in ("places", "excluded", "n_excluded")}
     assert [p["id"] for p in site["places"]] == [p["id"] for p in month["places"]]
     assert set(site["places"][0]["mentions"][0]) <= {"source_id", "tier", "position", "weight", "url"}
     assert "name_ar" not in site["places"][0] and "name_ar" in month["places"][0]   # nulls omitted

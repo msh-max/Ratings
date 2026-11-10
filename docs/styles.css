@@ -61,7 +61,12 @@ body {
 a { color: var(--accent); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 [hidden] { display: none !important; }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.map-off { margin: 8px auto 0; font-size: .85rem; color: var(--muted); }
 .skip { position: absolute; left: -999px; top: 0; background: var(--surface); padding: 8px; z-index: 100; }
 .skip:focus { left: 8px; }
 .ar, bdi[lang="ar"] { font-family: var(--font-ar); unicode-bidi: isolate; }

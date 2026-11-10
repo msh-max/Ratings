@@ -5,7 +5,9 @@ import argparse
 import sys
 from pathlib import Path
 
-from .build import build, write_outputs
+from .build import PACKAGE_DIR, build, write_outputs
+from .exclusions import load_exclusions
+from .normalize import load_aliases
 from .geocode import Geocoder
 from .load import latest_month
 from .qa import report
@@ -49,8 +51,25 @@ def cmd_build(args: argparse.Namespace) -> int:
 def cmd_qa(args: argparse.Namespace) -> int:
     root = Path(args.root)
     month = _month(args)
-    res = build(root, month, geocoder=Geocoder(root / "data" / "geocode" / "cache.json", online=False))
-    return report(res.output, res.errors, res.warnings, sys.stdout, top=args.top)
+    aliases = load_aliases(PACKAGE_DIR / "aliases.yaml")
+    exclusions = load_exclusions(PACKAGE_DIR / "exclusions.yaml", aliases)
+    res = build(root, month, geocoder=Geocoder(root / "data" / "geocode" / "cache.json", online=False),
+                aliases=aliases, exclusions=exclusions)
+    return report(res.output, res.errors, res.warnings, sys.stdout, top=args.top,
+                  aliases=aliases, exclusions=exclusions)
+
+
+def cmd_artifact(args: argparse.Namespace) -> int:
+    from .artifact import write_artifact
+    root = Path(args.root)
+    month = _month(args)
+    try:
+        path = write_artifact(root, month, Path(args.out))
+    except (FileNotFoundError, ValueError) as err:
+        print(f"error: {err}", file=sys.stderr)
+        return 1
+    print(f"wrote {path} ({path.stat().st_size // 1024} KB)")
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -69,6 +88,12 @@ def main(argv: list[str] | None = None) -> int:
     q.add_argument("--month", help="YYYY-MM (default: latest month under data/sources)")
     q.add_argument("--top", type=int, default=30)
     q.set_defaults(func=cmd_qa)
+
+    a = sub.add_parser("artifact", help="write one self-contained HTML fragment (data inlined) for a Claude Artifact")
+    a.add_argument("--month", help="YYYY-MM (default: latest month under data/sources)")
+    a.add_argument("--out", default="build/riyadh-best-restaurants.html",
+                   help="output path (default: build/riyadh-best-restaurants.html)")
+    a.set_defaults(func=cmd_artifact)
 
     args = p.parse_args(argv)
     return args.func(args)

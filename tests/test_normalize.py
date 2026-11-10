@@ -69,11 +69,12 @@ def test_distinct_pairs_block_fuzzy_merge(tmp_path):
     assert len(cluster_mentions(ms, load_aliases(f))) == 2
 
 
-def test_empty_aliases_file_from_repo():
+def test_repo_aliases_file_loads():
     from pathlib import Path
     import ranking
     aliases = load_aliases(Path(ranking.__file__).with_name("aliases.yaml"))
-    assert aliases.key_map == {}
+    assert aliases.resolve(canonical_key("Aseeb Najd")) == canonical_key("Aseeb")
+    assert aliases.kept_apart(canonical_key("Em Sherif Café"), canonical_key("Em Sherif Sea Café"))
 
 
 def test_place_attributes_and_branches():

@@ -1,0 +1,4203 @@
+{
+ "version": 1,
+ "user_agent": "RiyadhBestPlaces/1.0 (+https://github.com/msh-max/Ratings)",
+ "entries": {
+  "300F Smokehouse Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "300F سموكهاوس Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "56th Avenue Diner Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "7 Ribs Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "911 Pizza Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "A.O.K Kitchen Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "AB Steak Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "AGIA Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "AGORA Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "AOK Kitchen Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Abou El Sid Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Abu Najm Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "African Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Agio Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Agio",
+     "names": [],
+     "display_name": "Agio, أحمد القرشي, حطين, حي النخيل, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7521049",
+     "lon": "46.6244290",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Ajinet Mariam Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Akira Back Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Al Falamanki Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Al Khairy Chinese Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Al Mamlaka Social Dining Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Al Orjouan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Al Romansiah Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "الرومانسية",
+     "names": [
+      "Al-Romansiah"
+     ],
+     "display_name": "الرومانسية, شارع الزبير بن العوام, حي الروابي, الروابي, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 14215, السعودية",
+     "lat": "24.6958274",
+     "lon": "46.7923604",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Al Saddah Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Al Saudi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "السعودي",
+     "names": [
+      "Al Saudi"
+     ],
+     "display_name": "السعودي, الشميسي, بلدية الشميسي, الرياض, محافظة الرياض, منطقة الرياض, 11131, السعودية",
+     "lat": "24.6222155",
+     "lon": "46.7024886",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "Al Tazaj Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Al-Tazaj",
+     "names": [],
+     "display_name": "Al-Tazaj, الشيخ عبدالرحمن بن حسن, السلامة, المربع, الرياض, محافظة الرياض, منطقة الرياض, 12612, السعودية",
+     "lat": "24.6661313",
+     "lon": "46.7115802",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "الطازج",
+     "names": [
+      "Al Tazaj"
+     ],
+     "display_name": "الطازج, عبدالعزيز الثميري, الفوطة, الرياض, محافظة الرياض, منطقة الرياض, 12643, السعودية",
+     "lat": "24.6453576",
+     "lon": "46.7152545",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "الطازج",
+     "names": [
+      "Al Tazaj"
+     ],
+     "display_name": "الطازج, كعب بن عبيد, المروج, الرياض, محافظة الرياض, منطقة الرياض, 12264, السعودية",
+     "lat": "24.7561287",
+     "lon": "46.6561546",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "AlBaik Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "البيك",
+     "names": [
+      "Albaik"
+     ],
+     "display_name": "البيك, طريق إلامام سعود بن عبد العزيز بن محمد الفرعي, الملك فهد, الرياض, محافظة الرياض, منطقة الرياض, 12262, السعودية",
+     "lat": "24.7511529",
+     "lon": "46.6725129",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "البيك",
+     "names": [
+      "Albaik"
+     ],
+     "display_name": "البيك, طريق نجد, ظهرة لبن, بلدية عرقة, الرياض, محافظة الرياض, منطقة الرياض, 13782, السعودية",
+     "lat": "24.6328516",
+     "lon": "46.5652681",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "البيك",
+     "names": [
+      "AlBaik"
+     ],
+     "display_name": "البيك, عائشة بنت أبي بكر, السويدي, بلدية العريجاء, الرياض, محافظة الرياض, منطقة الرياض, 12983, السعودية",
+     "lat": "24.5880552",
+     "lon": "46.6536236",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "AlMayass Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Alaya Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "العلايا",
+     "names": [
+      "Al Alaya"
+     ],
+     "display_name": "العلايا, الربوة, الرياض, محافظة الرياض, منطقة الرياض, 12821, السعودية",
+     "lat": "24.6951191",
+     "lon": "46.7686285",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "العلايا",
+     "names": [
+      "Al Alaya"
+     ],
+     "display_name": "العلايا, الورود, الرياض, محافظة الرياض, منطقة الرياض, 12251, السعودية",
+     "lat": "24.7193991",
+     "lon": "46.6835235",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "العلايا",
+     "names": [
+      "Al Alaya"
+     ],
+     "display_name": "العلايا, الربوة, الرياض, محافظة الرياض, منطقة الرياض, 14215, السعودية",
+     "lat": "24.6957401",
+     "lon": "46.7708301",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "Alkofeia Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Allo Beirut Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Almajlis Alkhaleeji Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Almakki Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Almutaka Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Alsafwah Cuisine Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Altopiano Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Amar Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "بني عامر بن لؤي",
+     "names": [
+      "Bni Amar Bin Louai"
+     ],
+     "display_name": "بني عامر بن لؤي, الملك فيصل, بلدية الروضة, الرياض, محافظة الرياض, منطقة الرياض, 13215, السعودية",
+     "lat": "24.7539383",
+     "lon": "46.7727529",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "عمرو بن كلثوم",
+     "names": [
+      "Amar Bin Kulsom"
+     ],
+     "display_name": "عمرو بن كلثوم, عرقة, بلدية عرقة, الرياض, محافظة الرياض, منطقة الرياض, 12544, السعودية",
+     "lat": "24.6953379",
+     "lon": "46.5881250",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "الأمار",
+     "names": [
+      "Al Amar"
+     ],
+     "display_name": "الأمار, العزيزية, الرياض, محافظة الرياض, منطقة الرياض, 14515, السعودية",
+     "lat": "24.5871061",
+     "lon": "46.7655294",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "Amazing Shawarma Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Amazónico Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Amigos Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Angelina Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Anghami Lab Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Anis Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "مسجد عبدالله بن أنيس",
+     "names": [
+      "Abdullah Ibn Anis Mosque"
+     ],
+     "display_name": "مسجد عبدالله بن أنيس, QQ22+PG3, القطن, القدس, بلدية الروضة, الرياض, محافظة الرياض, منطقة الرياض, 13214, السعودية",
+     "lat": "24.7517470",
+     "lon": "46.7513210",
+     "category": "amenity",
+     "type": "place_of_worship"
+    }
+   ]
+  },
+  "Apple Butter Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Arcade Food Hall Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Arcomi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ARCOMI",
+     "names": [],
+     "display_name": "ARCOMI, طريق الأمير تركي بن عبدالعزيز الأول الفرعي, جامعة الملك سعود, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12364, السعودية",
+     "lat": "24.7266455",
+     "lon": "46.6422747",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Artur Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Asador de Aranda Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Aseeb Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Assouline Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Auria Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Avak Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Avenue M Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Awani Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "أحمد الأواني",
+     "names": [
+      "Ahmad Al Awani"
+     ],
+     "display_name": "أحمد الأواني, الشفا, الرياض, محافظة الرياض, منطقة الرياض, 14721, السعودية",
+     "lat": "24.5516103",
+     "lon": "46.6741588",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "أبي المعالي الأواني",
+     "names": [
+      "Abi Al Maali Al Awani"
+     ],
+     "display_name": "أبي المعالي الأواني, غبيرا, الرياض, محافظة الرياض, منطقة الرياض, 12878, السعودية",
+     "lat": "24.6215593",
+     "lon": "46.7451582",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "عبدالله الأهواني",
+     "names": [
+      "Abdullah Al awani"
+     ],
+     "display_name": "عبدالله الأهواني, ظهرة نمار, بلدية نمار, الرياض, محافظة الرياض, منطقة الرياض, 12992, السعودية",
+     "lat": "24.5528367",
+     "lon": "46.6036000",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "Ayedh Shawarma Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Aykr Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Azure Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Azzurro Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "B+F Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "BACO Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "BRGR 1983 Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Baan Thai Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bab Touma Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Badia Aisharq Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bagatelle Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Baheg Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bahruna Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bahrya Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Balcona 99 Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Balkan Ćevapi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Banbiya Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Barbar Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "بربر",
+     "names": [
+      "Barbar"
+     ],
+     "display_name": "بربر, الشويعر الجعفي, السلامة, العليا, الرياض, محافظة الرياض, منطقة الرياض, 11493, السعودية",
+     "lat": "24.6993579",
+     "lon": "46.6897158",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Bardo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bayaz Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "BeKaBo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Beast House Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "BeauCoCo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Beefbar Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Beefbar",
+     "names": [],
+     "display_name": "Beefbar, عبد العزيز بن مساعد بن جلوي, السلامة, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12234, السعودية",
+     "lat": "24.7043323",
+     "lon": "46.7059386",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Beit Almounah Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bellbird Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "بل بيرد",
+     "names": [
+      "Bellbird"
+     ],
+     "display_name": "بل بيرد, شارع عبدالرحمن بن مهنا, الربيع, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13315, السعودية",
+     "lat": "24.7885217",
+     "lon": "46.6479657",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Benihana Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Benihana",
+     "names": [],
+     "display_name": "Benihana, الدائري الشمالي, التعاون, الإزدهار, محافظة الرياض, منطقة الرياض, 12477, السعودية",
+     "lat": "24.7804120",
+     "lon": "46.6950335",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Benoit Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Berenjak Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Best Fish Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "أفضل سمك وبطاطا",
+     "names": [
+      "Best Fish & Chips"
+     ],
+     "display_name": "أفضل سمك وبطاطا, شارع العليا, الملك فهد, الرياض, محافظة الرياض, منطقة الرياض, 12262, السعودية",
+     "lat": "24.7440565",
+     "lon": "46.6581159",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Betmoon Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Billionaire Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bird Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Cessna O-1 Bird Dog",
+     "names": [],
+     "display_name": "Cessna O-1 Bird Dog, Static Park, الملك عبدالله, مغرزات, الرياض, محافظة الرياض, منطقة الرياض, 13214, السعودية",
+     "lat": "24.7529180",
+     "lon": "46.7381177",
+     "category": "historic",
+     "type": "aircraft"
+    },
+    {
+     "name": "Tiny Bird cafe تايني بيرد كافيه",
+     "names": [],
+     "display_name": "Tiny Bird cafe تايني بيرد كافيه, شارع خيبر, العارض, محافظة الرياض, منطقة الرياض, 11543, السعودية",
+     "lat": "24.8618544",
+     "lon": "46.6339584",
+     "category": "amenity",
+     "type": "cafe"
+    },
+    {
+     "name": "Tiny Bird cafe تايني بيرد كافيه",
+     "names": [
+      "Tiny bird cafe"
+     ],
+     "display_name": "Tiny Bird cafe تايني بيرد كافيه, شارع خيبر, العارض, محافظة الرياض, منطقة الرياض, 11543, السعودية",
+     "lat": "24.8618520",
+     "lon": "46.6339565",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "Bistro & Co Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Black Barn Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Black Tap Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Blanca Forno Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Blu Pizzeriá Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bofia Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Boo Shawarma Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Botanica Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Brekkie Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Brisket Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bronx Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Brunch & Cake Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Brunch & Cake",
+     "names": [],
+     "display_name": "Brunch & Cake, الإمام عبدالعزيز بن محمد بن سعود, طريفة, الدرعية, محافظة الدرعية, منطقة الرياض, 12572, السعودية",
+     "lat": "24.7369608",
+     "lon": "46.5742184",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Brute Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Burger Boutique Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Burgeration Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Burj Al Hamam Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Bursa Kebap Evi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Buttermilk Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "CACHO The Cheese Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "COAL Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "COFLEUR Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "COFLEUR",
+     "names": [],
+     "display_name": "COFLEUR, 7, الندى, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13317, السعودية",
+     "lat": "24.8043075",
+     "lon": "46.6741674",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "COYA Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Coya",
+     "names": [],
+     "display_name": "Coya, شارع ابن النحاس, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12234, السعودية",
+     "lat": "24.7045628",
+     "lon": "46.7057789",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Cafe Noir Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Café Bateel Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "كوفي بتيل",
+     "names": [
+      "Cafe Bateel"
+     ],
+     "display_name": "كوفي بتيل, North Street, طريفة, الدرعية, محافظة الدرعية, منطقة الرياض, 12572, السعودية",
+     "lat": "24.7343251",
+     "lon": "46.5745274",
+     "category": "amenity",
+     "type": "cafe"
+    },
+    {
+     "name": "بتيل",
+     "names": [
+      "Café Bateel"
+     ],
+     "display_name": "بتيل, الطابق الأرضي, العقيق, حي النخيل, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7567009",
+     "lon": "46.6298518",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "Café Boulud Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Café L'Occitane Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Café Lilou Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Café de L'Esplanade Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "California Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Callen Haze Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Candelina Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Carbone Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Casa Myrra - Novotel Riyadh Sahafa Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Cello Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Century Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "سنشري برجر",
+     "names": [
+      "Century Burger"
+     ],
+     "display_name": "سنشري برجر, طريق الأمير تركي بن عبدالعزيز الأول الفرعي, النخيل, حي النخيل, بلدية المعذر, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7459675",
+     "lon": "46.6192046",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "سنشري برجر",
+     "names": [
+      "Century Burger"
+     ],
+     "display_name": "سنشري برجر, طريق الأمير محمد بن عبد العزيز, السلامة, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12213, السعودية",
+     "lat": "24.6984321",
+     "lon": "46.6893818",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Ceylon Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chapter Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Charcoza Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Charcoza Grill",
+     "names": [],
+     "display_name": "Charcoza Grill, الدائري الشمالي, التعاون, الإزدهار, محافظة الرياض, منطقة الرياض, 12477, السعودية",
+     "lat": "24.7799522",
+     "lon": "46.6939272",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Che Figata Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chef's Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chez Lily's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chi Spacca Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chicago Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chick-N-Bun Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chicken Balalm Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chingari Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chorisia Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Chotto Matte Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Chotto Matte Riyadh",
+     "names": [],
+     "display_name": "Chotto Matte Riyadh, 3004, Innovation Blvd, العقيق, بلدية الشمال, الرياض, محافظة الرياض, منطقة الرياض, 13519, السعودية",
+     "lat": "24.7677084",
+     "lon": "46.6404435",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Cine House Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Cipriani Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Circle 3 by Acoustic Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Clap Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Cleaver Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Cleaver Steak Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Cova Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Crazy Pizza Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Crazy Pizza",
+     "names": [],
+     "display_name": "Crazy Pizza, أحمد بن عفيف, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12234, السعودية",
+     "lat": "24.7057895",
+     "lon": "46.7053592",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "Crazy Pizza",
+     "names": [],
+     "display_name": "Crazy Pizza, شارع عمرو الضمري, السفارات, حي السفارات, بلدية عرقة, الرياض, محافظة الرياض, منطقة الرياض, 12511, السعودية",
+     "lat": "24.6752569",
+     "lon": "46.6249792",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "Crazy Pizza",
+     "names": [],
+     "display_name": "Crazy Pizza, No. 73, الملقا, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13521, السعودية",
+     "lat": "24.7840729",
+     "lon": "46.5912956",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Crome London Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "DDR Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Dank Sandwich Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Dave's Hot Chicken Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ديڤز هوت نشيكن",
+     "names": [
+      "Dave's Hot Chicken"
+     ],
+     "display_name": "ديڤز هوت نشيكن, الشويعر الجعفي, السلامة, العليا, الرياض, محافظة الرياض, منطقة الرياض, 11493, السعودية",
+     "lat": "24.6993108",
+     "lon": "46.6895706",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Dawar Al Saada Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Dayatna Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Delfino Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Denden Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Derati Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Dolce & Gabbana Cafe (DG Caffè) Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Domn Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Don Ruben’s Mexican Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Dr. Kabsa Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "EDO Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "EL&N Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "EL&N London",
+     "names": [],
+     "display_name": "EL&N London, Fountain St, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13516, السعودية",
+     "lat": "24.7665873",
+     "lon": "46.6047326",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "ENCORE Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Eataly Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "El Camino Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "El Tahrir Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Em Sherif Café Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Em Sherif Cafe",
+     "names": [],
+     "display_name": "Em Sherif Cafe, The zone, طريق التخصصي, المحمدية, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12364, السعودية",
+     "lat": "24.7313364",
+     "lon": "46.6494167",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "Em Sherif Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Em Sherif Cafe",
+     "names": [],
+     "display_name": "Em Sherif Cafe, The zone, طريق التخصصي, المحمدية, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12364, السعودية",
+     "lat": "24.7313364",
+     "lon": "46.6494167",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "Em Sherif Sea Café Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Emily's Brasserie Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Entrecôte Café de Paris Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Entrecôte Café de Paris",
+     "names": [],
+     "display_name": "Entrecôte Café de Paris, رقم 38, السلامة, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12212, السعودية",
+     "lat": "24.6899848",
+     "lon": "46.6848564",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "Entrecôte Café de Paris",
+     "names": [],
+     "display_name": "Entrecôte Café de Paris, سالم بن أبي بكر شيخان, أم الحمام الغربي, أم الحمام, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12512, السعودية",
+     "lat": "24.6904489",
+     "lon": "46.6338535",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "Entrecôte Café de Paris",
+     "names": [],
+     "display_name": "Entrecôte Café de Paris, طريق الأمير تركي بن عبدالعزيز الأول الفرعي, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 12513, السعودية",
+     "lat": "24.7602211",
+     "lon": "46.6036440",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Faris Breakfast Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "FatPie Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Feels Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Feluka Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Ferdi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Fez Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Fi Glbak Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Fiamma Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Finding Sushi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Fish Factory Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Fish Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Five Guys Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Five Guys",
+     "names": [
+      "Five Guys Burgers and Fries"
+     ],
+     "display_name": "Five Guys, محمد بن مهيزع, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7499917",
+     "lon": "46.6136655",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Flamingo Room by tashas Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Florya Steak By Etçi Mehmet Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Florya Steak Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Flour & Firewood Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Fork & Pipe Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Forno Del Buffone Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Franco's Cucina Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "French Toast & Co Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "GLEAM PIZZERIA Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "GUNBUN Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Genneh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "جنيح",
+     "names": [
+      "Genneh"
+     ],
+     "display_name": "جنيح, طريق عثمان بن عفان الفرعي, الازدهار, مغرزات, الرياض, محافظة الرياض, منطقة الرياض, 13314, السعودية",
+     "lat": "24.7819756",
+     "lon": "46.7063940",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Goji Kitchen - Marriott Riyadh Diplomatic Quarter Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Gold Sushi Club Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Gold Sushi Club",
+     "names": [],
+     "display_name": "Gold Sushi Club, 4228, الطريق الدائري الشمالي, حطين, حي النخيل, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7527335",
+     "lon": "46.6249425",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Golden Saj Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Golden Saj",
+     "names": [],
+     "display_name": "Golden Saj, شارع الأمير نايف بن عبدالعزيز, المحمدية, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12364, السعودية",
+     "lat": "24.7396443",
+     "lon": "46.6707885",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "مطاعم الصاج الذهبي",
+     "names": [
+      "Golden Saj"
+     ],
+     "display_name": "مطاعم الصاج الذهبي, رقة السفراء, حي الريان, الروابي, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 14215, السعودية",
+     "lat": "24.7004579",
+     "lon": "46.7792878",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Gonia Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Graffiti Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Gun Bun Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Gymkhana Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "HUQQA Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Habra Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Habra",
+     "names": [],
+     "display_name": "Habra, شارع طلحة بن المظفر, النخيل, حي النخيل, بلدية المعذر, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7504266",
+     "lon": "46.6240197",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "Hakkasan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hamsa W Taghmeesa Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Haru Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hashi Basha Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hataba Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hatabgy Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hekayat Bahr Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hidden Garden Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hjeen Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hong Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hotbox Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Houmetna Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "House of Grill Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Hunch Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Burger Hunch",
+     "names": [],
+     "display_name": "Burger Hunch, طريق أبي بكر الصديق, العارض, محافظة الرياض, منطقة الرياض, 13338, السعودية",
+     "lat": "24.8779874",
+     "lon": "46.6354287",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Hōchō Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Il Baretto Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Indian Style Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Iris Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "iris boutique hotel",
+     "names": [],
+     "display_name": "iris boutique hotel, حسن خويران العرجاني, غرناطة, بلدية الروضة, محافظة الرياض, منطقة الرياض, 13241, السعودية",
+     "lat": "24.7877461",
+     "lon": "46.7310472",
+     "category": "tourism",
+     "type": "hotel"
+    }
+   ]
+  },
+  "Irth Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Isabel Mayfair Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "JAR Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "جار الله بن فهد",
+     "names": [
+      "Jarallah Bin Fahad"
+     ],
+     "display_name": "جار الله بن فهد, حي الجزيرة, بلدية السلي, الرياض, محافظة الرياض, منطقة الرياض, 11211, السعودية",
+     "lat": "24.6495427",
+     "lon": "46.8017346",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "جار الله علي الجار الله",
+     "names": [],
+     "display_name": "جار الله علي الجار الله, الخزامى, بلدية عرقة, الرياض, محافظة الرياض, منطقة الرياض, 12572, السعودية",
+     "lat": "24.7262787",
+     "lon": "46.5953603",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "جار الله بن فهد",
+     "names": [
+      "Jarallah Bin Fahad"
+     ],
+     "display_name": "جار الله بن فهد, طويق, بلدية نمار, الرياض, محافظة الرياض, منطقة الرياض, 14913, السعودية",
+     "lat": "24.5808158",
+     "lon": "46.5783538",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "JW Glass Garden Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "JW Steakhouse Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "JW Sushi Bar - JW Marriott Hotel Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jackie Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jade Room Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jamie's Italian Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jareed Samhan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jazy Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jenakum Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Joey's Street Food Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jon & Vinny's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jones the Grocer Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Joukh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Julien Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Junkie Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Juno Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Jwala Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "KAZO Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "KO Asian Kitchen Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "KOI Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kabsa Plus Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kailash Parbat Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kantami Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Karam Beirut Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "كرم بيروت",
+     "names": [
+      "Karam Beirut"
+     ],
+     "display_name": "كرم بيروت, طريق الأمير محمد بن عبد العزيز, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12242, السعودية",
+     "lat": "24.7037638",
+     "lon": "46.7020215",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Kayzo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Kayzo",
+     "names": [],
+     "display_name": "Kayzo, عبدالله بن وهب, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12234, السعودية",
+     "lat": "24.7039425",
+     "lon": "46.7064966",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Ki Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kimono Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kimyona Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kintan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Kintan Japanese BBQ",
+     "names": [],
+     "display_name": "Kintan Japanese BBQ, وادي السرح, الوادي, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13314, السعودية",
+     "lat": "24.7832242",
+     "lon": "46.6951844",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Kitchen on 3 - JW Marriott Hotel Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kokoro Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Koojeh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Korean Palace Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Krisp Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kruathai Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kubo Food Express Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kufta Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kumar Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Kutlet Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Kutlet",
+     "names": [],
+     "display_name": "Kutlet, Fountain St, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13516, السعودية",
+     "lat": "24.7669053",
+     "lon": "46.6037350",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "كت لت",
+     "names": [
+      "Kutlet"
+     ],
+     "display_name": "كت لت, شارع عبدالرحمن بن مهنا, الربيع, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13315, السعودية",
+     "lat": "24.7883886",
+     "lon": "46.6478987",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Kuuru Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "L'Ami Dave Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "L'Antica Pizzeria Da Michele Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "LAGO Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "LAYALI ALIRAQ Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "La Ba Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "La Brasserie Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "La Citta Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "La Haut Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "La Petite Maison Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "La Rustica Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "La Rustica",
+     "names": [],
+     "display_name": "La Rustica, رقم 50, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12212, السعودية",
+     "lat": "24.6944926",
+     "lon": "46.6834965",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "لاروستيكا بيتزارايا",
+     "names": [
+      "la Rustica"
+     ],
+     "display_name": "لاروستيكا بيتزارايا, رقم 50, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12212, السعودية",
+     "lat": "24.6945971",
+     "lon": "46.6835553",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "LaBocca Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Ladurée Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Lavash Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Lazy Cat Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Le Maschou Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Le Relais de l'Entrecôte Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Le Relais de l'Entrecote",
+     "names": [],
+     "display_name": "Le Relais de l'Entrecote, طريق الأمير محمد بن عبد العزيز, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12242, السعودية",
+     "lat": "24.7039466",
+     "lon": "46.7023537",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Leila Min Lebnen Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Les Deux Magots Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Lishlazz Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Liza Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Lobby Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Long Chim Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Los Bandidos Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Lotus Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "شركة الوعلان للتجارة",
+     "names": [
+      "Lotus"
+     ],
+     "display_name": "شركة الوعلان للتجارة, الدائري الشمالي, النخيل, حي النخيل, بلدية المعذر, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7527845",
+     "lon": "46.6295869",
+     "category": "shop",
+     "type": "car"
+    }
+   ]
+  },
+  "Lucca Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Lunch Room Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Lune Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Lusin Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Lusin",
+     "names": [
+      "لوسين"
+     ],
+     "display_name": "Lusin, الدائري الشمالي, النخيل, حي النخيل, بلدية المعذر, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7502609",
+     "lon": "46.6236309",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "L’ETO Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "L'eto",
+     "names": [],
+     "display_name": "L'eto, طريق الأمير تركي بن عبدالعزيز الأول الفرعي, جامعة الملك سعود, حي النخيل, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7370634",
+     "lon": "46.6304078",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "MLLE Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "MNKY HSE Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Madeo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Madina Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "طريق المدينة المنورة",
+     "names": [
+      "Al Madina Al Munwarah Road"
+     ],
+     "display_name": "طريق المدينة المنورة, العريجاء الغربية, بلدية العريجاء, الرياض, محافظة الرياض, منطقة الرياض, 12992, السعودية",
+     "lat": "24.5745415",
+     "lon": "46.6009059",
+     "category": "highway",
+     "type": "primary"
+    },
+    {
+     "name": "طريق المدينة المنورة",
+     "names": [
+      "Al Madina Al Munwarah Road"
+     ],
+     "display_name": "طريق المدينة المنورة, الوسيطا, الدحو, الرياض, محافظة الرياض, منطقة الرياض, 12634, السعودية",
+     "lat": "24.6275654",
+     "lon": "46.7134026",
+     "category": "highway",
+     "type": "primary"
+    },
+    {
+     "name": "طريق المدينة المنورة",
+     "names": [
+      "Al Madina Al Munwarah Road"
+     ],
+     "display_name": "طريق المدينة المنورة, الدوبية, الدحو, الرياض, محافظة الرياض, منطقة الرياض, 11131, السعودية",
+     "lat": "24.6264515",
+     "lon": "46.7117983",
+     "category": "highway",
+     "type": "primary"
+    }
+   ]
+  },
+  "Maharaja Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mahsan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Maiz Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Maki House Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mama Noura Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ماما نورة",
+     "names": [
+      "Mama Noura"
+     ],
+     "display_name": "ماما نورة, عبد العزيز بن مساعد بن جلوي, السلامة, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12221, السعودية",
+     "lat": "24.6915798",
+     "lon": "46.7017661",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Mama's Focaccia Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Maman Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mamo Michelangelo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mandy Station Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Manna Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Maqluba Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Aldhna Maqluba Restaurant",
+     "names": [],
+     "display_name": "Aldhna Maqluba Restaurant, طريق الإمام سعود بن فيصل, العقيق, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13521, السعودية",
+     "lat": "24.7889115",
+     "lon": "46.6204104",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Maqsaf Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Marble Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Red Marble Market",
+     "names": [],
+     "display_name": "Red Marble Market, طريق الثمامة, قرطبة, بلدية الشمال, محافظة الرياض, منطقة الرياض, 11263, السعودية",
+     "lat": "24.8334997",
+     "lon": "46.7344612",
+     "category": "shop",
+     "type": "butcher"
+    }
+   ]
+  },
+  "Mareez Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mashkhool Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Masoub Nassib Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Maui Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Maward Armenian Lebanese Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mayrig Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Mayrig",
+     "names": [],
+     "display_name": "Mayrig, طريق الأمير محمد بن عبد العزيز, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12313, السعودية",
+     "lat": "24.6940866",
+     "lon": "46.6791025",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Meat Moot Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Meatin Grill's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Meez The House Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Memo's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Meraki Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Milwan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mirage Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mirzam Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Mohalla Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Molo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Momo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Monopoly Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Morini Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Morini",
+     "names": [],
+     "display_name": "Morini, محمد بن مهيزع, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7503048",
+     "lon": "46.6132709",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Mr Chow Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Muqlat Alfurayj Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Muunni’s Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "MyMakan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Myazu Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Myazu",
+     "names": [],
+     "display_name": "Myazu, عبد العزيز بن مساعد بن جلوي, السلامة, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12242, السعودية",
+     "lat": "24.6999939",
+     "lon": "46.7048928",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "NAC Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "NOMAS Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "NOOA Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Najd Village Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Najd Village",
+     "names": [],
+     "display_name": "Najd Village, معدان بن أوس, الواحة, الرياض, محافظة الرياض, منطقة الرياض, 12462, السعودية",
+     "lat": "24.7425610",
+     "lon": "46.7046388",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "Najd village",
+     "names": [],
+     "display_name": "Najd village, طريق التخصصي, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12313, السعودية",
+     "lat": "24.6912083",
+     "lon": "46.6725928",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "Najd Village",
+     "names": [],
+     "display_name": "Najd Village, طريق التخصصي, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 11566, السعودية",
+     "lat": "24.6977067",
+     "lon": "46.6692466",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Nakha Tahameiah Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Namu Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "نامو",
+     "names": [
+      "Namu"
+     ],
+     "display_name": "نامو, 4545, طريق الملك خالد, جامعة الملك سعود, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12513, السعودية",
+     "lat": "24.7267099",
+     "lon": "46.6423440",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Naya - Voco Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Neeraj Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "نيراج",
+     "names": [
+      "Neeraj"
+     ],
+     "display_name": "نيراج, 4545, طريق الملك خالد, جامعة الملك سعود, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12513, السعودية",
+     "lat": "24.7263374",
+     "lon": "46.6423528",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Never Mind Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Nevermind Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Nevermind",
+     "names": [],
+     "display_name": "Nevermind, شارع موسي بن نصير, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12213, السعودية",
+     "lat": "24.7049025",
+     "lon": "46.6846816",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "New Anarkali South Indian Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Nobu Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Nomad Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Nora Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Nozomi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Nuri Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "OBI Urban Sushi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ONE O' ONE Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "OTM (On Top of the Morning) Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Obaya Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Off-White Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Offwhite Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Okla Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Operation Falafel Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "أوبريشن: فلافل",
+     "names": [
+      "Operation: Falafel"
+     ],
+     "display_name": "أوبريشن: فلافل, طريق الأمير محمد بن عبد العزيز, السلامة, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12242, السعودية",
+     "lat": "24.6991234",
+     "lon": "46.6891448",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Opla Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Oplaisir Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "اوبليزر",
+     "names": [
+      "Oplaisir"
+     ],
+     "display_name": "اوبليزر, طريق التخصصي الفرعي, المحمدية, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12381, السعودية",
+     "lat": "24.7394310",
+     "lon": "46.6463767",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "Oulu Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ولو",
+     "names": [
+      "Oulu",
+      "اولو"
+     ],
+     "display_name": "ولو, شارع الإمام عبدالعزيز بن محمد بن سعود, طريفة, الدرعية, محافظة الدرعية, منطقة الرياض, 12572, السعودية",
+     "lat": "24.7383128",
+     "lon": "46.5766142",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "OULU Lounge",
+     "names": [],
+     "display_name": "OULU Lounge, طريق التخصصي الفرعي, الرحمانية, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12281, السعودية",
+     "lat": "24.7104405",
+     "lon": "46.6631414",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Over Under Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Ovun Bistro Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Palaaram Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Pantera Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Parea Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Parker's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Pasta Mamma Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Pastamamma Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Peradiz Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Petit Louis Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Phaty Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Phet Phet Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Pickl Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": ".بيكل",
+     "names": [
+      "Pickl."
+     ],
+     "display_name": ".بيكل, طريق الأمير تركي بن عبدالعزيز الأول الفرعي, جامعة الملك سعود, حي النخيل, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7368048",
+     "lon": "46.6305944",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Piquant Pick Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Pizza Bar Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Porterhouse Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Porterhouse بورترهاوس",
+     "names": [],
+     "display_name": "Porterhouse بورترهاوس, طريق الأمير محمد بن عبد العزيز, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12313, السعودية",
+     "lat": "24.6939734",
+     "lon": "46.6788359",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Prego Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Prime Cut Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Primecut Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Public Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Public",
+     "names": [],
+     "display_name": "Public, طريق الأمير تركي بن عبدالعزيز الأول الفرعي, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13516, السعودية",
+     "lat": "24.7653395",
+     "lon": "46.6022188",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "ROKA Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "RZRZ Bukhari Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Raoul's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Ray's Chicken Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Richoux Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Roast Cuisine Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Robata Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Roma Pizza Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "مطعم بيتزا روما",
+     "names": [
+      "pizza roma restaurant"
+     ],
+     "display_name": "مطعم بيتزا روما, 0114643798, عبدالله بن سليمان الحمدان, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12242, السعودية",
+     "lat": "24.7006387",
+     "lon": "46.6922802",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Ronaldo's Pizza Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Rosa Linda Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Rowley’s Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Ruhi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Rumah Makan Bandar Jakarta Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Rüya Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "SALT Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "SALT",
+     "names": [],
+     "display_name": "SALT, طريق الأمير تركي بن عبدالعزيز الأول الفرعي, جامعة الملك سعود, حي النخيل, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12381, السعودية",
+     "lat": "24.7362930",
+     "lon": "46.6316016",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "Salt",
+     "names": [],
+     "display_name": "Salt, الصياد, العقيق, حي النخيل, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7558773",
+     "lon": "46.6313987",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "Omaya Abu Al Salt أمية أبي الصلت",
+     "names": [
+      "Omaya Abu Al Salt",
+      "Umayyah Abu As Salat"
+     ],
+     "display_name": "Omaya Abu Al Salt أمية أبي الصلت, حي السفارات, بلدية عرقة, الرياض, محافظة الرياض, منطقة الرياض, 11693, السعودية",
+     "lat": "24.6810240",
+     "lon": "46.6278793",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "SASSO Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "SEOUL Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Saddle House Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sadelle's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sage & Sirloin Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "San Carlo Cicchetti Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "San Carlo Cicchetti",
+     "names": [],
+     "display_name": "San Carlo Cicchetti, خارجة بن حذافة, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12234, السعودية",
+     "lat": "24.7012182",
+     "lon": "46.7053780",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "San Marzano Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Santini Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Saolah Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sarabeth's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Saray Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Saruja Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sasani Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Savoy Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Scott's Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Section-B Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Seray Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "سراي",
+     "names": [
+      "Seray"
+     ],
+     "display_name": "سراي, القمح, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13516, السعودية",
+     "lat": "24.7597750",
+     "lon": "46.6040437",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Served Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sexy Fish Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shababik Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shahrukh Khan Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shake Shack Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Shake Shack",
+     "names": [],
+     "display_name": "Shake Shack, الطابق الأرضي, العقيق, حي النخيل, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7570252",
+     "lon": "46.6294194",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "Shake Shack",
+     "names": [],
+     "display_name": "Shake Shack, شارع عبدالله بن سليمان الحمدان, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12242, السعودية",
+     "lat": "24.6997977",
+     "lon": "46.6926646",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "Shake Shack",
+     "names": [],
+     "display_name": "Shake Shack, 1 St, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13516, السعودية",
+     "lat": "24.7692937",
+     "lon": "46.6049349",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Sharq Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shawait Alkhalij Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shawarma Abu Rayan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shawarma Albalad Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shawarma Classic Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Shawarma Classic",
+     "names": [],
+     "display_name": "Shawarma Classic, مكة المكرمة, الخالدية, طريفة, الدرعية, محافظة الدرعية, منطقة الرياض, 12572, السعودية",
+     "lat": "24.7513718",
+     "lon": "46.5739743",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Shawarma Hamdan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shawarma Hlayel Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shawarma House Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Shawarma House",
+     "names": [
+      "بيت الشاورما"
+     ],
+     "display_name": "Shawarma House, الأمير تركي بن عبدالعزيز الثاني, المروج, الرياض, محافظة الرياض, منطقة الرياض, 12264, السعودية",
+     "lat": "24.7561850",
+     "lon": "46.6568924",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "Shawarma House",
+     "names": [],
+     "display_name": "Shawarma House, ال مسيند, At Turayf Al Jadid, طريفة, الدرعية, محافظة الدرعية, منطقة الرياض, 12572, السعودية",
+     "lat": "24.7414045",
+     "lon": "46.5715862",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Shawarma Jalila Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shawarmer Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Shawarmer",
+     "names": [],
+     "display_name": "Shawarmer, الطريق الدائري الجنوبي الفرعي, ظهرة نمار, بلدية نمار, الرياض, محافظة الرياض, منطقة الرياض, 12991, السعودية",
+     "lat": "24.5583496",
+     "lon": "46.6372109",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "Shawarmer",
+     "names": [],
+     "display_name": "Shawarmer, الفضل اليزيدي, السويدي الغربي, بلدية العريجاء, الرياض, محافظة الرياض, منطقة الرياض, 12982, السعودية",
+     "lat": "24.5873024",
+     "lon": "46.6244924",
+     "category": "amenity",
+     "type": "fast_food"
+    },
+    {
+     "name": "Shawarmer",
+     "names": [],
+     "display_name": "Shawarmer, عائشة بنت أبي بكر, ظهرة البديعة, بلدية العريجاء, الرياض, محافظة الرياض, منطقة الرياض, 12983, السعودية",
+     "lat": "24.5956597",
+     "lon": "46.6477718",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Shiro Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shogun Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shrimper Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Shrimplus Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "شريمبلس",
+     "names": [
+      "Shrimplus"
+     ],
+     "display_name": "شريمبلس, طريق عثمان بن عفان, الندى, بلدية الشمال, محافظة الرياض, منطقة الرياض, 11652, السعودية",
+     "lat": "24.8171253",
+     "lon": "46.6872426",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "شريمبلس",
+     "names": [
+      "Shrimplus"
+     ],
+     "display_name": "شريمبلس, شارع انس بن مالك الفرعي, الصحافة, الياسمين, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13322, السعودية",
+     "lat": "24.8180863",
+     "lon": "46.6425574",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Sign Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ساين",
+     "names": [
+      "Sign"
+     ],
+     "display_name": "ساين, طريق الثمامة, الصحافة, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13315, السعودية",
+     "lat": "24.7857265",
+     "lon": "46.6457639",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Signor Sassi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Signor Sassi",
+     "names": [],
+     "display_name": "Signor Sassi, عبد العزيز بن مساعد بن جلوي, السلامة, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12242, السعودية",
+     "lat": "24.6996074",
+     "lon": "46.7047665",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Sigo Tacos Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Silk Road Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sira Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "المنذر بن أبي سيرة",
+     "names": [
+      "Al Munthir Ibn Abi Sira"
+     ],
+     "display_name": "المنذر بن أبي سيرة, حطين, حي حطين, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13516, السعودية",
+     "lat": "24.7582172",
+     "lon": "46.6136978",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "ابن سيرة",
+     "names": [
+      "Ibn Sira"
+     ],
+     "display_name": "ابن سيرة, حي الريان, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 14212, السعودية",
+     "lat": "24.7235149",
+     "lon": "46.7814721",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "المنذر بن أبي سيرة",
+     "names": [
+      "Al Munthir Ibn Abi Sira"
+     ],
+     "display_name": "المنذر بن أبي سيرة, الصناعية القديمة, الصناعية, الرياض, محافظة الرياض, منطقة الرياض, 12844, السعودية",
+     "lat": "24.6525281",
+     "lon": "46.7459002",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "Sisi’s Eatery Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Smoke Factory Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Smokey Beards Q Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sobhy Kaber Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Sobhy Kaber",
+     "names": [
+      "صبحي كابر"
+     ],
+     "display_name": "Sobhy Kaber, طريق التخصصي الفرعي, المعذر الشمالي, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12311, السعودية",
+     "lat": "24.6768634",
+     "lon": "46.6778503",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Sold Out Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Somewhere Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Spago by Wolfgang Puck Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Spontini Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Stella Sky Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Stir Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sugar Hive Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Suhail Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "أنوار سهيل",
+     "names": [
+      "Anwar Suhail"
+     ],
+     "display_name": "أنوار سهيل, حي الروابي, الروابي, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 11433, السعودية",
+     "lat": "24.6976166",
+     "lon": "46.7943104",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "Sultan Delight Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "سلطان دي لايت برجر",
+     "names": [
+      "Sultan Delight Burger"
+     ],
+     "display_name": "سلطان دي لايت برجر, رقم 98, الياسمين, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13322, السعودية",
+     "lat": "24.8201429",
+     "lon": "46.6442879",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "Sultan's Steakhouse Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "السلطان",
+     "names": [
+      "Sultan’s steakhouse"
+     ],
+     "display_name": "السلطان, عبدالملك المارني, حطين, حي حطين, بلدية الشمال, الدرعية, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7499952",
+     "lon": "46.6141769",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Sum+Things Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sumosan Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Supernova Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sushi Art Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sushi Library Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Sushi Samba Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "SushiSamba Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Swalief Aldira Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Swiss Butter Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "TAO Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "TATEL Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Table;To Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Table Tennis Store",
+     "names": [],
+     "display_name": "Table Tennis Store, شارع الحضراوي, الرحمانية, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12215, السعودية",
+     "lat": "24.7185098",
+     "lon": "46.6676688",
+     "category": "building",
+     "type": "commercial"
+    }
+   ]
+  },
+  "Tacoville Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Taj Mahal Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Takya Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Taleed by Michael Mina Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Tameesa Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Tanjiah Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Tannuru Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Taza Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Tebsi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Thai Soi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Thaiya Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Thara Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The 365 Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "The Cycle Hub Riyadh ذا سايكل هاب الرياض",
+     "names": [],
+     "display_name": "The Cycle Hub Riyadh ذا سايكل هاب الرياض, أبي عبدالله بن مسلم, النزهة, الرياض, محافظة الرياض, منطقة الرياض, 12483, السعودية",
+     "lat": "24.7520641",
+     "lon": "46.7199945",
+     "category": "shop",
+     "type": "bicycle"
+    }
+   ]
+  },
+  "The Boiling Crab Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Breakfast Club Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Butcher's Den Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Carnivore Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Cheesecake Factory Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ذي تشيزكيك فاكتوري",
+     "names": [
+      "The Cheesecake Factory"
+     ],
+     "display_name": "ذي تشيزكيك فاكتوري, First Floor, العقيق, حي النخيل, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7564984",
+     "lon": "46.6308259",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "The Coffee Table Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Courtyard Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Door Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Globe Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Health Bar Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Lebanese Bakery Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Lighthouse Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Mandarin Lounge Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Palace - Crowne Plaza Riyadh Palace Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Roof Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "The Roof",
+     "names": [],
+     "display_name": "The Roof, رقم 2, الياسمين, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13323, السعودية",
+     "lat": "24.8178022",
+     "lon": "46.6651760",
+     "category": "amenity",
+     "type": "cinema"
+    }
+   ]
+  },
+  "The Rubi Room at Hōchō Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Social Pizzeria Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Tasting Studio Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Thai Table Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Villa Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "The Vinyl Ember Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Thurya Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Tofareya Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Tokyo Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Tokyo Games",
+     "names": [],
+     "display_name": "Tokyo Games, طريق خريص الفرعي, الأندلس, بلدية الروضة, الرياض, محافظة الرياض, منطقة الرياض, 14231, السعودية",
+     "lat": "24.7373992",
+     "lon": "46.7975628",
+     "category": "shop",
+     "type": "toys"
+    }
+   ]
+  },
+  "Tolga Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Tresor Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Twina Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "توينا مأكولات بحرية",
+     "names": [
+      "Twina Seafood"
+     ],
+     "display_name": "توينا مأكولات بحرية, 4545, طريق الملك خالد, جامعة الملك سعود, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12513, السعودية",
+     "lat": "24.7265201",
+     "lon": "46.6422849",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "UPLIFT Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Umaymati Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Uncle Khalil's BBQ Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Urth Caffé Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Urth Caffe",
+     "names": [
+      "إيرث كافيه"
+     ],
+     "display_name": "Urth Caffe, First Floor, العقيق, حي النخيل, بلدية الشمال, محافظة الدرعية, منطقة الرياض, 13512, السعودية",
+     "lat": "24.7562198",
+     "lon": "46.6302112",
+     "category": "amenity",
+     "type": "cafe"
+    },
+    {
+     "name": "Urth Caffe",
+     "names": [
+      "إيرث كافيه"
+     ],
+     "display_name": "Urth Caffe, وادي الرشا, السلامة, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12212, السعودية",
+     "lat": "24.6896464",
+     "lon": "46.6863087",
+     "category": "amenity",
+     "type": "cafe"
+    },
+    {
+     "name": "Urth Caffe",
+     "names": [
+      "إيرث كافيه"
+     ],
+     "display_name": "Urth Caffe, شارع عمرو الضمري, السفارات, حي السفارات, بلدية عرقة, الرياض, محافظة الرياض, منطقة الرياض, 12511, السعودية",
+     "lat": "24.6749932",
+     "lon": "46.6246864",
+     "category": "amenity",
+     "type": "cafe"
+    }
+   ]
+  },
+  "Uskudar Steak House Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Usta Asim Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Usta Asim",
+     "names": [],
+     "display_name": "Usta Asim, طريق عثمان بن عفان الفرعي, الوادي, بلدية الشمال, محافظة الرياض, منطقة الرياض, 11564, السعودية",
+     "lat": "24.7954660",
+     "lon": "46.6983377",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "V Italian Cafe Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "V Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "VARI Brasserie and Grill Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "VARI Brasserie and Grill",
+     "names": [],
+     "display_name": "VARI Brasserie and Grill, المستنير الخزاعي, المعذر الشمالي, أم الحمام, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 11566, السعودية",
+     "lat": "24.6880760",
+     "lon": "46.6651235",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Via Mercato Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Villa Beirut Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Villa Fayrouz Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Villa Mamas Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Wadi Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "wadi",
+     "names": [],
+     "display_name": "wadi, الخزامى, بلدية عرقة, الرياض, محافظة الرياض, منطقة الرياض, السعودية",
+     "lat": "24.7132839",
+     "lon": "46.5880674",
+     "category": "landuse",
+     "type": "farmyard"
+    },
+    {
+     "name": "Wadi",
+     "names": [],
+     "display_name": "Wadi, العقيق, بلدية الشمال, الرياض, محافظة الرياض, منطقة الرياض, 13519, السعودية",
+     "lat": "24.7664078",
+     "lon": "46.6396099",
+     "category": "highway",
+     "type": "pedestrian"
+    },
+    {
+     "name": "wadi",
+     "names": [],
+     "display_name": "wadi, العقيق, بلدية الشمال, الرياض, محافظة الرياض, منطقة الرياض, 13519, السعودية",
+     "lat": "24.7620803",
+     "lon": "46.6393687",
+     "category": "highway",
+     "type": "pedestrian"
+    }
+   ]
+  },
+  "Wafi Gourmet Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Wafi Gourmet",
+     "names": [],
+     "display_name": "Wafi Gourmet, طريق الأمير تركي بن عبدالعزيز الأول الفرعي, جامعة الملك سعود, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12364, السعودية",
+     "lat": "24.7258496",
+     "lon": "46.6425609",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Wagyu Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Wagyu burger",
+     "names": [],
+     "display_name": "Wagyu burger, Pr. Turki Bin Abdullah St., السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12234, السعودية",
+     "lat": "24.7069296",
+     "lon": "46.7079121",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Wahmy Burger Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Wakame Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Ward Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "الورد",
+     "names": [
+      "Al Ward"
+     ],
+     "display_name": "الورد, حي الريان, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 14212, السعودية",
+     "lat": "24.7146561",
+     "lon": "46.7665206",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "الورد",
+     "names": [
+      "Al Ward"
+     ],
+     "display_name": "الورد, الواحة, الرياض, محافظة الرياض, منطقة الرياض, 12462, السعودية",
+     "lat": "24.7404644",
+     "lon": "46.7218198",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "الورد",
+     "names": [
+      "Al Ward"
+     ],
+     "display_name": "الورد, المنار, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 14212, السعودية",
+     "lat": "24.7237039",
+     "lon": "46.7882193",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "Washna Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Where East Meets West - Narcissus Riyadh Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Wildfire Brazilian Steakhouse Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Wingstop Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Wister Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ويستر",
+     "names": [
+      "WISTER"
+     ],
+     "display_name": "ويستر, الإمام أحمد بن حنبل, حي الريان, الروابي, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 14212, السعودية",
+     "lat": "24.7129194",
+     "lon": "46.7941364",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Yauatcha Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Yawmiyat Bistronomy by Dalal and George Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Yawmiyat By Dalal Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Yokari Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Zaatar W Zeit Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "Zaatar w Zeit",
+     "names": [],
+     "display_name": "Zaatar w Zeit, طريق الأمير محمد بن عبد العزيز, السلامة, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12242, السعودية",
+     "lat": "24.7032121",
+     "lon": "46.6988688",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "زعتر و زيت",
+     "names": [
+      "Zaatar w zeit"
+     ],
+     "display_name": "زعتر و زيت, شجاع بن وهب, السلامة, العليا, الرياض, محافظة الرياض, منطقة الرياض, 12223, السعودية",
+     "lat": "24.6988583",
+     "lon": "46.6902608",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "Zafran Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Zalata Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Zeline Restaurant Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Ziba Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "Zuma Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "also Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "attaché Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "café ELLE Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "tashas Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "أكيرا باك Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ألميّاس Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ألمياس",
+     "names": [],
+     "display_name": "ألمياس, ابن رزين, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12311, السعودية",
+     "lat": "24.6868325",
+     "lon": "46.6815847",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "إل باريتو Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "إل بي إم الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "إيزابيل مايفير Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "الرومانسية Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "الرومانسية",
+     "display_name": "الرومانسية, الدائري الحنوبي, العزيزية, الرياض, محافظة الرياض, منطقة الرياض, 14512, السعودية",
+     "lat": "24.5997746",
+     "lon": "46.7486201",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "الرومانسية",
+     "display_name": "الرومانسية, شارع الزبير بن العوام, حي الروابي, الروابي, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 14215, السعودية",
+     "lat": "24.6958274",
+     "lon": "46.7923604",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "الرومانسية",
+     "display_name": "الرومانسية, القمر, المونسية, محافظة الرياض, منطقة الرياض, 13421, السعودية",
+     "lat": "24.8420950",
+     "lon": "46.7522582",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "الفرن اللبناني Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "المطعم السعودي Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "المملكة سوشيال داينينغ Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "بحرنا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "بحرية Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "أبي بحرية التراغمي",
+     "names": [
+      "Abi Bahria Al Taraghemi"
+     ],
+     "display_name": "أبي بحرية التراغمي, حي الفيحاء, الفيحاء, بلدية السلي, الرياض, محافظة الرياض, منطقة الرياض, 11211, السعودية",
+     "lat": "24.6804971",
+     "lon": "46.8176724",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "توينا مأكولات بحرية",
+     "names": [
+      "Twina Seafood"
+     ],
+     "display_name": "توينا مأكولات بحرية, 4545, طريق الملك خالد, جامعة الملك سعود, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 12513, السعودية",
+     "lat": "24.7265201",
+     "lon": "46.6422849",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "برج الحمام Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "برسكت الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "بيراديز Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "بيرنجاك الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "بيست هاوس Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "تكية Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "تميسه Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ثرى Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ثري لاينز",
+     "names": [
+      "Three Lines"
+     ],
+     "display_name": "ثري لاينز, شارع بني مسعود, الربيع, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13316, السعودية",
+     "lat": "24.7940422",
+     "lon": "46.6552506",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "جنيه Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "جنيح",
+     "display_name": "جنيح, طريق عثمان بن عفان الفرعي, الازدهار, مغرزات, الرياض, محافظة الرياض, منطقة الرياض, 13314, السعودية",
+     "lat": "24.7819756",
+     "lon": "46.7063940",
+     "category": "amenity",
+     "type": "restaurant"
+    },
+    {
+     "name": "جنيه Genneh",
+     "display_name": "جنيه Genneh, شارع أنس بن مالك, الصحافة, بلدية الشمال, محافظة الرياض, منطقة الرياض, 11532, السعودية",
+     "lat": "24.8123866",
+     "lon": "46.6283359",
+     "category": "shop",
+     "type": "bakery"
+    }
+   ]
+  },
+  "جوخ Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "جي دبليو جلاس جاردن Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "جيمخانا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "حكاية بحر Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "حمسة وتغميسة Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "خبز ونواشف الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "خبز ونواشف",
+     "names": [],
+     "display_name": "خبز ونواشف, الواحة, الصحافة, بلدية الشمال, محافظة الرياض, منطقة الرياض, 13322, السعودية",
+     "lat": "24.8119102",
+     "lon": "46.6460917",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "د.كبسا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ذا بويلينق كراب Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "روباتا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "روكا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "زلطة Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ساديلز Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ستيك هاوس الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ستيك هاوس",
+     "names": [
+      "Steak house"
+     ],
+     "display_name": "ستيك هاوس, الدائري الشمالي, المصيف, الرياض, محافظة الرياض, منطقة الرياض, 13312, السعودية",
+     "lat": "24.7718697",
+     "lon": "46.6747476",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "سفن Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "سكوتس Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "سهيل Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "سهيل",
+     "names": [
+      "Soheil"
+     ],
+     "display_name": "سهيل, السلام, النسيم, بلدية النسيم, الرياض, محافظة الرياض, منطقة الرياض, 14226, السعودية",
+     "lat": "24.7004490",
+     "lon": "46.8182362",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "سهيل",
+     "names": [
+      "Soheil"
+     ],
+     "display_name": "سهيل, الربوة, الرياض, محافظة الرياض, منطقة الرياض, 12411, السعودية",
+     "lat": "24.6951730",
+     "lon": "46.7480532",
+     "category": "highway",
+     "type": "tertiary"
+    },
+    {
+     "name": "سهيل",
+     "names": [
+      "Soheil"
+     ],
+     "display_name": "سهيل, الازدهار, الإزدهار, محافظة الرياض, منطقة الرياض, 12485, السعودية",
+     "lat": "24.7779985",
+     "lon": "46.7185356",
+     "category": "highway",
+     "type": "living_street"
+    }
+   ]
+  },
+  "سوشي سامبا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "سوما Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "شاركوزا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "شاورما جليلة Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "شاورما حمدان Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "شاورما عايض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "شاورما هليّل Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "شـرمــبر Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "صالة سيج آند سيرلوين Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "طوكيو أرابيا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "عسيب Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "جبل عسيب",
+     "names": [
+      "Asib Mountain"
+     ],
+     "display_name": "جبل عسيب, غبيرا, الرياض, محافظة الرياض, منطقة الرياض, 12878, السعودية",
+     "lat": "24.6219904",
+     "lon": "46.7417964",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "جبل عسيب",
+     "names": [
+      "Asib Mountain"
+     ],
+     "display_name": "جبل عسيب, التعاون, الإزدهار, محافظة الرياض, منطقة الرياض, 13314, السعودية",
+     "lat": "24.7795305",
+     "lon": "46.6981950",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "جبل عسيب",
+     "names": [
+      "Asib Mountain"
+     ],
+     "display_name": "جبل عسيب, الخزامى, بلدية عرقة, الرياض, محافظة الرياض, منطقة الرياض, 12513, السعودية",
+     "lat": "24.7058171",
+     "lon": "46.6110062",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "فايندنق سوشي Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "في قلبك Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "كاربون Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "كافيه بولود Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "كوكورو Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "كيمونو Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "لوس بانديدوس Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ماديو Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ماربل Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "شركة ألين ماربل للرخام الطبيعي",
+     "names": [],
+     "display_name": "شركة ألين ماربل للرخام الطبيعي, علي بن أبي طالب, المناخ, بلدية السلي, الرياض, محافظة الرياض, منطقة الرياض, 14316, السعودية",
+     "lat": "24.6100028",
+     "lon": "46.7735390",
+     "category": "building",
+     "type": "warehouse"
+    },
+    {
+     "name": "شركة ألين ماربل للرخام الطبيعي",
+     "names": [],
+     "display_name": "شركة ألين ماربل للرخام الطبيعي, Alsafa, الدفاع, المناخ, بلدية السلي, الرياض, محافظة الرياض, منطقة الرياض, 14316, السعودية",
+     "lat": "24.6051481",
+     "lon": "46.8198117",
+     "category": "building",
+     "type": "warehouse"
+    }
+   ]
+  },
+  "ماما نورة Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "ماما نورة",
+     "names": [
+      "Mama Noura"
+     ],
+     "display_name": "ماما نورة, عبد العزيز بن مساعد بن جلوي, السلامة, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12221, السعودية",
+     "lat": "24.6915798",
+     "lon": "46.7017661",
+     "category": "amenity",
+     "type": "fast_food"
+    }
+   ]
+  },
+  "ماوي Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مايز Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطبخ أوك Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم V Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "مطعم ساين",
+     "names": [],
+     "display_name": "مطعم ساين, الياسمين, بلدية الشمال, محافظة الرياض, منطقة الرياض, السعودية",
+     "lat": "24.8213212",
+     "lon": "46.6508529",
+     "category": "landuse",
+     "type": "commercial"
+    },
+    {
+     "name": "شارع مطعم",
+     "names": [
+      "Motaam Valley"
+     ],
+     "display_name": "شارع مطعم, النخيل, حي حطين, بلدية المعذر, الدرعية, محافظة الدرعية, منطقة الرياض, 12572, السعودية",
+     "lat": "24.7382513",
+     "lon": "46.5970902",
+     "category": "highway",
+     "type": "residential"
+    },
+    {
+     "name": "وادي مطعم",
+     "names": [
+      "Motaam Valley"
+     ],
+     "display_name": "وادي مطعم, أم الحمام الشرقي, أم الحمام, بلدية المعذر, الرياض, محافظة الرياض, منطقة الرياض, 11566, السعودية",
+     "lat": "24.6965312",
+     "lon": "46.6568359",
+     "category": "highway",
+     "type": "residential"
+    }
+   ]
+  },
+  "مطعم أفنيو داينر Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم الأرجوان الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم الحمراء البخاري الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم الشيف المصري الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم باب توما الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": [
+    {
+     "name": "مطعم باب توما",
+     "names": [],
+     "display_name": "مطعم باب توما, شارع الأمير ممدوح بن عبدالعزيز, السليمانية, الرياض, محافظة الرياض, منطقة الرياض, 12245, السعودية",
+     "lat": "24.7106450",
+     "lon": "46.6930980",
+     "category": "amenity",
+     "type": "restaurant"
+    }
+   ]
+  },
+  "مطعم بابولال الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم توابل هندية الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم قرمشة للأسماك الطازجة الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم كاليفورنيا برجر الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم نوبو الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم ورد الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مطعم ومقهى الكرك الذهبي الرياض Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "مولو Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "نكهة تهامية Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "نوزومي Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "وكامي Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ياواتشا Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  },
+  "ڤيلا فيروز Riyadh": {
+   "fetched_at": "2026-11-10",
+   "results": []
+  }
+ }
+}

@@ -238,9 +238,46 @@ publishers:
     language: en
   - id: bbcgoodfood-me
     name: BBC Good Food Middle East
-    match: ["bbc good food", "bbcgoodfoodme"]
+    award_label: Good Food Middle East Awards
+    match: ["bbc good food", "bbcgoodfoodme", "good food middle east"]
     type: editorial
     language: en
+    urls: [https://www.bbcgoodfoodme.com, https://bbcgoodfoodme.com/awards/]
+    notes: CPI Media Group; editorial lists and the annual Good Food Middle East Awards (KSA categories).
+  - id: curlytales
+    name: Curly Tales
+    match: ["curly tales", "curlytales"]
+    type: editorial
+    language: en
+    urls: [https://curlytales.com/middle-east/]
+    notes: Fine-dining list and monthly new-opening round-ups (Saudi Arabia; keep Riyadh entries only).
+  - id: expatica
+    name: Expatica
+    match: ["expatica"]
+    type: editorial
+    language: en
+    urls: [https://www.expatica.com/sa/out-and-about/best-of/the-best-restaurants-in-riyadh-every-expat-should-try-70924]
+  - id: semafor
+    name: Semafor
+    match: ["semafor"]
+    type: editorial
+    language: en
+    urls: [https://www.semafor.com/article/10/24/2025/a-semafor-guide-to-riyadh]
+    notes: City guide with a "where to eat" section.
+  - id: thisisriyadh
+    name: This is Riyadh
+    match: ["this is riyadh", "thisisriyadh"]
+    type: editorial
+    language: en
+    urls: [https://www.thisisriyadh.com]
+    notes: Annual "50 must-visit restaurants" ranked list.
+  - id: wego
+    name: Wego (Rahhal blog)
+    match: ["wego", "rahhal", "رحال", "رحّال"]
+    type: editorial
+    language: ar
+    urls: [https://rahhal.wego.com/blog/]
+    notes: Arabic travel blog lists (أفضل مطاعم الرياض).
   - id: listmag
     name: List Magazine
     match: ["list magazine", "listmag"]

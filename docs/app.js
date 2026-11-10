@@ -1,9 +1,13 @@
 /* Riyadh Best Restaurants — static site. No build step, no dependencies except Leaflet
- * (loaded from cdnjs only when the map is opened). Data: window.DATA_URL or data/restaurants.json. */
+ * (loaded from cdnjs only when the map is opened). Data: window.RANKING_DATA when the data is
+ * inlined (single-file Claude Artifact build, map hidden there), else window.DATA_URL or
+ * data/restaurants.json. */
 (function () {
   "use strict";
 
   var DATA_URL = (typeof window.DATA_URL === "string" && window.DATA_URL) || "data/restaurants.json";
+  var EMBEDDED = window.RANKING_DATA && typeof window.RANKING_DATA === "object" ? window.RANKING_DATA : null;
+  var MAP_ENABLED = !EMBEDDED;      // external map tiles cannot load inside the artifact sandbox
   var LEAFLET_JS = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js";
   var LEAFLET_CSS = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css";
   var PAGE = 40, MAX_BADGES = 6, MAX_AWARDS = 3;
@@ -149,7 +153,7 @@
           '">+' + (p.mentions.length - MAX_BADGES) + " more sources</button>" : "") + "</div>" +
       (p.branches && p.branches.length ? '<p class="branches">Branches named by sources: ' +
         p.branches.map(nameHtml).join(", ") + "</p>" : "") +
-      (p.lat != null && p.lng != null ? '<div class="card-foot"><span></span><button type="button" data-map="' + esc(p.id) + '">Show on map</button></div>' : "") +
+      (MAP_ENABLED && p.lat != null && p.lng != null ? '<div class="card-foot"><span></span><button type="button" data-map="' + esc(p.id) + '">Show on map</button></div>' : "") +
       "</li>";
   }
 
@@ -276,6 +280,7 @@
 
   // ---------------------------------------------------------------- views & state
   function setView(view) {
+    if (view === "map" && !MAP_ENABLED) view = "list";
     state.view = view;
     ["list", "map", "sources"].forEach(function (v) {
       $("view-" + v).hidden = v !== view;
@@ -301,7 +306,8 @@
     if (state.view !== "list") params.set("view", state.view);
     var h = params.toString();
     if (("#" + h) !== location.hash && !(h === "" && location.hash === "")) {
-      history.replaceState(null, "", h ? "#" + h : location.pathname + location.search);
+      try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); }
+      catch (err) { /* sandboxed frame: keep state in memory only */ }
     }
   }
 
@@ -380,10 +386,19 @@
     renderSources();
   }
 
+  function applyEmbeddedMode() {
+    if (MAP_ENABLED) return;
+    $("tab-map").hidden = true;
+    $("view-map").hidden = true;
+    var note = $("map-off");
+    if (note) note.hidden = false;
+  }
+
   restoreTheme();
+  applyEmbeddedMode();
   bind();
-  fetch(DATA_URL, { cache: "no-cache" })
-    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  (EMBEDDED ? Promise.resolve(EMBEDDED) : fetch(DATA_URL, { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }))
     .then(function (json) {
       prepare(json);
       renderChrome();

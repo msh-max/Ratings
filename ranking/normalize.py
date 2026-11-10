@@ -110,6 +110,16 @@ class Aliases:
     """Manual merges: canonical name -> list of other spellings (any script)."""
     key_map: dict[str, str] = field(default_factory=dict)
     distinct: set[frozenset[str]] = field(default_factory=set)
+    display: dict[str, str] = field(default_factory=dict)   # target key -> canonical name
+
+    def preferred_name(self, spellings: Iterable[str]) -> str | None:
+        """The aliases.yaml canonical name when it is one of the cluster's spellings."""
+        keys = {canonical_key(s) for s in spellings if s}
+        for k in keys:
+            target = self.key_map.get(k)
+            if target in self.display and target in keys:
+                return self.display[target]
+        return None
 
     def resolve(self, key: str) -> str:
         return self.key_map.get(key, key)
@@ -134,6 +144,7 @@ def load_aliases(path: Path | None) -> Aliases:
             continue
         target = canonical_key(str(canonical))
         out.key_map[target] = target
+        out.display[target] = str(canonical)
         for variant in variants or []:
             out.key_map[canonical_key(str(variant))] = target
     return out
@@ -202,6 +213,16 @@ def cluster_mentions(mentions: list[dict[str, Any]], aliases: Aliases | None = N
         for k in ks[1:]:
             uf.union(index[ks[0]], index[k])
 
+    # Spacing variants are one name: "SushiSamba" / "Sushi Samba", "A.O.K" / "AOK".
+    compact: dict[str, str] = {}
+    for k in uniq:
+        c = k.replace(" ", "")
+        if len(c) < 6:
+            continue
+        if c in compact and not aliases.kept_apart(compact[c], k):
+            uf.union(index[compact[c]], index[k])
+        compact.setdefault(c, k)
+
     if len(uniq) > 1:
         latin = [k for k in uniq if not has_arabic(k)]
         arabic = [k for k in uniq if has_arabic(k)]
@@ -259,13 +280,18 @@ def _most_common(values: Iterable[str | None]) -> str | None:
     return sorted(counts, key=lambda v: (-counts[v], first_seen[v]))[0]
 
 
-def pick_names(mentions: list[dict[str, Any]]) -> tuple[str, str | None, list[str]]:
-    """Return (name, name_ar, aliases) for a cluster."""
+def pick_names(mentions: list[dict[str, Any]], aliases: Aliases | None = None) -> tuple[str, str | None, list[str]]:
+    """Return (name, name_ar, aliases) for a cluster.
+
+    The canonical name of an ``aliases.yaml`` entry wins when the cluster uses that spelling;
+    otherwise the most frequent Latin spelling.
+    """
     latin = [m["name"] for m in mentions if m.get("name") and not has_arabic(m["name"])]
     arabic = [n for m in mentions for n in (m.get("name_ar"), m.get("name"))
               if n and has_arabic(n)]
     name_ar = _most_common(arabic)
-    name = _most_common(latin) or name_ar or mentions[0]["name"]
+    preferred = aliases.preferred_name(latin) if aliases and latin else None
+    name = preferred or _most_common(latin) or name_ar or mentions[0]["name"]
     spellings = {n.strip() for m in mentions for n in (m.get("name"), m.get("name_ar")) if n}
     alias_list = sorted(s for s in spellings if s not in (name, name_ar))
     return name, (name_ar if name_ar != name else None), alias_list
@@ -301,9 +327,15 @@ def split_cuisines(values: Iterable[str | None]) -> list[str]:
     return [display[k] for k in sorted(counts, key=lambda k: (-counts[k], first[k]))]
 
 
-def place_attributes(mentions: list[dict[str, Any]]) -> dict[str, Any]:
-    name, name_ar, alias_list = pick_names(mentions)
-    branches = sorted({m["branch"].strip() for m in mentions if m.get("branch") and m["branch"].strip()})
+CITY_NAMES = {"riyadh", "الرياض", "riyadh city", "ar riyadh", "ar-riyadh"}
+
+
+def place_attributes(mentions: list[dict[str, Any]], aliases: Aliases | None = None) -> dict[str, Any]:
+    name, name_ar, alias_list = pick_names(mentions, aliases)
+    # a "branch" that only repeats the city name says nothing
+    branches = sorted({m["branch"].strip() for m in mentions
+                       if m.get("branch") and m["branch"].strip()
+                       and m["branch"].strip().casefold() not in CITY_NAMES})
     return {
         "name": name,
         "name_ar": name_ar,

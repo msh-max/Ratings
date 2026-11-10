@@ -78,3 +78,31 @@ def test_prefers_amenity_candidates(tmp_path):
                {"name": "Sample Bistro", "lat": "24.76", "lon": "46.64", "category": "amenity"}]
     g = Geocoder(tmp_path / "c.json", client=_mock_client([], payload), sleep=lambda s: None)
     assert g.locate("Sample Bistro") == (24.76, 46.64)
+
+
+def test_accept_uses_osm_english_name_tag():
+    arabic = {"name": "ماما نورة", "names": ["Mama Noura"], "lat": "24.7", "lon": "46.7"}
+    assert accept("Mama Noura", arabic) == (24.7, 46.7)
+    assert accept("Karam Beirut", arabic) is None
+
+
+def test_namedetails_requested_and_stale_cache_refreshed(tmp_path):
+    cache = tmp_path / "cache.json"
+    cache.write_text(json.dumps({"entries": {"Mama Noura Riyadh": {"fetched_at": "2026-11-01", "results": [
+        {"name": "ماما نورة", "lat": "24.7", "lon": "46.7"}]}}}), encoding="utf-8")
+    assert Geocoder(cache, online=False).locate("Mama Noura") is None      # offline: old entry as is
+    calls = []
+    payload = [{"name": "ماما نورة", "namedetails": {"name": "ماما نورة", "name:en": "Mama Noura"},
+                "lat": "24.7", "lon": "46.7"}]
+    g = Geocoder(cache, client=_mock_client(calls, payload), sleep=lambda s: None)
+    assert g.locate("Mama Noura") == (24.7, 46.7)
+    assert len(calls) == 1 and calls[0].url.params["namedetails"] == "1"
+    assert g.cache["Mama Noura Riyadh"]["results"][0]["names"] == ["Mama Noura"]
+    assert g.locate("Mama Noura") == (24.7, 46.7) and len(calls) == 1    # now cached
+
+
+def test_accept_rejects_non_food_places():
+    base = {"name": "Wadi", "lat": "24.7", "lon": "46.7"}
+    assert accept("Wadi", {**base, "category": "amenity", "type": "restaurant"}) == (24.7, 46.7)
+    assert accept("Wadi", {**base, "category": "landuse", "type": "farmyard"}) is None
+    assert accept("Ward", {**base, "name": "Ward", "category": "place", "type": "residential"}) is None

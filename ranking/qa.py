@@ -6,7 +6,8 @@ from typing import Any, TextIO
 
 from rapidfuzz import fuzz
 
-from .normalize import canonical_key, has_arabic
+from .exclusions import Exclusions, cafe_suspects
+from .normalize import Aliases, canonical_key, has_arabic
 
 NON_RIYADH = re.compile(
     r"\b(jeddah|jedda|khobar|al khobar|dammam|dhahran|alula|al ula|mecca|makkah|medina|madinah|"
@@ -14,7 +15,17 @@ NON_RIYADH = re.compile(
     r"red sea|amaala)\b|جدة|الخبر|الدمام|العلا|مكة|المدينة|أبها|الطائف", re.IGNORECASE)
 
 
-def duplicate_suspects(places: list[dict[str, Any]], low: int = 85, high: int = 101) -> list[tuple[float, str, str]]:
+def _decided(a: dict[str, Any], b: dict[str, Any], aliases: Aliases | None) -> bool:
+    """True when aliases.yaml already keeps the two places apart (`_distinct`)."""
+    if aliases is None:
+        return False
+    ka = {aliases.resolve(canonical_key(n)) for n in [a["name"], *a.get("aliases", [])]}
+    kb = {aliases.resolve(canonical_key(n)) for n in [b["name"], *b.get("aliases", [])]}
+    return any(aliases.kept_apart(x, y) for x in ka for y in kb)
+
+
+def duplicate_suspects(places: list[dict[str, Any]], low: int = 85, high: int = 101,
+                       aliases: Aliases | None = None) -> list[tuple[float, str, str]]:
     keys = [canonical_key(p["name"]) for p in places]
     out = []
     latin = [i for i, k in enumerate(keys) if k and not has_arabic(k)]
@@ -24,7 +35,7 @@ def duplicate_suspects(places: list[dict[str, Any]], low: int = 85, high: int = 
     for a in range(len(group)):
         for b in range(a + 1, len(group)):
             r = float(fuzz.token_set_ratio(group[a], group[b], score_cutoff=low))
-            if low <= r < high:
+            if low <= r < high and not _decided(places[latin[a]], places[latin[b]], aliases):
                 out.append((r, places[latin[a]]["name"], places[latin[b]]["name"]))
     return sorted(out, key=lambda t: (-t[0], t[1], t[2]))
 
@@ -41,7 +52,8 @@ def non_riyadh_suspects(places: list[dict[str, Any]]) -> list[tuple[str, str]]:
     return out
 
 
-def report(output: dict[str, Any], errors: list[str], warnings: list[str], out: TextIO, top: int = 30) -> int:
+def report(output: dict[str, Any], errors: list[str], warnings: list[str], out: TextIO, top: int = 30,
+           aliases: Aliases | None = None, exclusions: Exclusions | None = None) -> int:
     places = output["places"] if output else []
     w = out.write
     w(f"QA {output['month'] if output else ''}: {len(places)} places from "
@@ -59,10 +71,21 @@ def report(output: dict[str, Any], errors: list[str], warnings: list[str], out: 
         w(f"  {p['rank']:>3}. {p['score']:>5.1f}  {p['name']}"
           f"{' / ' + p['name_ar'] if p['name_ar'] else ''}  [{p['confidence']}]  {pubs}\n")
 
-    dups = duplicate_suspects(places)
-    w(f"\nDuplicate suspects (token_set_ratio >= 85, not merged) — add to ranking/aliases.yaml if same place: {len(dups)}\n")
+    dups = duplicate_suspects(places, aliases=aliases)
+    w(f"\nDuplicate suspects (token_set_ratio >= 85, not merged, not under _distinct) — "
+      f"add to ranking/aliases.yaml (merge or _distinct): {len(dups)}\n")
     for r, a, b in dups:
         w(f"  {r:5.1f}  {a}  <->  {b}\n")
+
+    excluded = output.get("excluded") or []
+    w(f"\nExcluded as not restaurants (ranking/exclusions.yaml): {len(excluded)}\n")
+    for p in excluded:
+        w(f"  {p['score']:>5.1f}  {p['name']}  ({p['reason']})\n")
+    if exclusions is not None:
+        cafes = cafe_suspects(places, exclusions, aliases)
+        w(f"\nCafe suspects not yet reviewed — add to ranking/exclusions.yaml (exclude or _keep): {len(cafes)}\n")
+        for name, hit in cafes:
+            w(f"  {name}  ('{hit}')\n")
 
     missing = [p for p in places if not p["area"] or not p["cuisines"]]
     w(f"\nPlaces missing area or cuisine: {len(missing)}\n")

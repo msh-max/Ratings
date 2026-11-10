@@ -1,0 +1,86 @@
+# Places kept OUT of the restaurants ranking (read by ranking/exclusions.py).
+#
+# Rule: a place is excluded when it is a cafe / coffee shop / roastery / bakery / tea house /
+# juice bar / dessert-only shop, judged from its name and from how the sources describe it.
+# Cafe-restaurants with a full food menu (Urth Caffé, Em Sherif Café, Café Boulud, tashas,
+# NOOA, Angelina, ...) are restaurants and STAY; list them under `_keep` once reviewed so
+# `python -m ranking qa` stops flagging them.
+#
+# Format: brand name -> reason. Matching uses the same normalised keys as aliases.yaml, so
+# any spelling that aliases.yaml maps to the brand is excluded too. Excluded places are kept
+# in data/rankings/restaurants/<month>.json under `excluded` (for a future cafes ranking) and
+# never appear in the restaurants list or on the site.
+
+Half Million: 'coffee chain (Riyadh Key "specialty coffee chain"; FACT Café category)'
+"% Arabica": 'specialty coffee chain (Riyadh Key, List Magazine late-night coffee)'
+Barns: '24-hour coffee chain (List Magazine)'
+Dr. Café: '24-hour coffee chain (List Magazine)'
+Ideal Café: 'coffee and sweets (List Magazine)'
+Less is More Coffee: 'coffee and bakery (List Magazine)'
+Ralph’s Coffee: 'coffee shop (Ralph Lauren café; FACT Café category)'
+12 Cups: 'specialty coffee shop'
+Cafe Tale: 'coffee and pastries'
+Draft Café: 'coffee shop'
+Toby's Estate Coffee Roasters: 'coffee roastery'
+Trieste: 'coffee and light bites (What''s On KAFD)'
+Bohemia Cafe & Records: 'coffee shop that also sells vinyl'
+Café Kitsuné: 'coffee and pastries / matcha (FACT, List Magazine)'
+Joe & The Juice: 'juice and coffee bar'
+Hustle n Flow: 'café (only source: FACT Café category nominee)'
+Namq: 'café (only source: FACT Café category nominee)'
+Bakers Field: 'bakery-café (Curly Tales "Café")'
+Pistrina Bakery: 'bakery (baked goods and sandwiches)'
+The Rustic Bakery: 'bakery (FACT Café category nominee)'
+Le Grenier À Pain: 'French bakery chain'
+Nakhati: 'gelato and desserts'
+Crème: 'dessert / cookie shop'
+# Named in the brief as coffee chains; not in the 2026-11 extracts but excluded if they appear.
+Elixir Bunn: 'specialty coffee chain'
+Camel Step: 'specialty coffee chain'
+Brew92: 'specialty coffee chain'
+
+_keep:   # reviewed: cafe-style names or cafe notes, but full-menu restaurants
+  - Urth Caffé
+  - Em Sherif Café
+  - Em Sherif Sea Café
+  - Café Boulud
+  - Café Lilou
+  - Café L'Occitane
+  - Café de L'Esplanade
+  - Café Bateel
+  - Cafe Noir
+  - café ELLE
+  - Entrecôte Café de Paris
+  - Les Deux Magots
+  - Dolce & Gabbana Cafe (DG Caffè)
+  - V Italian Cafe
+  - Cipriani
+  - tashas
+  - NOOA
+  - Angelina
+  - Ladurée
+  - Cova
+  - Over Under
+  - Apple Butter
+  - Lazy Cat
+  - Jones the Grocer
+  - Brunch & Cake
+  - Flour & Firewood
+  - Sarabeth's
+  - The Lebanese Bakery
+  - The Coffee Table
+  - Hidden Garden
+  - Served
+  - Yauatcha
+  - Bellbird
+  - Mama Noura
+  - Saddle House
+  - Assouline
+  - The Cheesecake Factory
+  - Lunch Room
+  - attaché
+  - Julien
+  - L’ETO
+  - Iris
+  - Feels
+  - مطعم ومقهى الكرك الذهبي الرياض

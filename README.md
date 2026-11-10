@@ -8,13 +8,31 @@ website.
 No Google data, no scraping of rating platforms, no paid APIs. We store facts only (place names,
 which source recommended them, at what tier, when, with the URL) and never copy article text.
 
+**Current edition (2026-11):** 546 restaurants ranked from 85 source lists by
+29 publishers (MICHELIN Guide, Gault&Millau, MENA's 50 Best, La Liste, FACT, What's On,
+World Culinary Awards, List Magazine, Visit Saudi, Arabic media and more); 23 cafés, coffee
+shops, bakeries and dessert shops are set aside for a future cafés ranking.
+
+## What the ranking is and is not
+
+It is a **judgment-based consensus of published sources**: a restaurant ranks high because many
+independent guides, awards and editors recommend it, and because the strongest of them (a
+MICHELIN distinction, Gault&Millau toques, a MENA's 50 Best place) carry more weight. The
+weights are editorial choices, written down in [`ranking/sources.yaml`](ranking/sources.yaml) so
+anyone can check or change them. It is **not a crowd rating**: there are no star averages, no
+review counts and no data from Google Maps, TripAdvisor or delivery apps, and it says nothing
+about a single visit. It also only knows what was published — a newer or less-covered restaurant
+can be excellent and still rank low, and the ranking inherits the choices and blind spots of the
+sources it reads.
+
 ## How the ranking works
 
 1. **Extract.** Each month every source is read and saved as one JSON file per list in
    `data/sources/<YYYY-MM>/` (names, tier such as "1 star", "#12", "winner", position, area, cuisine
    when the source states them).
 2. **Merge.** Spellings of the same restaurant are merged (case, accents, "Al-"/"El"/"ال",
-   fuzzy matching, plus manual `ranking/aliases.yaml`).
+   fuzzy matching, plus manual `ranking/aliases.yaml`). Cafés, coffee shops, bakeries and
+   dessert shops listed in `ranking/exclusions.yaml` are set aside (kept under `excluded`).
 3. **Score.** Each mention earns a weight by source type and tier — e.g. MICHELIN star 10–14,
    Bib Gourmand 7, MENA's 50 Best top 10 → 9, award winner 6, editorial top-3 → 4, official page 2,
    community recommendation 1–2 — times a recency factor (1.0 within 12 months, down to 0.2).
@@ -31,16 +49,19 @@ weights and the publisher registry: [`ranking/sources.yaml`](ranking/sources.yam
 README.md
 pyproject.toml               package `ranking` (pyyaml, rapidfuzz, httpx, jsonschema; dev: pytest)
 ranking/                     Python package
-  __main__.py                CLI: build / qa
+  __main__.py                CLI: build / qa / artifact
   schema.py                  JSON Schemas for extracts and outputs
   load.py                    read + validate data/sources/<month>/*.json
   normalize.py               name keys, de-duplication, place attributes
   scoring.py                 tier parsing, weights, recency, publisher cap
   geocode.py                 Nominatim (OpenStreetMap) with a committed cache
-  build.py                   writes the ranking files
+  build.py                   writes the ranking files (scores, card text, awards)
+  exclusions.py              cafés / bakeries kept out of the restaurants ranking
+  artifact.py                single-file HTML for the Claude Artifact
   qa.py                      quality report
   sources.yaml               source registry and weight schemes
   aliases.yaml               manual name merges / keep-apart pairs
+  exclusions.yaml            non-restaurants (brand -> reason) and reviewed café-restaurants
   METHODOLOGY.md             the monthly procedure (scheduled session's reference)
 data/sources/<YYYY-MM>/      source extracts (committed)
 data/rankings/restaurants/   <YYYY-MM>.json and latest.json (committed)
@@ -62,6 +83,7 @@ python -m ranking build --month 2026-11 --check --no-geocode   # validate only, 
 python -m ranking build --month 2026-11                        # write outputs, geocode new places
 python -m ranking build --month 2026-11 --no-geocode           # write outputs, cached coordinates only
 python -m ranking qa --month 2026-11                           # top 30, duplicate suspects, gaps
+python -m ranking artifact --month 2026-11 --out build/riyadh-best-restaurants.html   # one-file page
 
 python -m http.server -d docs 8000                             # then open http://localhost:8000
 ```
@@ -89,6 +111,10 @@ opened). It shows the ranked list with filters (search, cuisine, area, price, co
 type; sort by score, name or recency), a map, and a sources & methodology page. It reads
 `data/restaurants.json` next to the page, or `window.DATA_URL` when that global is set before
 `app.js` (for publishing the same page elsewhere, e.g. pointing at the raw `latest.json`).
+
+`python -m ranking artifact` writes the same page as one self-contained HTML fragment with the
+data inlined (`window.RANKING_DATA`), published as a Claude Artifact by the monthly session. The
+Map tab is hidden there (external map tiles cannot load) and links to the GitHub Pages version.
 
 To publish it: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch:
 `claude/affectionate-cerf-8mwtq1`, folder `/docs` → Save.** The site appears at

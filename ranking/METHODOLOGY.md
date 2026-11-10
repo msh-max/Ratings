@@ -42,6 +42,27 @@ Read `ranking/sources.yaml` (the source registry) and last month's extracts in
    language, notes). Unknown publishers still score through their `source_type` defaults, but
    registering them keeps the publisher cap and display names right. Never delete a publisher.
 
+### Known blocked sources (retry every month)
+
+These were unreachable from the research session in 2026-11 (bot walls, 403s, login walls or
+JavaScript-only pages). Try each one again every month with a normal fetch; if it opens, extract it
+like any other source. If it is still blocked, say so in your summary. Never work around a block
+(no spoofed user agents, no scraping services, no copies from caches) and never fill in a list
+from memory.
+
+- Time Out Riyadh (timeoutriyadh.com: best-restaurant lists and the Restaurant Awards; the 2024 and
+  2025 awards extracts are partial, built only from winners confirmed in search summaries)
+- Reddit (r/Riyadh, r/saudiarabia threads)
+- Quora
+- TripAdvisor forums (the forums only; TripAdvisor ratings are never used)
+- Harper's Bazaar Arabia
+- Destination KSA
+- Lovin Riyadh
+- Caterer Middle East
+- Hotelier Middle East
+- also blocked in 2026-11: Arabian Business, Esquire ME, Culture Trip, Sabq, diriyah.sa / bujairi.sa
+  (see the `_notes_*.md` files in the month folder for details)
+
 ## 2. Write one extract per list
 
 ### Extract format and rules (spec §1, verbatim)
@@ -125,6 +146,50 @@ Scoring (implemented in `ranking/scoring.py`, weights in `ranking/sources.yaml`)
 - rank by score, then number of sources, then most recent mention; confidence = strong (≥ 3
   publishers), medium (2), single (1)
 
+Card text (`why`): the build picks the one or two most descriptive source notes — guide and
+editorial prose first, then community, official and award notes — after dropping fragments that
+are codes or scores (Gault&Millau "11.5/20; Gourmet Restaurant; budget SAR …", "Won: …",
+"(Best = critics/panel choice …)", "listed in …", bare chef names). It is capped at about 220
+characters, always ends on a full sentence and never adds words of its own; with no usable note
+it says only "Listed by X (tier), Y and Z." Write extract `note`s with this in mind: one short
+descriptive line about the place (dishes, setting, concept), not the tier or the award, which the
+card shows anyway. The awards line lists each award once with its years, e.g.
+"World Culinary Awards nominee (2024, 2025, 2026)". A `branch` that only repeats the city is dropped.
+
+### Name merges and the alias decision rules (`ranking/aliases.yaml`)
+
+The normaliser merges spellings automatically (case, accents, punctuation, "Al-"/"El"/"ال",
+"Restaurant"/"Riyadh"/"by", a trailing " - <hotel/mall/district>", spacing variants such as
+"SushiSamba"/"Sushi Samba", and rapidfuzz token_set_ratio ≥ 92 with guards for generic words).
+Everything else is a human decision recorded in `ranking/aliases.yaml` with a one-line comment:
+
+- **Merge** (canonical name → other spellings) when the sources describe the same restaurant: same
+  brand and same location/concept ("Lucca" / "Lucca Steakhouse" at Riyadh Front), a chef-name
+  suffix ("Julien" / "Julien by Daniel Boulud"), a transliteration ("Hekayat"/"Hekayet Bahr"), or
+  branches of one brand (merged into one place; branch names go in `branch`). The canonical name
+  you write becomes the displayed name when the sources use that spelling.
+- **Keep apart** (`_distinct` pairs) when a guide rates them separately (different score, chef or
+  category), when they are different concepts of one group (Em Sherif / Em Sherif Café / Em Sherif
+  Sea Café; Flamingo Room by tashas / tashas; Akira Back / AB Steak), when a room inside a
+  restaurant has its own guide entry (The Rubi Room at Hōchō), or when the shared word is generic
+  ("The Lounge", "Villa", "Palace", "Brasserie", "Steakhouse").
+- A bar or room inside a restaurant counts as the same venue unless a source lists it separately.
+- When unsure, keep apart and note why; a wrong merge hides a restaurant, a missed merge only
+  splits its score.
+
+### Non-restaurant exclusions (`ranking/exclusions.yaml`)
+
+The restaurants ranking leaves out cafés, coffee shops, roasteries, bakeries, tea houses, juice
+bars and dessert-only shops. `ranking/exclusions.yaml` maps each brand name to a short reason
+(e.g. `Half Million: coffee chain`); matching uses the same keys as aliases, so every spelling of
+the brand is caught. Decide from the name and from how the sources describe the place:
+café-restaurants with a full menu (Urth Caffé, Em Sherif Café, Café Boulud, tashas, NOOA…) stay and
+are listed under `_keep`. Excluded places keep their full record in
+`data/rankings/restaurants/<month>.json` under `excluded` (with `reason`, no rank) for a future
+cafés ranking; they never appear in `places` or on the site. `python -m ranking qa` lists the
+excluded places and "cafe suspects" (café/coffee/bakery/dessert words in a name or cuisine that
+are neither excluded nor under `_keep`): decide each one.
+
 ## 4. QA checklist
 
 Run `python -m ranking qa --month $MONTH` and work through it:
@@ -134,6 +199,7 @@ Run `python -m ranking qa --month $MONTH` and work through it:
 - [ ] **Duplicate suspects**: for each pair that is the same place, add the spellings to
       `ranking/aliases.yaml` (canonical name → list of other spellings, Latin or Arabic). For pairs that
       were merged but are different places, add them under `_distinct`. Rebuild and re-run QA.
+- [ ] **Cafe suspects**: add each to `ranking/exclusions.yaml` (with a reason) or under `_keep`.
 - [ ] **Arabic names**: Arabic-only entries that are a known Latin-named place → add an alias.
 - [ ] **Non-Riyadh suspects**: remove entries that are in Jeddah, Khobar, AlUla, etc. from the
       extracts (destinations inside Riyadh — Diriyah/Bujairi, KAFD, Boulevard City, Via Riyadh — stay).
@@ -142,10 +208,25 @@ Run `python -m ranking qa --month $MONTH` and work through it:
 - [ ] `python -m pytest -q` passes and `python -m ranking build --month $MONTH --check --no-geocode` succeeds.
 - [ ] Optional: open `docs/index.html` through a local server (`python -m http.server -d docs`) and look.
 
-## 5. Commit and push
+## 5. Single-file page for the Claude Artifact
 
 ```bash
-git add data/ docs/data/ ranking/sources.yaml ranking/aliases.yaml
+python -m ranking artifact --month $MONTH --out build/riyadh-best-restaurants.html
+```
+
+This writes ONE HTML fragment (no doctype/html/head/body): the title, the inlined CSS, the page
+markup from `docs/index.html` and one inline script that sets `window.RANKING_DATA` and then runs
+`docs/app.js`. In that mode the app does not fetch anything and hides the Map tab (external tiles
+cannot load in the artifact sandbox), showing a link to the GitHub Pages version instead. The
+scheduled session regenerates `build/riyadh-best-restaurants.html` after every build and
+republishes it to the SAME artifact URL (Artifact tool, publish with that file path / the existing
+artifact `url`), so the published link stays stable. `build/` is git-ignored: the artifact is
+rebuilt from the committed data, never committed.
+
+## 6. Commit and push
+
+```bash
+git add data/ docs/data/ ranking/sources.yaml ranking/aliases.yaml ranking/exclusions.yaml
 git commit -m "Monthly refresh $MONTH: <n> sources, <n> places"
 git push origin claude/affectionate-cerf-8mwtq1
 ```
@@ -154,8 +235,9 @@ Commit only those paths (plus code fixes if you made any, with tests). GitHub Pa
 from the default branch, so the site updates by itself after the push. CI re-runs the tests and the
 build check on push.
 
-## 6. Finish with a short summary
+## 7. Finish with a short summary
 
 Report: number of sources (new ones named), number of places, new entrants to the top 30, big
 movers (±10 ranks within the top 50), places that dropped out, sources that were paywalled or
-unreachable, and any alias decisions you made.
+unreachable (including the known blocked sources above), alias and exclusion decisions, and the
+artifact link you republished.
