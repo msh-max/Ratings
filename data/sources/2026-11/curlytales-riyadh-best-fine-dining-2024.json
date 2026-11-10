@@ -1,0 +1,109 @@
+{
+  "source_id": "curlytales-riyadh-best-fine-dining-2024",
+  "source_name": "Curly Tales — 8 Best Fine Dining Restaurants In Riyadh That Promise An Unforgettable Culinary Experience",
+  "publisher": "Curly Tales",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://curlytales.com/best-fine-dining-restaurants-in-riyadh-that-promise-an-unforgettable-culinary-experience/",
+  "published_at": "2024-09-17",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered list of 8 (numbering is listicle order); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "La Petite Maison (LPM) Riyadh",
+      "name_ar": null,
+      "cuisine": "Mediterranean",
+      "area": "Al Olaya",
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "Côte d'Azur flavours",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Al Orjoun",
+      "name_ar": null,
+      "cuisine": "Middle Eastern and international",
+      "area": "The Ritz-Carlton, Riyadh",
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "Friday brunch buffet",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Nozomi",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "King Fahd Rd, Al Olaya",
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "Premium sushi and robata grill",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Il Baretto",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "Truffle dishes and risotto",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Lusin",
+      "name_ar": null,
+      "cuisine": "Armenian",
+      "area": "An Nakheel",
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "Kebabs and grape leaves",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Roka",
+      "name_ar": null,
+      "cuisine": "Japanese robatayaki",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "#6",
+      "position": 6,
+      "note": "Robatayaki with outdoor terrace",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "MAMO Michelangelo",
+      "name_ar": null,
+      "cuisine": "Italian and Provençal",
+      "area": "Al Faisaliah Hotel, Al Olaya",
+      "price_band": null,
+      "tier": "#7",
+      "position": 7,
+      "note": "Italian-Provençal hotel restaurant",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Suhail Restaurant",
+      "name_ar": null,
+      "cuisine": "Traditional Saudi Arabian",
+      "area": "An Nakheel",
+      "price_band": null,
+      "tier": "#8",
+      "position": 8,
+      "note": "Home-style Saudi dishes",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

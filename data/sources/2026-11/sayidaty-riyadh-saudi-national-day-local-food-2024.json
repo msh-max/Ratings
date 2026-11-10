@@ -1,0 +1,85 @@
+{
+  "source_id": "sayidaty-riyadh-saudi-national-day-local-food-2024",
+  "source_name": "سيدتي — جولة في اليوم الوطني السعودي على مطاعم تقدم الأكل المحلي",
+  "publisher": "Sayidaty",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://www.sayidaty.net/%D9%84%D8%A7%D9%8A%D9%81-%D8%B3%D8%AA%D8%A7%D9%8A%D9%84/%D9%81%D9%86%D8%A7%D8%AF%D9%82-%D9%88%D9%85%D9%86%D8%AA%D8%AC%D8%B9%D8%A7%D8%AA/1795700-%D8%AC%D9%88%D9%84%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D9%8A%D9%88%D9%85-%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A-%D8%B9%D9%84%D9%89-%D9%85%D8%B7%D8%A7%D8%B9%D9%85-%D8%AA%D9%82%D8%AF%D9%85-%D8%A7%D9%84%D8%A3%D9%83%D9%84-%D8%A7%D9%84%D9%85%D8%AD%D9%84%D9%8A",
+  "published_at": "2024-09-23",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 6 Riyadh restaurants serving Saudi food; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Maiz",
+      "name_ar": "مايز",
+      "cuisine": "Saudi",
+      "area": "At-Turaif / Diriyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "presented as a luxury Saudi restaurant by the At-Turaif UNESCO site",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Fi Glbak",
+      "name_ar": "في قلبك",
+      "cuisine": "Saudi",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "traditional Saudi; founded by chef Hisham Baashen",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Suhail",
+      "name_ar": "سهيل",
+      "cuisine": "Gulf / Saudi",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Khaleeji dishes; outdoor terrace",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "ثرى",
+      "name_ar": "ثرى",
+      "cuisine": "Saudi",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Najdi-inspired design; Saudi heritage dishes",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Tameesa",
+      "name_ar": "تميسه",
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "suggested for family breakfasts",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Najd Village",
+      "name_ar": "قرية نجد",
+      "cuisine": "Saudi",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "traditional Saudi in a heritage-style building",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -22,7 +22,7 @@ def _num(tok: str) -> int:
 
 @dataclass(frozen=True)
 class Tier:
-    kind: str                 # stars | toques | bib | rank | winner | finalist | special | recommended | listed
+    kind: str                 # stars | toques | bib | rank | winner | finalist | special | recommended | creator | listed
     n: int | None = None
     green: bool = False
 
@@ -37,6 +37,8 @@ def parse_tier(tier: Any, position: Any = None) -> Tier:
     m = re.search(r"recommended by\s+(\d+)|(\d+)\s*(?:commenters?|comments?|mentions?|upvotes?|users?|people|replies)", text)
     if m:
         return Tier("recommended", int(m.group(1) or m.group(2)), green)
+    if "creator" in text:
+        return Tier("creator", pos, green)
     if "recommended by" in text and pos:
         return Tier("recommended", pos, green)
     m = re.search(_NUM + r"\s*(?:michelin\s*)?stars?\b", text_wo_green)
@@ -140,7 +142,7 @@ class Registry:
             w = scheme["toques"].get(max(1, min(tier.n or 1, 5)))
         elif tier.kind == "bib":
             w = scheme.get("bib")
-        elif tier.kind in ("winner", "finalist", "special"):
+        elif tier.kind in ("winner", "finalist", "special", "creator"):
             w = scheme.get(tier.kind)
             if w is None and tier.kind == "special":
                 w = scheme.get("winner")

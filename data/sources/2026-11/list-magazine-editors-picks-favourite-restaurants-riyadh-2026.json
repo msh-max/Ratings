@@ -1,0 +1,97 @@
+{
+  "source_id": "list-magazine-editors-picks-favourite-restaurants-riyadh-2026",
+  "source_name": "LIST Magazine — Editor's Picks: My favourite restaurants in Riyadh (Abdul Baset Al Monajed)",
+  "publisher": "LIST Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-and-drink/editors-picks-my-favourite-restaurants-in-riyadh-4304",
+  "published_at": "2026-04-20",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked personal editor's picks, 7 entries grouped by occasion; paywall: no",
+  "entries": [
+    {
+      "name": "Dawar Al Saada",
+      "name_ar": null,
+      "cuisine": "Traditional buffet-style breakfast",
+      "area": "Al Aqiq (original)",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Breakfast pick; round sandwiches",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Washna",
+      "name_ar": null,
+      "cuisine": "Aleppian",
+      "area": "Tahlia Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Lunch pick; cherry kebab",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Saruja",
+      "name_ar": null,
+      "cuisine": "Grilled meats and mezze",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Grill pick; tableside barbecue",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Rosa Linda",
+      "name_ar": null,
+      "cuisine": "Middle Eastern appetisers",
+      "area": "An Nakheel",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Dinner pick; underrated per author",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Dank Sandwich",
+      "name_ar": null,
+      "cuisine": "Sandwiches",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Sandwich pick",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Signor Sassi",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": "Al Dhabab Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Special-occasion pick; live piano",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Meat Moot",
+      "name_ar": null,
+      "cuisine": "Turkish-style smoked meats",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "16-hour smoked meats",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

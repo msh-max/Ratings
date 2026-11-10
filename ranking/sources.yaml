@@ -52,6 +52,7 @@ schemes:
     flat: 2
   community:
     recommended_brackets: [{min: 5, weight: 2}, {min: 2, weight: 1.5}, {min: 1, weight: 1}]
+    creator: 1.5         # tier "creator top list" (a blogger's / channel's own top list)
     listed: 1
   creator:
     flat: 1.5            # a YouTube / TikTok / blog creator's own top list
@@ -114,13 +115,13 @@ publishers:
     language: en
     urls: [https://www.worldculinaryawards.com]
   - id: fact
-    name: FACT Dining Awards
+    name: FACT Magazine
     award_label: FACT Dining Awards
     match: ["fact dining", "fact magazine", "fact awards", "factmagazines", "fact"]
     type: award
     language: en
     urls: [https://www.factmagazines.com]
-    notes: FACT Dining Awards KSA (Riyadh categories).
+    notes: FACT Dining Awards KSA (award) and FACT Magazine best-of lists (editorial).
   - id: caterer-me
     name: Caterer Middle East
     match: ["caterer", "hotelier middle east", "hotelier me"]
@@ -230,6 +231,43 @@ publishers:
     match: ["okaz", "عكاظ"]
     type: editorial
     language: ar
+  - id: gq-me
+    name: GQ Middle East
+    match: ["gq middle east", "gq me", "gqmiddleeast"]
+    type: editorial
+    language: en
+  - id: bbcgoodfood-me
+    name: BBC Good Food Middle East
+    match: ["bbc good food", "bbcgoodfoodme"]
+    type: editorial
+    language: en
+  - id: listmag
+    name: List Magazine
+    match: ["list magazine", "listmag"]
+    type: editorial
+    language: en
+  - id: outlook-traveller
+    name: Outlook Traveller
+    match: ["outlook traveller", "outlook traveler"]
+    type: editorial
+    language: en
+  - id: scenenow
+    name: Scene Now
+    match: ["scene now", "scenenow"]
+    type: editorial
+    language: en
+  - id: riyadhkey
+    name: Riyadh Key
+    match: ["riyadh key", "riyadhkey"]
+    type: community
+    language: en
+    notes: Local guide site; its own top list counts as a creator list.
+  - id: middleeastjourneys
+    name: Middle East Journeys
+    match: ["middle east journeys"]
+    type: community
+    language: en
+    notes: Travel blog; creator top list.
   # ---- official / destination sites
   - id: visitsaudi
     name: Visit Saudi

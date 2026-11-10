@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Riyadh Best Restaurants</title>
+<meta name="description" content="A monthly consensus ranking of Riyadh's best restaurants, built from published guides, awards, editorial lists and community threads.">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14130f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b4451f'/%3E%3Cpath d='M10 7v8a3 3 0 0 0 2 2.8V25h2v-7.2A3 3 0 0 0 16 15V7h-1.5v6h-1V7h-1v6h-1V7zM20 7c-1.7 0-3 2.2-3 5s1 4.3 2 4.8V25h2V7z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to results</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <div class="brand">
+      <h1>Riyadh Best Restaurants</h1>
+      <p class="sub" id="subtitle">Consensus of published guides, awards and lists</p>
+    </div>
+    <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+    </button>
+  </div>
+  <nav class="wrap tabs" role="tablist" aria-label="Views">
+    <button type="button" role="tab" id="tab-list" aria-controls="view-list" aria-selected="true" data-view="list">List</button>
+    <button type="button" role="tab" id="tab-map" aria-controls="view-map" aria-selected="false" data-view="map">Map</button>
+    <button type="button" role="tab" id="tab-sources" aria-controls="view-sources" aria-selected="false" data-view="sources">Sources &amp; method</button>
+  </nav>
+</header>
+
+<div class="filterbar" id="filterbar">
+  <div class="wrap">
+    <div class="search-row">
+      <label class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 0 1 5.2 10.4l4 4-1.4 1.4-4-4A6.5 6.5 0 1 1 10.5 4zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/></svg>
+        <input id="q" type="search" placeholder="Search name, cuisine, area, source…" autocomplete="off" spellcheck="false" aria-label="Search">
+      </label>
+      <button type="button" class="filters-btn" id="filters-toggle" aria-expanded="false" aria-controls="filters">
+        Filters<span class="count" id="filters-count" hidden></span>
+      </button>
+    </div>
+    <div class="filters" id="filters">
+      <label>Cuisine<select id="f-cuisine"><option value="">All</option></select></label>
+      <label>Area<select id="f-area"><option value="">All</option></select></label>
+      <label>Price<select id="f-price"><option value="">All</option></select></label>
+      <label>Confidence<select id="f-confidence">
+        <option value="">All</option><option value="strong">Strong (3+ publishers)</option>
+        <option value="medium">Medium (2)</option><option value="single">Single source</option></select></label>
+      <label>Source type<select id="f-type"><option value="">All</option></select></label>
+      <label>Sort<select id="f-sort">
+        <option value="score">Score</option><option value="name">Name</option><option value="recent">Most recent mention</option></select></label>
+      <button type="button" class="reset" id="reset">Reset</button>
+    </div>
+  </div>
+</div>
+
+<main id="main" class="wrap">
+  <p class="status" id="status" role="status" aria-live="polite">Loading…</p>
+  <section id="view-list" role="tabpanel" aria-labelledby="tab-list">
+    <ol class="cards" id="cards"></ol>
+    <button type="button" class="more" id="more" hidden>Show more</button>
+  </section>
+  <section id="view-map" role="tabpanel" aria-labelledby="tab-map" hidden>
+    <div id="map" aria-label="Map of ranked restaurants"></div>
+    <p class="map-note" id="map-note"></p>
+  </section>
+  <section id="view-sources" role="tabpanel" aria-labelledby="tab-sources" hidden>
+    <div class="prose">
+      <h2>How the ranking works</h2>
+      <p>Every month we read published restaurant guides, awards, editorial best-of lists, official
+      destination pages and community threads about Riyadh, and record which restaurants each one
+      recommends and at what tier. We store facts only — names, tiers, dates and links — never article text.</p>
+      <p>Each mention earns points by source type and tier (for example a MICHELIN star 10–14, a
+      MENA's 50 Best top-10 place 9, an award win 6, an editorial top-3 pick 4, a community recommendation 1–2),
+      multiplied by recency (full weight for the last 12 months, less for older lists). A list counts once per
+      restaurant, and several lists from the same publisher together count at most 1.5× its best one.
+      Confidence is <b>strong</b> with three or more independent publishers, <b>medium</b> with two.</p>
+      <p><a id="method-link" href="https://github.com/msh-max/Ratings/blob/claude/affectionate-cerf-8mwtq1/ranking/METHODOLOGY.md" target="_blank" rel="noopener">Full methodology</a></p>
+    </div>
+    <h2 class="sources-title">Sources this month</h2>
+    <div id="sources"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p id="footer-stats"></p>
+    <p>Rankings summarise what the linked sources published; follow the badges to read them.
+      <a id="footer-method" href="https://github.com/msh-max/Ratings/blob/claude/affectionate-cerf-8mwtq1/ranking/METHODOLOGY.md" target="_blank" rel="noopener">Methodology</a> ·
+      <a href="https://github.com/msh-max/Ratings" target="_blank" rel="noopener">Source code</a></p>
+    <p>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>.
+      Geocoding by Nominatim. Restaurant names and awards belong to their publishers.</p>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

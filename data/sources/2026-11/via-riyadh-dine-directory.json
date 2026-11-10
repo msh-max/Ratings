@@ -1,0 +1,85 @@
+{
+  "source_id": "via-riyadh-dine-directory",
+  "source_name": "Via Riyadh — Dine directory",
+  "publisher": "Via Riyadh",
+  "source_type": "official",
+  "language": "en",
+  "url": "https://www.viariyadh.com/dine",
+  "published_at": null,
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "living directory read on 2026-11-10; 10 venues listed, cafes (Over Under, Qahwa), work hub (Sudds) and cigar lounge (Vega) excluded -> 6 restaurants; category as labelled by the site",
+  "entries": [
+    {
+      "name": "Berenjak",
+      "name_ar": null,
+      "cuisine": "Persian",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fine dining",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Ferdi",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "casual; site calls it Riyadh's best burger",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Gymkhana",
+      "name_ar": null,
+      "cuisine": "Indian",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fine dining",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Jackie",
+      "name_ar": null,
+      "cuisine": "American / Mediterranean",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "casual; listed as Jackie Restaurant",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Madeo",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fine dining",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Stella Sky Lounge",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fine dining rooftop terrace",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

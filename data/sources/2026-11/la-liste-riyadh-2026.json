@@ -1,0 +1,25 @@
+{
+  "source_id": "la-liste-riyadh-2026",
+  "source_name": "La Liste 2026 — Riyadh restaurants",
+  "publisher": "La Liste",
+  "source_type": "guide",
+  "language": "en",
+  "url": "https://www.laliste.com/places/tkyh-takya-riyadh-sa",
+  "published_at": "2025-11-25",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "La Liste site has no country/city filter; searched laliste.com for \"Riyadh\" and for ~150 Riyadh restaurant names taken from the Michelin, Gault&Millau and 50 Best lists. Only one Riyadh restaurant is scored (Takya, 80/100); other Riyadh hits are hotels (excluded). No Riyadh restaurant in the 2026 Top 1000. published_at is approximate (earliest press coverage of the 2026 ranking, late Nov 2025). A 2025 score of 75 for Takya is reported only by a secondary site (enprimeurclub), not verified on La Liste; no separate 2025/2024 file. Paywall: no.",
+  "entries": [
+    {
+      "name": "TAKYA",
+      "name_ar": "تكية",
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "La Liste score 80/100 (2026).",
+      "entry_url": "https://www.laliste.com/places/tkyh-takya-riyadh-sa",
+      "branch": null
+    }
+  ]
+}

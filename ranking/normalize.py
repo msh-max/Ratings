@@ -13,12 +13,44 @@ from rapidfuzz import fuzz, process
 
 MERGE_THRESHOLD = 92
 
+# Words that cannot identify a place on their own. A name made only of these never merges
+# with a longer name just because its words are contained in it ("The Villa" vs "Villa X").
+GENERIC_TOKENS = {
+    "villa", "house", "home", "kitchen", "grill", "grills", "cafe", "coffee", "bistro", "bar",
+    "lounge", "brasserie", "trattoria", "steakhouse", "steak", "sushi", "burger", "burgers",
+    "pizza", "pizzeria", "bakery", "garden", "gardens", "terrace", "room", "table", "club",
+    "sky", "roof", "rooftop", "deli", "diner", "eatery", "shawarma", "kabsa", "mandi", "seafood",
+    "fish", "thai", "indian", "italian", "japanese", "lebanese", "saudi", "najdi", "turkish",
+    "chinese", "french", "korean", "mexican", "and", "of", "de", "la", "le", "il", "al",
+    "and", "co", "hotel", "beach", "palace", "street", "corner", "express", "new", "old",
+}
+
 STOPWORDS = {"restaurant", "restaurants", "restaurante", "مطعم", "the", "riyadh", "الرياض", "by"}
 _ARABIC_RE = re.compile(r"[؀-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿]")
 _ARABIC_FOLD = str.maketrans({"أ": "ا", "إ": "ا", "آ": "ا", "ٱ": "ا", "ة": "ه", "ى": "ي",
                               "ؤ": "و", "ئ": "ي", "ـ": None})
 _APOSTROPHES = re.compile(r"['’‘`´]")
 _NON_WORD = re.compile(r"[^\w]+", re.UNICODE)
+
+
+_SUFFIX_SPLIT = re.compile(r"\s+[-–—|@]\s+|\s+at\s+(?=the\s|[A-Z])|,\s+")
+_VENUE_WORDS = re.compile(
+    r"\b(hotel|hotels|resort|residences|marriott|ritz|four seasons|hilton|mandarin|regis|kimpton|"
+    r"novotel|fairmont|rosewood|raffles|shangri|kempinski|hyatt|intercontinental|luxury collection|"
+    r"sheraton|waldorf|crowne|radisson|movenpick|mövenpick|narcissus|jareed|bab samhan|w riyadh|"
+    r"sofitel|pullman|doubletree|vogue hotel|nobu hotel|edition|langham|address|mall|tower|"
+    r"centre|center|boulevard|kafd|via riyadh|diriyah|bujairi|olaya|branch)\b", re.IGNORECASE)
+
+
+def strip_venue_suffix(name: str) -> str:
+    """Drop a trailing " - <hotel / mall / district>" from a name.
+
+    "Cucina - Riyadh Marriott Hotel" -> "Cucina"; "Ruby Room - Hocho" is kept as is.
+    """
+    parts = _SUFFIX_SPLIT.split(name, maxsplit=1)
+    if len(parts) == 2 and parts[0].strip() and _VENUE_WORDS.search(parts[1]):
+        return parts[0].strip()
+    return name
 
 
 def has_arabic(text: str | None) -> bool:
@@ -38,7 +70,7 @@ def canonical_key(name: str | None) -> str:
     """
     if not name:
         return ""
-    text = _strip_marks(name).lower().translate(_ARABIC_FOLD)
+    text = _strip_marks(strip_venue_suffix(name)).lower().translate(_ARABIC_FOLD)
     text = text.replace("&", " and ")
     text = _APOSTROPHES.sub("", text)
     raw_tokens = [t for t in _NON_WORD.sub(" ", text).split() if t and t != "_"]
@@ -109,6 +141,15 @@ def load_aliases(path: Path | None) -> Aliases:
 
 # ---------------------------------------------------------------- clustering
 
+def _numbers(tokens: set[str]) -> set[str]:
+    return {t for t in tokens if any(ch.isdigit() for ch in t)}
+
+
+def _identifying(key: str) -> bool:
+    """True when a key has at least one distinctive token (not generic, >= 3 chars)."""
+    return any(len(t) >= 3 and t not in GENERIC_TOKENS for t in key.split())
+
+
 class _UnionFind:
     def __init__(self, n: int) -> None:
         self.parent = list(range(n))
@@ -146,6 +187,14 @@ def cluster_mentions(mentions: list[dict[str, Any]], aliases: Aliases | None = N
                 ks.append(k)
         keys_per_mention.append(ks)
 
+    by_heads: dict[str, set[str]] = {}
+    for m in mentions:
+        nm = m.get("name") or ""
+        parts = re.split(r"\s+by\s+", strip_venue_suffix(nm), maxsplit=1, flags=re.IGNORECASE)
+        if len(parts) == 2 and parts[0].strip():
+            key = aliases.resolve(canonical_key(nm))
+            by_heads.setdefault(key, set()).update(canonical_key(parts[0]).split())
+
     uniq: list[str] = sorted({k for ks in keys_per_mention for k in ks})
     index = {k: i for i, k in enumerate(uniq)}
     uf = _UnionFind(len(uniq))
@@ -161,10 +210,33 @@ def cluster_mentions(mentions: list[dict[str, Any]], aliases: Aliases | None = N
                 continue
             matrix = process.cdist(group, group, scorer=fuzz.token_set_ratio,
                                    score_cutoff=threshold, workers=1)
+            subset_links: dict[str, list[str]] = {}
             for i in range(len(group)):
                 for j in range(i + 1, len(group)):
-                    if matrix[i][j] >= threshold and not aliases.kept_apart(group[i], group[j]):
-                        uf.union(index[group[i]], index[group[j]])
+                    a, b = group[i], group[j]
+                    if matrix[i][j] < threshold or aliases.kept_apart(a, b):
+                        continue
+                    ta, tb = set(a.split()), set(b.split())
+                    if _numbers(ta) != _numbers(tb):      # "Sample 1" is not "Sample 12"
+                        continue
+                    if ta == tb or not (ta < tb or tb < ta):
+                        uf.union(index[a], index[b])
+                        continue
+                    small, large = (a, b) if ta < tb else (b, a)
+                    if _identifying(small):
+                        subset_links.setdefault(small, []).append(large)
+            # "Lusin" may join "Lusin Armenian", but a short name contained in two
+            # unrelated longer names is ambiguous and stays on its own. A "<X> by <Y>"
+            # name only joins names made of X's words ("Kayzo by Myazu" is not Myazu).
+            root = {k: uf.find(index[k]) for k in group}
+            accepted = []
+            for small, larges in sorted(subset_links.items()):
+                larges = [x for x in larges
+                          if x not in by_heads or set(small.split()) <= by_heads[x]]
+                if larges and len({root[x] for x in larges}) == 1:
+                    accepted.extend((small, x) for x in larges)
+            for small, large in accepted:
+                uf.union(index[small], index[large])
 
     clusters: dict[int, list[dict[str, Any]]] = {}
     order: list[int] = []

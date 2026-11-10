@@ -1,0 +1,73 @@
+{
+  "source_id": "expatica-best-restaurants-riyadh",
+  "source_name": "Expatica — The best restaurants in Riyadh to try at least once",
+  "publisher": "Expatica",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.expatica.com/sa/out-and-about/best-of/the-best-restaurants-in-riyadh-every-expat-should-try-70924",
+  "published_at": "2025-02-03",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 5; published_at is the 'last updated' date (original date not shown); paywall: no",
+  "entries": [
+    {
+      "name": "Al Orjouan Restaurant",
+      "name_ar": null,
+      "cuisine": "Middle Eastern and international",
+      "area": "The Ritz-Carlton, Al Hada",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Friday buffet brunch",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Yokari",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": "Centria Mall, Olaya Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "High-end minimalist",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "The Globe",
+      "name_ar": null,
+      "cuisine": "Arabic and modern European",
+      "area": "Al Faisaliah Tower, Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Afternoon tea with views",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Lusin",
+      "name_ar": null,
+      "cuisine": "Armenian",
+      "area": "Centria Mall, Olaya Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Mezze and grills",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Najd Village",
+      "name_ar": null,
+      "cuisine": "Traditional Saudi Arabian",
+      "area": "Takhassusi Street, Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Large heritage building; book ahead",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

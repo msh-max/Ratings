@@ -1,0 +1,85 @@
+{
+  "source_id": "whatsonsaudi-rooftop-lounges-riyadh-2024",
+  "source_name": "What's On Saudi Arabia — Enjoy stunning views at these rooftop lounges in Riyadh",
+  "publisher": "What's On Saudi Arabia",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://whatsonsaudiarabia.com/?p=22629",
+  "published_at": "2024-04-29",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "rooftop list of 6 (lounge-style venues), unranked; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "African Lounge",
+      "name_ar": null,
+      "cuisine": "African-inspired sharing plates",
+      "area": "Bujairi Terrace, Diriyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "roof terrace over At-Turaif",
+      "entry_url": null,
+      "branch": "Flamingo Collection"
+    },
+    {
+      "name": "Anghami Lab",
+      "name_ar": null,
+      "cuisine": "Mediterranean",
+      "area": "Boulevard City",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "rooftop with live performances",
+      "entry_url": null,
+      "branch": "Merwas rooftop"
+    },
+    {
+      "name": "HuQQa",
+      "name_ar": null,
+      "cuisine": "Turkish",
+      "area": "U Walk",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "sunset roof terrace with live music",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Iris Café",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Ramla Terraza, As Sahafah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "foliage-filled rooftop with DJ",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Robata",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": "Hittin",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "minimalist skyline rooftop",
+      "entry_url": null,
+      "branch": "The Canopy"
+    },
+    {
+      "name": "Stella Sky Lounge",
+      "name_ar": null,
+      "cuisine": "Mezze, tacos, grills",
+      "area": "The St Regis Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "poolside rooftop lounge",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

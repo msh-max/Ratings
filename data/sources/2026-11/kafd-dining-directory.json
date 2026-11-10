@@ -1,0 +1,121 @@
+{
+  "source_id": "kafd-dining-directory",
+  "source_name": "KAFD — Lifestyle Directory: Dining",
+  "publisher": "King Abdullah Financial District (KAFD)",
+  "source_type": "official",
+  "language": "en",
+  "url": "https://www.kafd.sa/en/lifestyle/directories?default-category=Dining",
+  "published_at": null,
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "living directory read on 2026-11-10; Dining category has 15 entries (read from the page's embedded data, all 3 pages); 6 coffee shops/bakery/juice bar excluded (Starbucks, 12 Cups, Cafe Tale, Toby's Estate, Pistrina Bakery, Joe & The Juice) -> 9; KAFD hotels' outlets not listed individually",
+  "entries": [
+    {
+      "name": "Black Tap",
+      "name_ar": null,
+      "cuisine": "Burgers",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Brunch & Cake",
+      "name_ar": null,
+      "cuisine": "All-day brunch",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Maui",
+      "name_ar": null,
+      "cuisine": "Poke",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Zuma",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kuuru",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "tashas",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Jones the Grocer",
+      "name_ar": null,
+      "cuisine": "Café / grocer",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Monopoly",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Urth Caffé",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "listed as Urth Cafe",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

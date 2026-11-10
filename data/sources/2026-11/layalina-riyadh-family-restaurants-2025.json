@@ -1,0 +1,85 @@
+{
+  "source_id": "layalina-riyadh-family-restaurants-2025",
+  "source_name": "ليالينا (يمي) — دليل مطاعم الرياض عوائل لأوقات ممتعة مع أسرتك",
+  "publisher": "Layalina",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://yummy.layalina.com/%D8%AF%D9%84%D9%8A%D9%84-%D9%85%D8%B7%D8%A7%D8%B9%D9%85-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D8%B9%D9%88%D8%A7%D8%A6%D9%84-%D9%84%D8%A3%D9%88%D9%82%D8%A7%D8%AA-%D9%85%D9%85%D8%AA%D8%B9%D8%A9-%D9%85%D8%B9-%D8%A3%D8%B3%D8%B1%D8%AA%D9%83-707970.html",
+  "published_at": "2025-01-06",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 6 family restaurants; updated 2025-04-17; paywall: no (sign-in prompt overlay, list visible); pages read: 1",
+  "entries": [
+    {
+      "name": "مطعم الحمراء البخاري",
+      "name_ar": "مطعم الحمراء البخاري الرياض",
+      "cuisine": "Bukhari / grills",
+      "area": "King Fahd Road, Al Aqeeq",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "charcoal-grilled chicken",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "مطعم ومقهى الكرك الذهبي",
+      "name_ar": "مطعم ومقهى الكرك الذهبي الرياض",
+      "cuisine": "Breakfast / Middle Eastern / Turkish",
+      "area": "Al Nada",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "shakshouka with cheese",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Bab Touma",
+      "name_ar": "مطعم باب توما الرياض",
+      "cuisine": "Syrian",
+      "area": "Prince Mamdouh bin Abdulaziz Street, Al Sulaimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "shawarma and stuffed chicken",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "توابل هندية",
+      "name_ar": "مطعم توابل هندية الرياض",
+      "cuisine": "Indian / Chinese",
+      "area": "Al Yarmouk, Dammam Road",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "chicken tikka masala",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "قرمشة للأسماك الطازجة",
+      "name_ar": "مطعم قرمشة للأسماك الطازجة الرياض",
+      "cuisine": "Seafood",
+      "area": "Al Mansoura (Al Kharj Road)",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "tannour-grilled salmon; address field gives Nahawand, Al Aziziyah",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "California Burger",
+      "name_ar": "مطعم كاليفورنيا برجر الرياض",
+      "cuisine": "Burgers",
+      "area": "Anas bin Malik Road, Al Malqa",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fresh Angus beef burgers",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

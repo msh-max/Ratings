@@ -1,0 +1,133 @@
+{
+  "source_id": "listmag-late-night-24-hour-riyadh",
+  "source_name": "List Magazine — Late-night and 24-hour cafes and restaurants in Riyadh",
+  "publisher": "List Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-drink/casual/late-night-and-24-hour-cafes-and-restaurants-in-riyadh-2755",
+  "published_at": "2024-10-10",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "10 entries in two sections (5 restaurants, 5 cafés), all captured, unranked; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Shake Shack",
+      "name_ar": null,
+      "cuisine": "American burgers",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "most Riyadh branches open past midnight",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Tannuru",
+      "name_ar": null,
+      "cuisine": "Local and Middle Eastern",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "delivery-led local dishes and pies",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Zaatar W Zeit",
+      "name_ar": null,
+      "cuisine": "Lebanese",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "quick Lebanese sandwiches any time",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sign",
+      "name_ar": null,
+      "cuisine": "Burgers",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "late-hours burger spot with drive-thru",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Dayatna",
+      "name_ar": null,
+      "cuisine": "Middle Eastern",
+      "area": "Tahlia Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "hummus, shawarma and grills for late cravings",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Less is More Coffee",
+      "name_ar": null,
+      "cuisine": "Café",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "24-hour coffee and bakery",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Barns",
+      "name_ar": null,
+      "cuisine": "Café",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "24-hour homegrown coffee chain",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Ideal Café",
+      "name_ar": null,
+      "cuisine": "Café",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "24-hour coffee and sweets",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Dr. Café",
+      "name_ar": null,
+      "cuisine": "Café",
+      "area": "King Fahd Road",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "24-hour coffee",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "% Arabica",
+      "name_ar": null,
+      "cuisine": "Café",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "coffee with late delivery",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "source_id": "list-magazine-riyadh-best-restaurants",
+  "source_name": "LIST Magazine — The best restaurants in Riyadh – enjoy a taste sensation in the capital",
+  "publisher": "LIST Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-and-drink/experiences/best-places-to-eat-in-riyadh",
+  "published_at": "2026-10-30",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered list of 9; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "MYAZU",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": null,
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "Fine dining; sashimi and maki",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Cipriani",
+      "name_ar": null,
+      "cuisine": "Venetian-inspired Italian",
+      "area": null,
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "Known for décor and vanilla meringue cake",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "La Petite Maison (LPM)",
+      "name_ar": null,
+      "cuisine": "Southern French",
+      "area": null,
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "Riviera style",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kuuru",
+      "name_ar": null,
+      "cuisine": "Nikkei",
+      "area": null,
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "Leylati Group; sushi",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Marble",
+      "name_ar": null,
+      "cuisine": "Steakhouse",
+      "area": null,
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "Smoked brisket and Marble Burger",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sadelle's",
+      "name_ar": null,
+      "cuisine": "New York-style American",
+      "area": null,
+      "price_band": null,
+      "tier": "#6",
+      "position": 6,
+      "note": "Brunch",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kimono",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": null,
+      "price_band": null,
+      "tier": "#7",
+      "position": 7,
+      "note": "Yaki soba, street-food energy",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Pantera",
+      "name_ar": null,
+      "cuisine": "Mediterranean",
+      "area": null,
+      "price_band": null,
+      "tier": "#8",
+      "position": 8,
+      "note": "Open kitchen and terrace",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Najd Village",
+      "name_ar": null,
+      "cuisine": "Traditional Saudi and Arabic",
+      "area": "Several locations",
+      "price_band": null,
+      "tier": "#9",
+      "position": 9,
+      "note": "Kabsa, Bedouin-style setting, budget-friendly",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

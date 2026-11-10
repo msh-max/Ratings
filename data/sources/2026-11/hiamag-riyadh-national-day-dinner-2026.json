@@ -1,0 +1,97 @@
+{
+  "source_id": "hiamag-riyadh-national-day-dinner-2026",
+  "source_name": "مجلة هي — عشاء اليوم الوطني في الرياض.. 7 مطاعم فاخرة تستحق التجربة",
+  "publisher": "Hia Magazine",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://www.hiamag.com/%D8%AA%D8%B1%D9%81%D9%8A%D9%87-%D9%88%D9%81%D9%86%D9%88%D9%86/%D8%AA%D8%B0%D9%88%D9%82/1804933-%D8%B9%D8%B4%D8%A7%D8%A1-%D8%A7%D9%84%D9%8A%D9%88%D9%85-%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A-%D9%81%D9%8A-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-7-%D9%85%D8%B7%D8%A7%D8%B9%D9%85-%D9%81%D8%A7%D8%AE%D8%B1%D8%A9-%D8%AA%D8%B3%D8%AA%D8%AD%D9%82-%D8%A7%D9%84%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9",
+  "published_at": "2026-09-21",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 7 fine-dining restaurants; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "ثرى",
+      "name_ar": "ثرى",
+      "cuisine": "Saudi",
+      "area": "Al Narjis",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "modern takes on mujabbas, jareesh, saleeg",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "LPM",
+      "name_ar": "إل بي إم الرياض",
+      "cuisine": "French-Mediterranean",
+      "area": "Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Riviera-style French-Mediterranean",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Café Boulud",
+      "name_ar": "كافيه بولود",
+      "cuisine": "French",
+      "area": "Four Seasons Riyadh, Kingdom Tower",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "chef Daniel Boulud; source cites its Michelin Guide listing",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Il Baretto",
+      "name_ar": "إل باريتو",
+      "cuisine": "Italian",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "source cites a Michelin Guide 2026 award for non-alcoholic beverages",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Robata",
+      "name_ar": "روباتا الرياض",
+      "cuisine": "Japanese",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "charcoal grilling",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Madeo",
+      "name_ar": "ماديو",
+      "cuisine": "Italian",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fine-dining Italian",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Berenjak",
+      "name_ar": "بيرنجاك الرياض",
+      "cuisine": "Persian",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "London-born Persian kebab house",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

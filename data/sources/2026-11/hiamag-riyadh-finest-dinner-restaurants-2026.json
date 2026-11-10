@@ -1,0 +1,109 @@
+{
+  "source_id": "hiamag-riyadh-finest-dinner-restaurants-2026",
+  "source_name": "مجلة هي — أفخم مطاعم الرياض لتجربة عشاء استثنائية",
+  "publisher": "Hia Magazine",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://www.hiamag.com/%D8%AA%D8%B1%D9%81%D9%8A%D9%87-%D9%88%D9%81%D9%86%D9%88%D9%86/%D8%AA%D8%B0%D9%88%D9%82/1796846-%D8%B1%D8%AD%D9%84%D8%A9-%D9%85%D8%B0%D8%A7%D9%82-%D9%84%D8%A7-%D8%AA%D9%8F%D9%86%D8%B3%D9%89%E2%80%A6-%D8%A3%D9%81%D8%AE%D9%85-%D9%85%D8%B7%D8%A7%D8%B9%D9%85-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%84%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D8%B9%D8%B4%D8%A7%D8%A1-%D8%A7%D8%B3%D8%AA%D8%AB%D9%86%D8%A7%D8%A6%D9%8A%D8%A9-%D8%AA%D8%A3%D8%B3%D8%B1-%D8%A7%D9%84%D8%AD%D9%88%D8%A7%D8%B3",
+  "published_at": "2026-04-20",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 8; paywall: no; pages read: 1. Arabic names only in source; Latin from branding (Kayzo = Kayzo by Myazu; آجو taken as Agio).",
+  "entries": [
+    {
+      "name": "Signor Sassi",
+      "name_ar": "سينيور ساسي",
+      "cuisine": "Italian",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "contemporary takes on traditional Italian recipes",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kayzo",
+      "name_ar": "كايزو",
+      "cuisine": "Asian / Western fusion",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Asian flavours with Western influences",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Agio",
+      "name_ar": "آجو",
+      "cuisine": "Italian",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Capri-inspired design",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "COYA",
+      "name_ar": "كويا",
+      "cuisine": "Peruvian",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "live music",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Crazy Pizza",
+      "name_ar": "كريزي بيتزا",
+      "cuisine": "Italian pizza",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "pizza made as a live show",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Robata",
+      "name_ar": "روباتا",
+      "cuisine": "Japanese",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "central grill and terrace with city view",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "لوس بانديدوس",
+      "name_ar": "لوس بانديدوس",
+      "cuisine": "French / Italian / Spanish",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "described as one of Riyadh's oldest established restaurants",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sadelle's",
+      "name_ar": "ساديلز",
+      "cuisine": "New York / all-day",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "New York-style; bagels and seafood",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

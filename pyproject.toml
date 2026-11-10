@@ -27,3 +27,4 @@ ranking = ["*.yaml", "*.md"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "-p no:asyncio"

@@ -1,0 +1,133 @@
+{
+  "source_id": "sayidaty-ramadan-iftar-suhoor-riyadh-2025",
+  "source_name": "Sayidaty — أفضل 10 أماكن لتناول الفطور والسحور في رمضان بالرياض",
+  "publisher": "Sayidaty",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://www.sayidaty.net/node/1807102",
+  "published_at": "2025-02-28",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered Ramadan iftar/suhoor list of 10 (seasonal occasion list); paywall: no; pages read: 1; Latin names given only where the source gives them or the brand name is unambiguous; Sharkoza left in Arabic script",
+  "entries": [
+    {
+      "name": "AOK Kitchen",
+      "name_ar": "مطبخ أوك",
+      "cuisine": "Mediterranean and Californian",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "Ramadan buffet in majlis-style setting",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Beast House",
+      "name_ar": "بيست هاوس",
+      "cuisine": "Saudi traditional",
+      "area": null,
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "suhoor with activities",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Burj Al Hamam",
+      "name_ar": "برج الحمام",
+      "cuisine": "Lebanese",
+      "area": null,
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "family-friendly Ramadan package",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Café Boulud",
+      "name_ar": "مقهى بولود",
+      "cuisine": "French",
+      "area": "Four Seasons Hotel Riyadh",
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "iftar menu, suhoor until late",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Chotto Matte",
+      "name_ar": "شوتو ماتي",
+      "cuisine": "Japanese-Peruvian",
+      "area": null,
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "Nikkei iftar menu",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "شاركوزا",
+      "name_ar": "شاركوزا",
+      "cuisine": "Grill, steakhouse",
+      "area": null,
+      "price_band": null,
+      "tier": "#6",
+      "position": 6,
+      "note": "wagyu and Black Angus beef",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sushi Samba",
+      "name_ar": "سوشي سامبا",
+      "cuisine": "Japanese, Brazilian, Peruvian",
+      "area": null,
+      "price_band": null,
+      "tier": "#7",
+      "position": 7,
+      "note": "fusion iftar menu",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Isabel Mayfair",
+      "name_ar": "إيزابيل مايفير",
+      "cuisine": "London-style",
+      "area": null,
+      "price_band": null,
+      "tier": "#8",
+      "position": 8,
+      "note": "Ramadan classics and desserts",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "V Restaurant",
+      "name_ar": "مطعم V",
+      "cuisine": "Italian",
+      "area": null,
+      "price_band": null,
+      "tier": "#9",
+      "position": 9,
+      "note": "buffet with free meals for young children",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sage & Sirloin Lounge",
+      "name_ar": "صالة سيج آند سيرلوين",
+      "cuisine": "Buffet grill",
+      "area": "Ascott Rafal Hotel",
+      "price_band": null,
+      "tier": "#10",
+      "position": 10,
+      "note": "Bahrain import buffet",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

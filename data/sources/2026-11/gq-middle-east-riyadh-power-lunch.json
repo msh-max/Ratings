@@ -1,0 +1,97 @@
+{
+  "source_id": "gq-middle-east-riyadh-power-lunch",
+  "source_name": "GQ Middle East — Hit Up These Restaurants in Riyadh for a Power Lunch",
+  "publisher": "GQ Middle East",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.gqmiddleeast.com/article/hit-up-these-restaurants-in-riyadh-for-a-power-lunch",
+  "published_at": "2025-02-13",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 7 business-lunch picks; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "LPM Riyadh",
+      "name_ar": null,
+      "cuisine": "French-Mediterranean",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Suited to business lunches",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Scott's Riyadh",
+      "name_ar": null,
+      "cuisine": "Seafood",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Mayfair restaurant's Riyadh outpost; oysters and Dover sole",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Mamo Michelangelo",
+      "name_ar": null,
+      "cuisine": "Italian and French Riviera",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Truffle pizza and handmade pasta",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Roka Riyadh",
+      "name_ar": null,
+      "cuisine": "Contemporary Japanese",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Robatayaki grill and sushi",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Il Baretto",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": "Financial district (KAFD)",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Praised for its pasta",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sumosan Riyadh",
+      "name_ar": null,
+      "cuisine": "Contemporary Japanese",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Live music and outdoor seating",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Cipriani Riyadh",
+      "name_ar": null,
+      "cuisine": "Classic Italian",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Pasta and seafood",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

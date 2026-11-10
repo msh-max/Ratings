@@ -1,0 +1,49 @@
+{
+  "source_id": "visitsaudi-best-new-restaurants-riyadh",
+  "source_name": "Visit Saudi — Best New Restaurants in Riyadh (EN) / مطاعم جديدة في الرياض (AR)",
+  "publisher": "Visit Saudi (Saudi Tourism Authority)",
+  "source_type": "official",
+  "language": "en",
+  "url": "https://www.visitsaudi.com/en/riyadh/stories/best-new-restaurants-in-riyadh",
+  "published_at": null,
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "living story page, no date shown, read 2026-11-10; English and Arabic versions (https://www.visitsaudi.com/ar/riyadh/stories/best-new-restaurants-in-riyadh) list the same 3 restaurants; Arabic names from the AR page",
+  "entries": [
+    {
+      "name": "Carbone",
+      "name_ar": "كاربون",
+      "cuisine": "Italian-American",
+      "area": "Mansard Riyadh Hotel, near KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Mario Carbone's Italian-American brand; second Middle East branch after Doha",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Gymkhana",
+      "name_ar": "جيمخانا",
+      "cuisine": "Indian",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Riyadh outpost of the London Indian restaurant",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Beefbar",
+      "name_ar": "بيف بار",
+      "cuisine": "Steakhouse",
+      "area": "Tahlia Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "steakhouse",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

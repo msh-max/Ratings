@@ -1,0 +1,97 @@
+{
+  "source_id": "listmag-editors-picks-favourite-restaurants-riyadh-2026",
+  "source_name": "List Magazine — Editor's Picks: My favourite restaurants in Riyadh",
+  "publisher": "List Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-and-drink/editors-picks-my-favourite-restaurants-in-riyadh-4304",
+  "published_at": "2026-04-20",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "editor's personal picks of 7, grouped by occasion (breakfast, lunch, dinner, gatherings, special occasion); unranked; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Dawar Al Saada",
+      "name_ar": null,
+      "cuisine": "Traditional breakfast buffet",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "affordable breakfast sandwiches (breakfast pick)",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Washna",
+      "name_ar": null,
+      "cuisine": "Aleppian",
+      "area": "Tahlia Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "cherry kebab around a central fountain (lunch pick)",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Saruja",
+      "name_ar": null,
+      "cuisine": "Grill and mezze",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "table-side barbecue for large gatherings",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Rosa Linda",
+      "name_ar": null,
+      "cuisine": "Middle Eastern",
+      "area": "An Nakheel",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "artful mezze, called underrated (dinner pick)",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Dank Sandwich",
+      "name_ar": null,
+      "cuisine": "Sandwiches",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "casual sandwich boxes",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Signor Sassi",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "special-occasion villa with live piano",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Meat Moot",
+      "name_ar": null,
+      "cuisine": "Turkish-style smoked meats",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "16-hour smoked meat with live show",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

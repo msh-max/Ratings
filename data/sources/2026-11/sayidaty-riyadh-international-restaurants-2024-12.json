@@ -1,0 +1,133 @@
+{
+  "source_id": "sayidaty-riyadh-international-restaurants-2024-12",
+  "source_name": "سيدتي — 10 مطاعم عالمية مفضلة في الرياض لتجارب لذيذة وراقية",
+  "publisher": "Sayidaty",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://www.sayidaty.net/%D9%84%D8%A7%D9%8A%D9%81-%D8%B3%D8%AA%D8%A7%D9%8A%D9%84/%D9%81%D9%86%D8%A7%D8%AF%D9%82-%D9%88%D9%85%D9%86%D8%AA%D8%AC%D8%B9%D8%A7%D8%AA/1802459-10-%D9%85%D8%B7%D8%A7%D8%B9%D9%85-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%81%D8%B6%D9%84%D8%A9-%D9%81%D9%8A-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D8%A8-%D9%84%D8%B0%D9%8A%D8%B0%D8%A9-%D9%88%D8%B1%D8%A7%D9%82%D9%8A%D8%A9",
+  "published_at": "2024-12-21",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 10; paywall: no; pages read: 1. Article gives Arabic names only; Latin names from restaurant branding where confirmed, else Arabic kept in name.",
+  "entries": [
+    {
+      "name": "سفن",
+      "name_ar": "سفن",
+      "cuisine": "International / local; seafood and grills",
+      "area": "Courtyard by Marriott, near KAFD, Northern Ring Road",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "buffet and à la carte, vegetarian options",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "المملكة سوشيال داينينغ",
+      "name_ar": "المملكة سوشيال داينينغ",
+      "cuisine": "Asian street food / Mediterranean / local",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "all-day venue with evening live music",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "COYA",
+      "name_ar": "كويا",
+      "cuisine": "Peruvian",
+      "area": "Al Sulaimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "contemporary Peruvian; London-born brand, Riyadh opening 2022",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "JW Glass Garden",
+      "name_ar": "جي دبليو جلاس جاردن",
+      "cuisine": "International, farm-to-table",
+      "area": "JW Marriott Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "uses produce from the hotel's own garden",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Il Baretto",
+      "name_ar": "إل باريتو",
+      "cuisine": "Italian",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "London-born Italian; wood-fired pizza, lobster linguine",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Lusin",
+      "name_ar": "لوسين",
+      "cuisine": "Armenian",
+      "area": "Centria Mall; Dhiyafa Plaza",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "modern Armenian, known for manti and kebab; two branches",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Myazu",
+      "name_ar": "ميازو",
+      "cuisine": "Japanese",
+      "area": "Al Sulaimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "upscale Japanese focused on sushi",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Scott's",
+      "name_ar": "سكوتس",
+      "cuisine": "Seafood / British",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "London seafood brand (est. 1851) with a private Red Sea room",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Yauatcha",
+      "name_ar": "ياواتشا",
+      "cuisine": "Chinese / dim sum",
+      "area": "Al Faisaliah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "known for dim sum",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Agio",
+      "name_ar": "آجيو",
+      "cuisine": "Italian",
+      "area": "The Canopy",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Amalfi-inspired interior; opened 2024",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

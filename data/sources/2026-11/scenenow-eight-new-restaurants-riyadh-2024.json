@@ -1,0 +1,109 @@
+{
+  "source_id": "scenenow-eight-new-restaurants-riyadh-2024",
+  "source_name": "Scene Now — Eight New Restaurants to Check Out in Riyadh",
+  "publisher": "Scene Now",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://scenenow.com/Society/Eight-New-Restaurants-to-Check-Out-in-Riyadh",
+  "published_at": "2024-09-20",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked new-openings list of 8; paywall: no",
+  "entries": [
+    {
+      "name": "Alaya",
+      "name_ar": null,
+      "cuisine": "Middle East and Mediterranean",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "East-West blend",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Amazónico",
+      "name_ar": null,
+      "cuisine": "Latin American",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Madrid-born tropical-themed brand",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "AB Steak",
+      "name_ar": null,
+      "cuisine": "Korean-American steakhouse",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "30-day dry-aged cuts",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Café Boulud",
+      "name_ar": null,
+      "cuisine": "French",
+      "area": "Four Seasons Hotel",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Daniel Boulud",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Bardo",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "London brand, art deco décor",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Arcade Food Hall",
+      "name_ar": null,
+      "cuisine": "International and local",
+      "area": "Solitaire Mall rooftop",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Food hall with live music",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "BeauCoCo",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "First venue outside France",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Roka Riyadh",
+      "name_ar": null,
+      "cuisine": "Japanese robatayaki",
+      "area": "Midtown",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Indoor dining and terrace",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

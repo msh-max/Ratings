@@ -1,0 +1,85 @@
+{
+  "source_id": "listmag-best-restaurants-via-riyadh",
+  "source_name": "List Magazine — The best restaurants in Via Riyadh",
+  "publisher": "List Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-drink/restaurants-at-via-riyadh",
+  "published_at": "2026-06-03",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "destination list of 6 (order as published, treated as unranked; one café included as listed); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Ferdi",
+      "name_ar": null,
+      "cuisine": "Comfort food",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "retro Paris-born spot, cheeseburgers and mac and cheese",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Gymkhana",
+      "name_ar": null,
+      "cuisine": "British Indian",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fine-dining branch of the London Indian",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Jackie",
+      "name_ar": null,
+      "cuisine": "American and Greek",
+      "area": "St Regis Riyadh, Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "relaxed family-friendly with seafood",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Madeo",
+      "name_ar": null,
+      "cuisine": "Tuscan",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "pasta and wood-fired pizza",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Over Under",
+      "name_ar": null,
+      "cuisine": "Western-style café",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "brunch by day, party food by night",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Hōchō",
+      "name_ar": null,
+      "cuisine": "Japanese with Silk Road influences",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Kobe beef, sushi and omakase room",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

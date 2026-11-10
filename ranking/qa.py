@@ -14,7 +14,7 @@ NON_RIYADH = re.compile(
     r"red sea|amaala)\b|جدة|الخبر|الدمام|العلا|مكة|المدينة|أبها|الطائف", re.IGNORECASE)
 
 
-def duplicate_suspects(places: list[dict[str, Any]], low: int = 85, high: int = 92) -> list[tuple[float, str, str]]:
+def duplicate_suspects(places: list[dict[str, Any]], low: int = 85, high: int = 101) -> list[tuple[float, str, str]]:
     keys = [canonical_key(p["name"]) for p in places]
     out = []
     latin = [i for i, k in enumerate(keys) if k and not has_arabic(k)]
@@ -61,7 +61,7 @@ def report(output: dict[str, Any], errors: list[str], warnings: list[str], out: 
           f"{' / ' + p['name_ar'] if p['name_ar'] else ''}  [{p['confidence']}]  {pubs}\n")
 
     dups = duplicate_suspects(places)
-    w(f"\nDuplicate suspects (token_set_ratio 85-92) — add to ranking/aliases.yaml if same place: {len(dups)}\n")
+    w(f"\nDuplicate suspects (token_set_ratio >= 85, not merged) — add to ranking/aliases.yaml if same place: {len(dups)}\n")
     for r, a, b in dups:
         w(f"  {r:5.1f}  {a}  <->  {b}\n")
 

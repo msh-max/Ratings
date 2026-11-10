@@ -1,0 +1,61 @@
+{
+  "source_id": "layalina-riyadh-luxury-restaurants-2025",
+  "source_name": "ليالينا (يمي) — أفضل مطاعم فخمة بالرياض لتناول الغداء أو العشاء",
+  "publisher": "Layalina",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://yummy.layalina.com/%D8%A3%D9%81%D8%B6%D9%84-%D9%85%D8%B7%D8%A7%D8%B9%D9%85-%D9%81%D8%AE%D9%85%D8%A9-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%84%D8%AA%D9%86%D8%A7%D9%88%D9%84-%D8%A7%D9%84%D8%BA%D8%AF%D8%A7%D8%A1-%D8%A3%D9%88-%D8%A7%D9%84%D8%B9%D8%B4%D8%A7%D8%A1-708198.html",
+  "published_at": "2025-01-07",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 4; first published 2025-01-07, page shows update 2026-06-24; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Nobu",
+      "name_ar": "مطعم نوبو الرياض",
+      "cuisine": "Japanese",
+      "area": "Al Anoud Tower, King Fahd Road",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "sushi and black cod miso; stated 500–1,000 SAR per person",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Lusin",
+      "name_ar": "مطعم لوسين الرياض",
+      "cuisine": "International",
+      "area": "Prince Mohammed bin Abdulaziz Road",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "wagyu steak and desserts",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "أفنيو داينر",
+      "name_ar": "مطعم أفنيو داينر",
+      "cuisine": "International",
+      "area": "Hyatt hotel, Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "stated 35–150 SAR",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Al Orjouan",
+      "name_ar": "مطعم الأرجوان الرياض",
+      "cuisine": "International buffet",
+      "area": "Ritz-Carlton Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "seafood and grill buffet; stated 100–350 SAR",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "source_id": "sayidaty-riyadh-japanese-restaurants-2025",
+  "source_name": "سيدتي — أفضل 10 مطاعم مميزة لعشاق المأكولات اليابانية في الرياض",
+  "publisher": "Sayidaty",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://www.sayidaty.net/%D9%84%D8%A7%D9%8A%D9%81-%D8%B3%D8%AA%D8%A7%D9%8A%D9%84/%D9%81%D9%86%D8%A7%D8%AF%D9%82-%D9%88%D9%85%D9%86%D8%AA%D8%AC%D8%B9%D8%A7%D8%AA/1809265-%D9%85%D8%B7%D8%A7%D8%B9%D9%85-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6",
+  "published_at": "2025-04-02",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "list of 10 Japanese restaurants (numbered but not presented as a ranking, so position null); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Wakame",
+      "name_ar": "وكامي",
+      "cuisine": "Japanese",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "sashimi, sushi and robata grill",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Tokyo Arabia",
+      "name_ar": "طوكيو أرابيا",
+      "cuisine": "Japanese",
+      "area": "Al Uruba Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "two-floor Japanese restaurant",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Chotto Matte",
+      "name_ar": "شوتو ماتي",
+      "cuisine": "Japanese-Peruvian",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "terrace overlooking KAFD",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "ROKA",
+      "name_ar": "روكا",
+      "cuisine": "Japanese robatayaki",
+      "area": "Al Sulaimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "charcoal robata grill in view of diners",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Akira Back",
+      "name_ar": "أكيرا باك",
+      "cuisine": "Japanese",
+      "area": "Diplomatic Quarter",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "chef Akira Back's restaurant",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kimono",
+      "name_ar": "كيمونو",
+      "cuisine": "Japanese",
+      "area": "Roshn Front",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Wagyu teppanyaki and mochi ice cream",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "سوما",
+      "name_ar": "سوما",
+      "cuisine": "Sushi",
+      "area": "Uthman bin Affan Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "newly opened single-floor sushi restaurant",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Maui",
+      "name_ar": "ماوي",
+      "cuisine": "Poke / Hawaiian-Japanese",
+      "area": "Roshn Front",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "customisable poke bowls",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Myazu",
+      "name_ar": "ميازو",
+      "cuisine": "Japanese",
+      "area": "Al Dhabab Street, Al Sulaimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "sushi and teppanyaki sharing dishes",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Robata",
+      "name_ar": "روباتا",
+      "cuisine": "Japanese grill",
+      "area": "The Canopy, Hittin",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "open kitchen, sharing concept",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

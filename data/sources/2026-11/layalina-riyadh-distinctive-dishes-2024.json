@@ -1,0 +1,85 @@
+{
+  "source_id": "layalina-riyadh-distinctive-dishes-2024",
+  "source_name": "ليالينا (يمي) — أفضل مطاعم الرياض لعشاق الأطباق المميزة",
+  "publisher": "Layalina",
+  "source_type": "editorial",
+  "language": "ar",
+  "url": "https://yummy.layalina.com/%D8%A3%D9%81%D8%B6%D9%84-%D9%85%D8%B7%D8%A7%D8%B9%D9%85-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6-%D9%84%D8%B9%D8%B4%D8%A7%D9%82-%D8%A7%D9%84%D8%A3%D8%B7%D8%A8%D8%A7%D9%82-%D8%A7%D9%84%D9%85%D9%85%D9%8A%D8%B2%D8%A9-706753.html",
+  "published_at": "2024-12-31",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 6; paywall: no; pages read: 1. Arabic names only in source; kept in Arabic where branding not confirmed.",
+  "entries": [
+    {
+      "name": "مطعم ورد الرياض",
+      "name_ar": "مطعم ورد الرياض",
+      "cuisine": "Middle Eastern",
+      "area": "Airport Road",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "eastern dishes plus a fully plant-based menu",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "ستيك هاوس الرياض",
+      "name_ar": "ستيك هاوس الرياض",
+      "cuisine": "Steakhouse",
+      "area": "Airport Road",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "steakhouse with children's menu",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "خبز ونواشف",
+      "name_ar": "خبز ونواشف الرياض",
+      "cuisine": "Breakfast",
+      "area": "Al Sahafa",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "breakfast spot with outdoor seating",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "مطعم الشيف المصري",
+      "name_ar": "مطعم الشيف المصري الرياض",
+      "cuisine": "Egyptian",
+      "area": "King Faisal District",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Egyptian dishes such as foul and moussaka",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Brisket",
+      "name_ar": "برسكت الرياض",
+      "cuisine": "American",
+      "area": "Riyadh Park, Al Aqeeq",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "wood-smoked meats",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "مطعم بابولال",
+      "name_ar": "مطعم بابولال الرياض",
+      "cuisine": "Indian",
+      "area": "Anas Ibn Malik Road, Al Malqa",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Indian; chicken tikka masala and naan",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

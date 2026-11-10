@@ -1,0 +1,85 @@
+{
+  "source_id": "list-magazine-riyadh-best-breakfast-brunch",
+  "source_name": "LIST Magazine — The best breakfast and brunch places in Riyadh",
+  "publisher": "LIST Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-drink/casual/best-breakfast-brunch-places-riyadh",
+  "published_at": "2026-05-27",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered list of 6; paywall: no",
+  "entries": [
+    {
+      "name": "ARCOMI",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Prince Turki Ibn Abdulaziz Al Awwal Rd",
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "Arabic and Parisian breakfast options",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Brunch & Cake",
+      "name_ar": null,
+      "cuisine": "Spanish",
+      "area": "Bujairi Terrace; KAFD",
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "Avo toast",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Flour & Firewood",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "Sourdough; all-day brunch",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "NOOA",
+      "name_ar": null,
+      "cuisine": "South African",
+      "area": "Laysen Valley",
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "African twists on breakfast",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Served",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Anas Ibn Malik Rd",
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "Pancake stacks",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sadelle's",
+      "name_ar": null,
+      "cuisine": "New York brunch",
+      "area": "Prince Mohammed Ibn Salman Rd",
+      "price_band": null,
+      "tier": "#6",
+      "position": 6,
+      "note": "Bagel-focused all-day menu",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

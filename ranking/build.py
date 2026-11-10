@@ -196,12 +196,34 @@ def output_paths(root: Path, month: str) -> list[Path]:
     return [base / f"{month}.json", base / "latest.json", root / "docs" / "data" / "restaurants.json"]
 
 
+SITE_MENTION_KEYS = ("source_id", "tier", "position", "weight")
+
+
+def site_copy(output: dict[str, Any]) -> dict[str, Any]:
+    """Slim copy for docs/data/restaurants.json (the page joins mentions to `sources`).
+
+    Mentions keep source_id, tier, position and weight (notes already feed `why`), plus url only when it is an
+    entry's own page (differs from the source URL). Everything else is identical.
+    """
+    src_url = {s["source_id"]: s["url"] for s in output["sources"]}
+    places = []
+    for p in output["places"]:
+        mentions = []
+        for m in p["mentions"]:
+            slim = {k: m[k] for k in SITE_MENTION_KEYS}
+            if m["url"] and m["url"] != src_url.get(m["source_id"]):
+                slim["url"] = m["url"]
+            mentions.append(slim)
+        places.append({**p, "mentions": mentions})
+    return {**output, "site_format": "slim-mentions", "places": places}
+
+
 def write_outputs(root: Path, output: dict[str, Any], month: str) -> list[Path]:
     """Write <month>.json; also latest.json and the site copy unless a newer month exists."""
     month_file, latest, site = output_paths(root, month)
     newer = [p for p in month_file.parent.glob("????-??.json") if p.stem > month]
     pretty = json.dumps(output, ensure_ascii=False, indent=1) + "\n"
-    compact = json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n"
+    compact = json.dumps(site_copy(output), ensure_ascii=False, separators=(",", ":")) + "\n"
     targets = [(month_file, pretty)] if newer else [(month_file, pretty), (latest, pretty), (site, compact)]
     for path, text in targets:
         path.parent.mkdir(parents=True, exist_ok=True)

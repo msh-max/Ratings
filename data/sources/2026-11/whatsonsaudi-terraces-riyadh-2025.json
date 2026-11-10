@@ -1,0 +1,121 @@
+{
+  "source_id": "whatsonsaudi-terraces-riyadh-2025",
+  "source_name": "What's On Saudi Arabia — Alfresco season is here: these are the 9 gorgeous terraces in Riyadh to head to",
+  "publisher": "What's On Saudi Arabia",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://whatsonsaudiarabia.com/?p=27335",
+  "published_at": "2025-12-30",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "terrace/view list of 9, unranked; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Chotto Matte",
+      "name_ar": null,
+      "cuisine": "Japanese-Peruvian",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "terrace with KAFD skyline views",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Fork & Pipe",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "JW Marriott Hotel Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "garden-style terrace with skyline views",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "White Robata",
+      "name_ar": null,
+      "cuisine": "Japanese-American",
+      "area": "Laysen Valley",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "terrace with Laysen Valley views",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Lune",
+      "name_ar": null,
+      "cuisine": "International and local buffet",
+      "area": "Radisson Hotel Riyadh Airport",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "terrace with themed buffet nights",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "ROKA",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "upstairs terrace with greenery and city views",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Robata",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": "Hittin",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "skyline terrace with zen garden",
+      "entry_url": null,
+      "branch": "The Canopy"
+    },
+    {
+      "name": "Stella Sky Lounge",
+      "name_ar": null,
+      "cuisine": "Mezze, tacos, grills",
+      "area": "The St Regis Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "rooftop lounge with live music",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Shababik",
+      "name_ar": null,
+      "cuisine": "Lebanese",
+      "area": "Midtown",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "terrace with city views",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "The Lounge",
+      "name_ar": null,
+      "cuisine": "Saudi and grills",
+      "area": "Radisson Hotel Riyadh Airport",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "200-seat rooftop terrace with live cooking",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}
