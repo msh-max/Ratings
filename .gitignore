@@ -1,13 +1,14 @@
+# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
-build/
-dist/
 .venv/
 .pytest_cache/
-.mypy_cache/
+build/
+dist/
+
+# Local secrets
 .env
 .env.*
-data/*.sqlite*
-data/exports/*
-!data/exports/.gitkeep
+
+# Note: data/ is committed on purpose (extracts, rankings, geocode cache).

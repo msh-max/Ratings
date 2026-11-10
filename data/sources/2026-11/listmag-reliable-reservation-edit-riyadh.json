@@ -1,0 +1,73 @@
+{
+  "source_id": "listmag-reliable-reservation-edit-riyadh",
+  "source_name": "List Magazine — The Reliable Reservation Edit: Restaurants to book in Riyadh",
+  "publisher": "List Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-drink/must-book-restaurant-recommendations-riyadh",
+  "published_at": "2026-07-21",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "occasion list (business meals, celebrations) of 5, unranked; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Café Boulud",
+      "name_ar": null,
+      "cuisine": "French brasserie",
+      "area": "Four Seasons Hotel Riyadh, Kingdom Centre",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Daniel Boulud all-day brasserie",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kayzo",
+      "name_ar": null,
+      "cuisine": "Contemporary Japanese",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "lively open-kitchen Japanese",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Marble",
+      "name_ar": null,
+      "cuisine": "Steakhouse",
+      "area": "Prince Turki bin Abdulaziz Al Awwal Road",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fire-cooked brisket and ribs",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Myazu",
+      "name_ar": null,
+      "cuisine": "Contemporary Japanese",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "robata and hot kitchen dishes",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Takya",
+      "name_ar": null,
+      "cuisine": "Modern Saudi",
+      "area": "Bujairi Terrace, Diriyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "reinterpreted regional Saudi recipes",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

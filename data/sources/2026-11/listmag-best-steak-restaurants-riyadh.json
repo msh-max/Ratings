@@ -1,0 +1,133 @@
+{
+  "source_id": "listmag-best-steak-restaurants-riyadh",
+  "source_name": "List Magazine — The best steak restaurants in Riyadh",
+  "publisher": "List Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-and-drink/experiences/best-steak-restaurants-riyadh",
+  "published_at": "2026-05-04",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered list of 10; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Swiss Butter",
+      "name_ar": null,
+      "cuisine": "Steakhouse",
+      "area": null,
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "casual steak with secret butter sauce; three Riyadh locations",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Smokey Beards",
+      "name_ar": null,
+      "cuisine": "Texas-style smokehouse BBQ",
+      "area": null,
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "slow-smoked brisket and ribs",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "La Citta",
+      "name_ar": null,
+      "cuisine": "Steakhouse",
+      "area": "Mövenpick Hotel & Residences Riyadh",
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "dry-aged steaks on the 15th floor with terrace",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Uncle Khalil's BBQ",
+      "name_ar": null,
+      "cuisine": "Texas-style BBQ",
+      "area": null,
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "long-smoked rib sandwich",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Porterhouse",
+      "name_ar": null,
+      "cuisine": "Modern steakhouse",
+      "area": null,
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "in-house dry-aged steaks and tasting menu",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Lucca Steakhouse",
+      "name_ar": null,
+      "cuisine": "Steakhouse",
+      "area": null,
+      "price_band": null,
+      "tier": "#6",
+      "position": 6,
+      "note": "open-fire cooking, asado for two",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Marble",
+      "name_ar": null,
+      "cuisine": "Steakhouse",
+      "area": null,
+      "price_band": null,
+      "tier": "#7",
+      "position": 7,
+      "note": "homegrown premium beef concept",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Beefbar",
+      "name_ar": null,
+      "cuisine": "Steakhouse",
+      "area": null,
+      "price_band": null,
+      "tier": "#8",
+      "position": 8,
+      "note": "Monte-Carlo steakhouse brand, special-occasion pick",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "House of Grill",
+      "name_ar": null,
+      "cuisine": "Steakhouse",
+      "area": "Fairmont Riyadh",
+      "price_band": null,
+      "tier": "#9",
+      "position": 9,
+      "note": "steakhouse by chef Nicolas Isnard",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kintan",
+      "name_ar": null,
+      "cuisine": "Japanese yakiniku",
+      "area": "Al Wadi",
+      "price_band": null,
+      "tier": "#10",
+      "position": 10,
+      "note": "cook-your-own table grill",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

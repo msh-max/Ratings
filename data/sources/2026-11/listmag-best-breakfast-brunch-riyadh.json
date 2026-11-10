@@ -1,0 +1,85 @@
+{
+  "source_id": "listmag-best-breakfast-brunch-riyadh",
+  "source_name": "List Magazine — The best breakfast and brunch places in Riyadh",
+  "publisher": "List Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-and-drink/casual/best-breakfast-brunch-places-riyadh",
+  "published_at": "2026-05-27",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered list of 6 (two are described as cafés); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "ARCOMI",
+      "name_ar": null,
+      "cuisine": "Arabic and Parisian breakfast",
+      "area": "King Saud University area",
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "relaxed breakfast and brunch spot",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Brunch & Cake",
+      "name_ar": null,
+      "cuisine": "Brunch",
+      "area": "Bujairi Terrace; KAFD",
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "Spanish-inspired brunch, photogenic décor",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Flour & Firewood",
+      "name_ar": null,
+      "cuisine": "All-day brunch, sourdough",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "sourdough and stone-baked pizza",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "NOOA",
+      "name_ar": null,
+      "cuisine": "South African-inspired café",
+      "area": "Laysen Valley",
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "breakfast with an African twist",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Served",
+      "name_ar": null,
+      "cuisine": "American-style breakfast café",
+      "area": "Anas Ibn Malik Road",
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "pancake stacks and coffee",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sadelle's",
+      "name_ar": null,
+      "cuisine": "New York-style brunch",
+      "area": "Prince Mohammed Ibn Salman Road",
+      "price_band": null,
+      "tier": "#6",
+      "position": 6,
+      "note": "bagels and all-day brunch",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "source_id": "listmag-best-seafood-restaurants-riyadh",
+  "source_name": "List Magazine — Best Restaurants in Riyadh for Seafood",
+  "publisher": "List Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-and-drink/casual/best-seafood-restaurants-riyadh",
+  "published_at": "2025-09-01",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "list of 9 (order as published, treated as unranked); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Azure",
+      "name_ar": null,
+      "cuisine": "Spanish tapas",
+      "area": "Olaya Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "octopus and seafood tapas",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "COYA",
+      "name_ar": null,
+      "cuisine": "Peruvian",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "ceviche",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Feluka",
+      "name_ar": null,
+      "cuisine": "Lebanese-style seafood",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "pick-your-fish with mezze",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Fish Lounge",
+      "name_ar": null,
+      "cuisine": "Seafood",
+      "area": "Tahlia Street",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "family seafood outings",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Meraki",
+      "name_ar": null,
+      "cuisine": "Greek, Mediterranean",
+      "area": "Al Faisaliah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "salt-baked sea bass",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Twina Park",
+      "name_ar": null,
+      "cuisine": "Red Sea and Hejazi seafood",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Jeddah-origin seafood with Hejazi spices",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "ROKA",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "robata seafood and sashimi",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Shrimplus",
+      "name_ar": null,
+      "cuisine": "Cajun seafood",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "casual seafood in bags, several branches",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Yokari",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": "Centria Mall",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "sushi and sashimi",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

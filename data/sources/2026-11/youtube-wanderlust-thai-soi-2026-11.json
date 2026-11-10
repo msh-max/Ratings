@@ -1,0 +1,25 @@
+{
+  "source_id": "youtube-wanderlust-thai-soi-2026-11",
+  "source_name": "YouTube — Wanderlust: Best Thai Food in Riyadh! Thai Soi",
+  "publisher": "YouTube: Wanderlust",
+  "source_type": "community",
+  "language": "en",
+  "url": "https://www.youtube.com/watch?v=iJMFpuUmtRQ",
+  "published_at": "2026-11-05",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "YouTube Short; title-only claim (description empty); date from channel RSS feed",
+  "entries": [
+    {
+      "name": "Thai Soi",
+      "name_ar": null,
+      "cuisine": "Thai",
+      "area": null,
+      "price_band": null,
+      "tier": "creator top list",
+      "position": 1,
+      "note": "creator title calls it the best Thai food in Riyadh",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

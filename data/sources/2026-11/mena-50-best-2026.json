@@ -1,0 +1,37 @@
+{
+  "source_id": "mena-50-best-2026",
+  "source_name": "MENA's 50 Best Restaurants 2026",
+  "publisher": "50 Best (The 50)",
+  "source_type": "ranking",
+  "language": "en",
+  "url": "https://www.the50.com/restaurants/best-in-middle-east-and-north-africa/list/1-50",
+  "published_at": "2026-02-03",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "Official 1-50 list read on the50.com (theworlds50best.com now redirects there). No 51-100 extension published for MENA. Special awards checked: none went to a Riyadh restaurant (One To Watch went to Middle Child, Dubai). Saudi entries outside Riyadh (Kuuru, Jeddah No.6) dropped. Paywall: no.",
+  "entries": [
+    {
+      "name": "Marble",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "#12",
+      "position": 12,
+      "note": "Highest-ranked Riyadh entry; started in 2018 as a wooden stall on Prince Turki Road per the list write-up.",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Myazu",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "#45",
+      "position": 45,
+      "note": "Write-up highlights traditional techniques combined with contemporary creativity.",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "source_id": "outlook-traveller-riyadh-top-places-to-eat",
+  "source_name": "Outlook Traveller — Top Places To Eat In Riyadh: Best Restaurants To Try",
+  "publisher": "Outlook Traveller",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.outlooktraveller.com/experiences/food-and-drink/top-places-to-eat-in-riyadh-best-restaurants-to-try",
+  "published_at": "2025-06-13",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 6; published_at is the page's 'updated' date (original publish date not shown); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Gymkhana",
+      "name_ar": null,
+      "cuisine": "Indian",
+      "area": "Al Hada",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Riyadh branch of the London Michelin-starred restaurant",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Spago",
+      "name_ar": null,
+      "cuisine": "California",
+      "area": "Al Hada",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Wolfgang Puck restaurant with seasonal menu",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Café Boulud",
+      "name_ar": null,
+      "cuisine": "French",
+      "area": "Kingdom Centre, Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Daniel Boulud restaurant; Friday brunch",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "La Petite Maison (LPM) Riyadh",
+      "name_ar": null,
+      "cuisine": "French-Mediterranean",
+      "area": "Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "French-Mediterranean dining",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Bellbird",
+      "name_ar": null,
+      "cuisine": "Middle Eastern and Mediterranean",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Noted for World's 50 Best listing and homemade juices",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Mamo Michelangelo",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Al Faisaliah Hotel, Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Offshoot of an Antibes family bistro",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "source_id": "whatsonsaudi-indian-restaurants-riyadh",
+  "source_name": "What's On Saudi Arabia — 10 amazing Indian restaurants in Riyadh",
+  "publisher": "What's On Saudi Arabia",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://whatsonsaudiarabia.com/2026/06/indian-restaurants-in-riyadh/",
+  "published_at": "2026-06-11",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "list of 10 (order as published; treated as unranked); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Neeraj",
+      "name_ar": null,
+      "cuisine": "Indian",
+      "area": "The Esplanade",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "modern Indian",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Gymkhana",
+      "name_ar": null,
+      "cuisine": "Indian fine dining",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Michelin-starred London brand's first site abroad",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Peradiz",
+      "name_ar": "بيراديز",
+      "cuisine": "Indian",
+      "area": "Qurtubah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "classics like butter chicken and biryani",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Joukh",
+      "name_ar": "جوخ",
+      "cuisine": "Indian",
+      "area": "Al Hamra",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "North and South Indian",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kumar",
+      "name_ar": null,
+      "cuisine": "Indian",
+      "area": "Riyadh Park",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "biryanis and tandoori by Chef Kumar",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kailash Parbat",
+      "name_ar": null,
+      "cuisine": "Vegetarian North Indian and Sindhi",
+      "area": "Al Malaz",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fully vegetarian heritage brand",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Molo",
+      "name_ar": "مولو",
+      "cuisine": "Indian, reimagined",
+      "area": "Riyadh Front",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "creative flavour combinations",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Piquant Pick",
+      "name_ar": null,
+      "cuisine": "Indian with an Arabic twist",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "UAE brand with four Riyadh locations",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "RUHI",
+      "name_ar": null,
+      "cuisine": "Western Indian",
+      "area": "Al Mohammadiyyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "tandoor dishes and curries",
+      "entry_url": null,
+      "branch": "The Zone"
+    },
+    {
+      "name": "Zafran Indian Bistro",
+      "name_ar": null,
+      "cuisine": "Indian with Middle Eastern influences",
+      "area": "Levels Mall; Turki Square",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "award-winning Indian bistro",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

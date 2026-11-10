@@ -1,0 +1,4 @@
+{"version": 1, "entries": {
+ "Sample Bistro Riyadh": {"fetched_at": "2026-11-10", "results": [{"name": "Sample Bistro", "display_name": "Sample Bistro, KAFD, Riyadh", "lat": "24.7612", "lon": "46.6401"}]},
+ "Sample Grill Riyadh": {"fetched_at": "2026-11-10", "results": [{"name": "Totally Different Place", "display_name": "x", "lat": "24.70", "lon": "46.68"}]}
+}}

@@ -1,0 +1,73 @@
+{
+  "source_id": "bbcgoodfoodme-best-middle-eastern-riyadh",
+  "source_name": "BBC Good Food Middle East — 6 of the best Middle Eastern restaurants in Riyadh",
+  "publisher": "BBC Good Food Middle East",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.bbcgoodfoodme.com/news/best-middle-eastern-restaurants-in-riyadh",
+  "published_at": "2024-04-19",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered list; title says 6 but only 5 entries appear in the article body, all captured; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Mama Noura",
+      "name_ar": null,
+      "cuisine": "Middle Eastern fast food",
+      "area": null,
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "long-running shawarma and grills spot, seven branches",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Ward",
+      "name_ar": null,
+      "cuisine": "Lebanese fine dining",
+      "area": "Riyadh Front",
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "elegant Lebanese",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Somewhere",
+      "name_ar": null,
+      "cuisine": "Modern fusion",
+      "area": null,
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "Saudi-to-Mediterranean fusion",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Villa Mamas",
+      "name_ar": null,
+      "cuisine": "Modern Middle Eastern",
+      "area": "Bujairi Terrace, Diriyah",
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "Bahraini chef Roaya Saleh's concept",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Burj Al Hamam",
+      "name_ar": null,
+      "cuisine": "Lebanese",
+      "area": "Riyadh Front",
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "casual bistro version of the Lebanese brand",
+      "entry_url": null,
+      "branch": "Riyadh Front (Bistro)"
+    }
+  ]
+}

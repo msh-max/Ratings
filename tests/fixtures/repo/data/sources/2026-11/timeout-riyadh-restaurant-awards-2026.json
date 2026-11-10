@@ -1,0 +1,25 @@
+{
+ "source_id": "timeout-riyadh-restaurant-awards-2026",
+ "source_name": "Time Out Riyadh Restaurant Awards 2026 (fixture)",
+ "publisher": "Time Out",
+ "source_type": "award",
+ "language": "en",
+ "url": "https://example.org/timeout-awards",
+ "published_at": "2026-04-15",
+ "retrieved_at": "2026-11-10",
+ "coverage_note": "synthetic test fixture",
+ "entries": [
+  {
+   "name": "Sample Bistro",
+   "name_ar": null,
+   "cuisine": null,
+   "area": null,
+   "price_band": null,
+   "tier": "winner",
+   "position": null,
+   "note": "Best fine dining",
+   "entry_url": null,
+   "branch": null
+  }
+ ]
+}

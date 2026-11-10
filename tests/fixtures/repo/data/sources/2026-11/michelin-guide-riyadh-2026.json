@@ -1,0 +1,49 @@
+{
+ "source_id": "michelin-guide-riyadh-2026",
+ "source_name": "MICHELIN Guide Riyadh 2026 (fixture)",
+ "publisher": "MICHELIN Guide",
+ "source_type": "guide",
+ "language": "en",
+ "url": "https://example.org/michelin",
+ "published_at": "2026-05-20",
+ "retrieved_at": "2026-11-10",
+ "coverage_note": "synthetic test fixture",
+ "entries": [
+  {
+   "name": "Sample Bistro",
+   "name_ar": null,
+   "cuisine": "Contemporary",
+   "area": "KAFD",
+   "price_band": "$$$$",
+   "tier": "1 star, Green Star",
+   "position": null,
+   "note": "seasonal tasting menu built on local produce",
+   "entry_url": null,
+   "branch": null
+  },
+  {
+   "name": "Al-Sample House",
+   "name_ar": "بيت العينة",
+   "cuisine": "Najdi",
+   "area": "Diriyah",
+   "price_band": "$$",
+   "tier": "Bib Gourmand",
+   "position": null,
+   "note": "slow-cooked Najdi dishes",
+   "entry_url": null,
+   "branch": null
+  },
+  {
+   "name": "Sample Grill",
+   "name_ar": null,
+   "cuisine": "Grill",
+   "area": "Olaya",
+   "price_band": null,
+   "tier": "Selected",
+   "position": null,
+   "note": null,
+   "entry_url": null,
+   "branch": null
+  }
+ ]
+}

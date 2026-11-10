@@ -1,0 +1,25 @@
+{
+  "source_id": "youtube-wanderlust-badia-aisharq",
+  "source_name": "YouTube — Wanderlust: The Best Chinese Food in Riyadh! Badia Aisharq Restaurant",
+  "publisher": "YouTube: Wanderlust",
+  "source_type": "community",
+  "language": "en",
+  "url": "https://www.youtube.com/watch?v=yDTsngtjb0k",
+  "published_at": null,
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "title-only (watch page blocked); YouTube search showed \"4 months ago\" on 2026-11-10 (~2026-07), exact date unverified so null",
+  "entries": [
+    {
+      "name": "Badia Aisharq",
+      "name_ar": null,
+      "cuisine": "Chinese",
+      "area": null,
+      "price_band": null,
+      "tier": "creator top list",
+      "position": 1,
+      "note": "creator title calls it the best Chinese food in Riyadh; spelling as in title",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

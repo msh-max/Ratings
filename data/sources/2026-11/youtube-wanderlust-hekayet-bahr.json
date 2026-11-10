@@ -1,0 +1,25 @@
+{
+  "source_id": "youtube-wanderlust-hekayet-bahr",
+  "source_name": "YouTube — Wanderlust: Freshest Seafood in Riyadh! Hekayet Bahr",
+  "publisher": "YouTube: Wanderlust",
+  "source_type": "community",
+  "language": "en",
+  "url": "https://www.youtube.com/watch?v=YQ480I0WHbk",
+  "published_at": null,
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "title-only (watch page blocked); YouTube search showed \"3 months ago\" on 2026-11-10 (~2026-08), exact date unverified so null; same channel as other Wanderlust files",
+  "entries": [
+    {
+      "name": "Hekayet Bahr",
+      "name_ar": null,
+      "cuisine": "Seafood",
+      "area": null,
+      "price_band": null,
+      "tier": "creator top list",
+      "position": 1,
+      "note": "creator title calls it the freshest seafood in Riyadh",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

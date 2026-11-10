@@ -1,0 +1,61 @@
+{
+  "source_id": "youtube-bohazzaa-riyadh-shawarma-2026-11",
+  "source_name": "YouTube — عمار بوهزاع: جربت كل مطاعم الشاورما بالرياض",
+  "publisher": "YouTube: عمار بوهزاع (Bohazzaa)",
+  "source_type": "community",
+  "language": "ar",
+  "url": "https://www.youtube.com/watch?v=Yl4OMM7pMu4",
+  "published_at": "2026-11-09",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "names taken from the video description list (read via the channel RSS feed); verdict on the winner is in the video only and was not read; position null because the order is tasting order; Latin names not given by the source except Mama Noura",
+  "entries": [
+    {
+      "name": "Mama Noura",
+      "name_ar": "ماما نورة",
+      "cuisine": "Shawarma",
+      "area": null,
+      "price_band": null,
+      "tier": "creator top list",
+      "position": null,
+      "note": "1. in the video's tasting order (not a ranking); one of four well-known Riyadh shawarma spots compared",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "بيت الشاورما",
+      "name_ar": "بيت الشاورما",
+      "cuisine": "Shawarma",
+      "area": null,
+      "price_band": null,
+      "tier": "creator top list",
+      "position": null,
+      "note": "2. in the video's tasting order (not a ranking); one of four well-known Riyadh shawarma spots compared",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "شاورما جليلة",
+      "name_ar": "شاورما جليلة",
+      "cuisine": "Shawarma",
+      "area": null,
+      "price_band": null,
+      "tier": "creator top list",
+      "position": null,
+      "note": "3. in the video's tasting order (not a ranking); one of four well-known Riyadh shawarma spots compared",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "شاورما عايض",
+      "name_ar": "شاورما عايض",
+      "cuisine": "Shawarma",
+      "area": null,
+      "price_band": null,
+      "tier": "creator top list",
+      "position": null,
+      "note": "4. in the video's tasting order (not a ranking); one of four well-known Riyadh shawarma spots compared",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "source_id": "mena-50-best-2025",
+  "source_name": "MENA's 50 Best Restaurants 2025",
+  "publisher": "50 Best (The 50)",
+  "source_type": "ranking",
+  "language": "en",
+  "url": "https://www.finedininglovers.com/explore/articles/mena-50-best-restaurants-2025-full-list",
+  "published_at": "2025-01-28",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "The official 2025 announcement story on the50.com no longer shows its body after the site migration; ranks taken from the full list republished by Fine Dining Lovers and cross-checked against enprimeurclub.com (Riyadh ranks agree). No 51-100 list for MENA. No special award to a Riyadh restaurant found. Kuuru (Jeddah, No.30) dropped. Paywall: no.",
+  "entries": [
+    {
+      "name": "Marble",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "#16",
+      "position": 16,
+      "note": "Highest-placed Saudi restaurant on the 2025 list.",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Lunch Room",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "#31",
+      "position": 31,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Aseeb",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "#39",
+      "position": 39,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Myazu",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "#49",
+      "position": 49,
+      "note": null,
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "source_id": "whatsonsaudi-best-seafood-restaurants-riyadh",
+  "source_name": "What's On Saudi Arabia — These are the best seafood restaurants in Riyadh",
+  "publisher": "What's On Saudi Arabia",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://whatsonsaudiarabia.com/?p=23754",
+  "published_at": "2025-06-23",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "list of 9 (order as published, treated as unranked); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "The Boiling Crab",
+      "name_ar": "ذا بويلينق كراب",
+      "cuisine": "Cajun seafood boil",
+      "area": "Shorofat An Nada",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "US seafood-boil chain",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Baheg",
+      "name_ar": null,
+      "cuisine": "Egyptian seafood",
+      "area": "Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "busy fishing-shack-style seafood",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Hekayat Bahr",
+      "name_ar": "حكاية بحر",
+      "cuisine": "Seafood",
+      "area": "Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "nautical-themed seafood, pasta and paella",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Scott's",
+      "name_ar": null,
+      "cuisine": "Seafood",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "oyster bar from the Mayfair original",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Feluka",
+      "name_ar": null,
+      "cuisine": "Seafood, Lebanese",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "fried fish and fresh fish display",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Twina",
+      "name_ar": null,
+      "cuisine": "Seafood",
+      "area": "The Esplanade",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Jeddah seafood brand's Riyadh branch",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Shrimper",
+      "name_ar": "شـرمــبر",
+      "cuisine": "American-style seafood",
+      "area": "At Taawun",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "seafood boils and lobster thermidor",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Bahruna",
+      "name_ar": "بحرنا",
+      "cuisine": "Seafood",
+      "area": "Alaziziyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "casual no-frills fried and grilled fish",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Bahrya",
+      "name_ar": "بحرية",
+      "cuisine": "Seafood",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "popular affordable seafood chain",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ranking"
+version = "1.0.0"
+description = "Consensus ranking of Riyadh's best restaurants built from published guides, awards, editorial lists and community threads."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "pyyaml>=6",
+    "rapidfuzz>=3",
+    "httpx>=0.27",
+    "jsonschema>=4.18",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["ranking"]
+
+[tool.setuptools.package-data]
+ranking = ["*.yaml", "*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

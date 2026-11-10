@@ -1,0 +1,133 @@
+{
+  "source_id": "listmag-best-burgers-riyadh",
+  "source_name": "List Magazine — The best burger joints in Riyadh",
+  "publisher": "List Magazine",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://www.listmag.com/en/eat-drink/casual/best-burgers-riyadh",
+  "published_at": "2026-05-08",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "list of 10 (order as published, treated as unranked); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Burger Boutique",
+      "name_ar": null,
+      "cuisine": "Gourmet burgers",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "grass-fed beef, three Riyadh locations",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Black Tap",
+      "name_ar": null,
+      "cuisine": "American craft burgers",
+      "area": "KAFD",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "burgers and CrazyShake milkshakes",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "GUNBUN",
+      "name_ar": null,
+      "cuisine": "Burgers",
+      "area": "Al Mohammadiyyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "charred sourdough buns",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Nevermind",
+      "name_ar": null,
+      "cuisine": "Diner-style burgers",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "cheap double-patty burgers, open late",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Salt",
+      "name_ar": null,
+      "cuisine": "Sliders and burgers",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "wagyu sliders, four Riyadh branches",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Section-B",
+      "name_ar": null,
+      "cuisine": "Burgers",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Angus beef burgers and sliders",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "The California Burger",
+      "name_ar": null,
+      "cuisine": "American-style burgers",
+      "area": "Al Malqa",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "family-owned Saudi burger brand",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Wagyu Burger",
+      "name_ar": null,
+      "cuisine": "Wagyu burgers",
+      "area": "As Sulimaniyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "wagyu burgers and sandos",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Bird",
+      "name_ar": null,
+      "cuisine": "Nashville-style hot chicken",
+      "area": null,
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "chicken-only menu with heat levels",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Supernova",
+      "name_ar": null,
+      "cuisine": "Diner-style burgers",
+      "area": "Al Nakheel",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "no-frills burgers and sundaes",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

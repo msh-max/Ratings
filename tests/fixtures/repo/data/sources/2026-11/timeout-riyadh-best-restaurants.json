@@ -1,0 +1,49 @@
+{
+ "source_id": "timeout-riyadh-best-restaurants",
+ "source_name": "Time Out Riyadh — best restaurants (fixture)",
+ "publisher": "Time Out Riyadh",
+ "source_type": "editorial",
+ "language": "en",
+ "url": "https://example.org/timeout",
+ "published_at": "2024-08-01",
+ "retrieved_at": "2026-11-10",
+ "coverage_note": "synthetic test fixture",
+ "entries": [
+  {
+   "name": "Sample Bistro Restaurant",
+   "name_ar": null,
+   "cuisine": null,
+   "area": "KAFD",
+   "price_band": null,
+   "tier": "#1",
+   "position": 1,
+   "note": null,
+   "entry_url": null,
+   "branch": null
+  },
+  {
+   "name": "Sample Grill Riyadh",
+   "name_ar": null,
+   "cuisine": "Steakhouse / Grill",
+   "area": null,
+   "price_band": null,
+   "tier": "#7",
+   "position": 7,
+   "note": null,
+   "entry_url": null,
+   "branch": "Olaya"
+  },
+  {
+   "name": "بيت العينة",
+   "name_ar": "بيت العينة",
+   "cuisine": null,
+   "area": null,
+   "price_band": null,
+   "tier": "#9",
+   "position": 9,
+   "note": null,
+   "entry_url": null,
+   "branch": null
+  }
+ ]
+}

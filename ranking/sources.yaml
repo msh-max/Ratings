@@ -1,0 +1,280 @@
+# Source registry for the Riyadh restaurant ranking.
+#
+# How weights are chosen for a mention (see ranking/scoring.py):
+#   1. The extract's `publisher` is matched against `publishers[*].match` (case- and
+#      punctuation-insensitive substring match). The first publisher that matches wins.
+#   2. If that publisher lists a scheme for the extract's `source_type` under `schemes`,
+#      that scheme is used; otherwise the `type_defaults` scheme for the source_type is used.
+#      Unknown publishers therefore fall back to type defaults automatically.
+#   3. The scheme turns the parsed tier ("1 star", "#12", "winner",
+#      "recommended by 4 commenters", ...) into a base weight.
+# Then: score = sum(base x recency), one mention per source (its max tier), and all lists of
+# the same publisher together contribute at most `publisher_cap` x their best single mention.
+#
+# Monthly session: add every NEW publisher you meet here (id, name, match, type, urls,
+# language, notes). Keep ids stable; never delete a publisher that was used in past months.
+
+recency:            # months between published_at and the build month -> multiplier
+  - {max_months: 12, multiplier: 1.0}
+  - {max_months: 24, multiplier: 0.7}
+  - {max_months: 36, multiplier: 0.4}
+  - {max_months: null, multiplier: 0.2}
+undated_multiplier: 0.8
+publisher_cap: 1.5
+
+schemes:
+  michelin:
+    stars: {3: 14, 2: 12, 1: 10}
+    bib: 7
+    listed: 5            # "Selected" / "Recommended" / "listed"
+    green_star_bonus: 1
+  gault_millau:
+    toques: {5: 8, 4: 8, 3: 7, 2: 6, 1: 5}
+    listed: 4
+  la_liste:
+    flat: 5              # any La Liste listing
+  fifty_best:
+    rank_brackets: [{max: 10, weight: 9}, {max: 50, weight: 8}, {max: 100, weight: 5}]
+    rank_beyond: 5
+    special: 6           # special awards (e.g. "Best Restaurant in Saudi Arabia")
+    winner: 6
+    listed: 5
+  award:
+    winner: 6
+    finalist: 3          # finalist / nominee / shortlisted / highly commended
+    special: 6
+    listed: 3
+  editorial:
+    rank_brackets: [{max: 3, weight: 4}]
+    rank_beyond: 3
+    listed: 3
+  official:
+    flat: 2
+  community:
+    recommended_brackets: [{min: 5, weight: 2}, {min: 2, weight: 1.5}, {min: 1, weight: 1}]
+    listed: 1
+  creator:
+    flat: 1.5            # a YouTube / TikTok / blog creator's own top list
+  guide:                 # generic guide by an unknown publisher
+    stars: {3: 14, 2: 12, 1: 10}
+    toques: {5: 8, 4: 8, 3: 7, 2: 6, 1: 5}
+    bib: 7
+    listed: 4
+
+type_defaults:
+  guide: guide
+  ranking: fifty_best
+  award: award
+  editorial: editorial
+  official: official
+  community: community
+
+publishers:
+  # ---- guides & rankings
+  - id: michelin
+    name: MICHELIN Guide
+    award_label: MICHELIN
+    match: [michelin]
+    type: guide
+    schemes: {guide: michelin, award: michelin, ranking: michelin, editorial: michelin}
+    language: en
+    urls: [https://guide.michelin.com/sa/en/riyadh-province/riyadh/restaurants]
+    notes: First Riyadh/KSA selection expected 2026; Stars, Bib Gourmand, Selected, Green Star.
+  - id: mena50best
+    name: MENA's 50 Best Restaurants
+    award_label: MENA's 50 Best
+    match: ["50 best", "fifty best", "50best", "worlds 50 best"]
+    type: ranking
+    schemes: {ranking: fifty_best, award: fifty_best, guide: fifty_best, editorial: fifty_best}
+    language: en
+    urls: [https://www.theworlds50best.com/mena/en/list/1-50]
+    notes: Annual list 1-50 (plus 51-100 extended list); special awards.
+  - id: gaultmillau
+    name: Gault&Millau
+    award_label: Gault&Millau
+    match: ["gault", "millau"]
+    type: guide
+    schemes: {guide: gault_millau, award: award, ranking: gault_millau, editorial: gault_millau}
+    language: en
+    urls: [https://www.gaultmillau.com]
+    notes: Toques 1-5; KSA guide editions.
+  - id: laliste
+    name: La Liste
+    award_label: La Liste
+    match: ["la liste", "laliste"]
+    type: ranking
+    schemes: {ranking: la_liste, guide: la_liste, award: la_liste, editorial: la_liste}
+    language: en
+    urls: [https://www.laliste.com]
+  - id: worldculinaryawards
+    name: World Culinary Awards
+    award_label: World Culinary Awards
+    match: ["world culinary awards", "worldculinaryawards"]
+    type: award
+    language: en
+    urls: [https://www.worldculinaryawards.com]
+  - id: fact
+    name: FACT Dining Awards
+    award_label: FACT Dining Awards
+    match: ["fact dining", "fact magazine", "fact awards", "factmagazines", "fact"]
+    type: award
+    language: en
+    urls: [https://www.factmagazines.com]
+    notes: FACT Dining Awards KSA (Riyadh categories).
+  - id: caterer-me
+    name: Caterer Middle East
+    match: ["caterer", "hotelier middle east", "hotelier me"]
+    type: award
+    language: en
+  - id: saudi-tourism-awards
+    name: Saudi Tourism Awards
+    match: ["saudi tourism award", "tourism awards"]
+    type: award
+    language: en
+  # ---- editorial
+  - id: timeout
+    name: Time Out Riyadh
+    award_label: Time Out
+    match: ["time out", "timeout"]
+    type: editorial
+    language: en
+    urls: [https://www.timeoutriyadh.com/restaurants]
+    notes: Best-of lists (editorial) and Time Out Riyadh Restaurant Awards (award).
+  - id: cntraveller
+    name: Condé Nast Traveller
+    match: ["conde nast", "cn traveller", "cntraveller", "conde nast traveler"]
+    type: editorial
+    language: en
+  - id: harpersbazaar-arabia
+    name: Harper's Bazaar Arabia
+    match: ["harpers bazaar", "harper s bazaar", "bazaar arabia"]
+    type: editorial
+    language: en
+  - id: esquire-me
+    name: Esquire Middle East
+    match: ["esquire"]
+    type: editorial
+    language: en
+  - id: vogue-arabia
+    name: Vogue Arabia
+    match: ["vogue"]
+    type: editorial
+    language: en
+  - id: thenational
+    name: The National
+    match: ["the national", "thenationalnews"]
+    type: editorial
+    language: en
+  - id: arabnews
+    name: Arab News
+    match: ["arab news", "arabnews"]
+    type: editorial
+    language: en
+  - id: saudigazette
+    name: Saudi Gazette
+    match: ["saudi gazette", "saudigazette"]
+    type: editorial
+    language: en
+  - id: destinationksa
+    name: Destination KSA
+    match: ["destination ksa", "destinationksa"]
+    type: editorial
+    language: en
+  - id: whatson-saudi
+    name: What's On Saudi Arabia
+    match: ["whats on", "what s on"]
+    type: editorial
+    language: en
+  - id: lovin-riyadh
+    name: Lovin Riyadh
+    match: ["lovin"]
+    type: editorial
+    language: en
+  - id: culturetrip
+    name: Culture Trip
+    match: ["culture trip", "culturetrip"]
+    type: editorial
+    language: en
+  - id: lonelyplanet
+    name: Lonely Planet
+    match: ["lonely planet", "lonelyplanet"]
+    type: editorial
+    language: en
+  - id: fodors
+    name: Fodor's
+    match: ["fodor"]
+    type: editorial
+    language: en
+  - id: sayidaty
+    name: Sayidaty (سيدتي)
+    match: ["sayidaty", "سيدتي"]
+    type: editorial
+    language: ar
+  - id: layalina
+    name: Layalina (ليالينا)
+    match: ["layalina", "ليالينا"]
+    type: editorial
+    language: ar
+  - id: hia
+    name: Hia (هي)
+    match: ["hia magazine", "hiamag", "مجلة هي", "hia"]
+    type: editorial
+    language: ar
+  - id: alriyadh
+    name: Al Riyadh newspaper (جريدة الرياض)
+    match: ["al riyadh", "alriyadh", "جريدة الرياض", "صحيفة الرياض"]
+    type: editorial
+    language: ar
+  - id: okaz
+    name: Okaz (عكاظ)
+    match: ["okaz", "عكاظ"]
+    type: editorial
+    language: ar
+  # ---- official / destination sites
+  - id: visitsaudi
+    name: Visit Saudi
+    match: ["visit saudi", "visitsaudi", "saudi tourism authority", "روح السعودية"]
+    type: official
+    language: en
+    urls: [https://www.visitsaudi.com]
+  - id: riyadhseason
+    name: Riyadh Season
+    match: ["riyadh season", "موسم الرياض"]
+    type: official
+    language: en
+  - id: diriyah
+    name: Diriyah Company
+    match: ["diriyah", "bujairi", "الدرعية"]
+    type: official
+    language: en
+  - id: kafd
+    name: KAFD
+    match: ["kafd", "king abdullah financial district"]
+    type: official
+    language: en
+  - id: boulevard
+    name: Boulevard City / Boulevard World
+    match: ["boulevard"]
+    type: official
+    language: en
+  - id: viariyadh
+    name: Via Riyadh
+    match: ["via riyadh", "viariyadh"]
+    type: official
+    language: en
+  # ---- community
+  - id: reddit
+    name: Reddit
+    match: ["reddit", "r saudiarabia", "r riyadh"]
+    type: community
+    schemes: {community: community}
+    language: en
+    notes: Threads on r/saudiarabia, r/Riyadh; tier "recommended by N commenters", position = N.
+  - id: youtube
+    name: YouTube creators
+    match: ["youtube"]
+    type: community
+    schemes: {community: creator, editorial: creator}
+    group_by_raw: true   # each channel (the extract's publisher string) is its own publisher
+    language: en
+    notes: Publisher string should name the channel, e.g. "YouTube - <channel>". Top list counts 1.5.

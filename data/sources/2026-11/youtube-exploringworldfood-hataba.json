@@ -1,0 +1,25 @@
+{
+  "source_id": "youtube-exploringworldfood-hataba",
+  "source_name": "YouTube — Exploring World Food: Best Restaurant In Riyadh | Hataba Restaurant",
+  "publisher": "YouTube: Exploring World Food",
+  "source_type": "community",
+  "language": "en",
+  "url": "https://www.youtube.com/watch?v=3M1e-zGkx4k",
+  "published_at": null,
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "title-only (watch page blocked); YouTube search showed \"11 months ago\" on 2026-11-10 (~2025-12), exact date unverified so null",
+  "entries": [
+    {
+      "name": "Hataba",
+      "name_ar": null,
+      "cuisine": null,
+      "area": null,
+      "price_band": null,
+      "tier": "creator top list",
+      "position": 1,
+      "note": "creator title calls it the best restaurant in Riyadh; added to creator favourites",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

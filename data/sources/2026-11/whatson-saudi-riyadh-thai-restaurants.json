@@ -1,0 +1,85 @@
+{
+  "source_id": "whatson-saudi-riyadh-thai-restaurants",
+  "source_name": "What's On Saudi Arabia — These are the best Thai restaurants in Riyadh to check out",
+  "publisher": "What's On Saudi Arabia",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://whatsonsaudiarabia.com/2026/07/thai-restaurants-in-riyadh/",
+  "published_at": "2026-07-14",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "unranked list of 6; paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Thai Soi",
+      "name_ar": null,
+      "cuisine": "Authentic Thai",
+      "area": "Awal Plaza; Al Yasmin",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Thai-chef-led",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Thaiya",
+      "name_ar": null,
+      "cuisine": "Contemporary Thai",
+      "area": "Tahlia St",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Meat and vegan dishes",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Phet Phet",
+      "name_ar": null,
+      "cuisine": "Thai",
+      "area": "Pure Center, Takhassusi Branch Road, An Nakheel",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Kuwaiti arrival, soft-opening at time of writing",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Baan Thai",
+      "name_ar": null,
+      "cuisine": "Thai",
+      "area": "Umm Al Hamam Al Gharbi",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Longtime budget-friendly Thai",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Long Chim",
+      "name_ar": null,
+      "cuisine": "Modern Bangkok-inspired Thai",
+      "area": "Diriyah (historic district)",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "David Thompson recipes",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "The Thai Table",
+      "name_ar": null,
+      "cuisine": "Thai",
+      "area": "Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Walk-in-only",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

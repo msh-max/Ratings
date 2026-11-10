@@ -1,0 +1,133 @@
+{
+  "source_id": "whatsonsaudi-most-romantic-restaurants-riyadh",
+  "source_name": "What's On Saudi Arabia — These are the most romantic restaurants in Riyadh",
+  "publisher": "What's On Saudi Arabia",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://whatsonsaudiarabia.com/?p=20859",
+  "published_at": "2024-02-12",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "date-night list of 10 (order as published, treated as unranked); paywall: no; pages read: 1",
+  "entries": [
+    {
+      "name": "Carbone",
+      "name_ar": null,
+      "cuisine": "Italian-American",
+      "area": "Mansard Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "mid-century New York Italian-American",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "L'Ami Dave",
+      "name_ar": null,
+      "cuisine": "French fine dining",
+      "area": "Mansard Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "old-Hollywood-style French classics",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Mamo Michelangelo",
+      "name_ar": null,
+      "cuisine": "French-Mediterranean",
+      "area": "Al Faisaliah Hotel",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Antibes import",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Azure",
+      "name_ar": null,
+      "cuisine": "Spanish",
+      "area": "Hyatt Regency, Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "modern southern Spanish",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Cipriani",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": "Hittin",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Venetian classics",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Yauatcha",
+      "name_ar": null,
+      "cuisine": "Chinese",
+      "area": "Al Olaya",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "dim sum and roast duck",
+      "entry_url": null,
+      "branch": "Mode Al Faisaliah"
+    },
+    {
+      "name": "Scott's",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Mayfair glamour, first outpost outside London",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Raoul's",
+      "name_ar": null,
+      "cuisine": "French bistro",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "intimate dark-toned bistro",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Spago by Wolfgang Puck",
+      "name_ar": null,
+      "cuisine": "Californian",
+      "area": "Via Riyadh",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "Wolfgang Puck seasonal menu",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Hakkasan",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Bujairi Terrace, Diriyah",
+      "price_band": null,
+      "tier": "listed",
+      "position": null,
+      "note": "upscale venue near At-Turaif",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

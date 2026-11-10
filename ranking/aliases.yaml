@@ -1,0 +1,18 @@
+# Manual name merges for de-duplication (read by ranking/normalize.py).
+#
+# Format: canonical display name -> list of other spellings (Latin or Arabic) that are the
+# SAME place. Matching is on normalised keys (case, accents, punctuation, "Al-"/"El "/"ال"
+# and words like "Restaurant"/"Riyadh" are ignored), so list only genuinely different spellings.
+#
+#   Al Romansiah:
+#     - Romansiah
+#     - الرومانسية
+#
+# To stop two different places from being merged by fuzzy matching, list the pair under
+# `_distinct`:
+#
+#   _distinct:
+#     - [Em Sherif, Em Sherif Cafe]
+#
+# `python -m ranking qa` prints near-duplicate pairs (token_set_ratio 85-92) to review here.
+{}
