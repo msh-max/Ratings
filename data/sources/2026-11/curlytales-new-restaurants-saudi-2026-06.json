@@ -1,0 +1,109 @@
+{
+  "source_id": "curlytales-new-restaurants-saudi-2026-06",
+  "source_name": "Curly Tales — June Just Got Tastier: 8 New Restaurants To Check Out In Saudi Arabia",
+  "publisher": "Curly Tales",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://curlytales.com/middle-east/food/june-just-got-tastier-new-restaurants-to-check-out-in-saudi-arabia/",
+  "published_at": "2026-06-19",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered openings round-up of 8 (listicle order); all in Riyadh incl. Diriyah; paywall: no",
+  "entries": [
+    {
+      "name": "Apple Butter",
+      "name_ar": null,
+      "cuisine": "Café, all-day dining",
+      "area": "Al Aqiq (KAFD)",
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "All-day comfort classics",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Amar",
+      "name_ar": null,
+      "cuisine": "Lebanese",
+      "area": "La Corte Mall, Tahliya Street",
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "Lebanese",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Haru",
+      "name_ar": null,
+      "cuisine": "Japanese",
+      "area": "Al Takhassousi Street",
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "Japanese",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Ziba",
+      "name_ar": null,
+      "cuisine": "Persian",
+      "area": "Hittin",
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "Iranian cuisine",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Liza",
+      "name_ar": null,
+      "cuisine": "Lebanese",
+      "area": "Bujairi Terrace, Diriyah",
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "Lebanese",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "The Vinyl Ember",
+      "name_ar": null,
+      "cuisine": "American",
+      "area": "Al Aqiq (KAFD)",
+      "price_band": null,
+      "tier": "#6",
+      "position": 6,
+      "note": "American grill",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Kantami",
+      "name_ar": null,
+      "cuisine": "Japanese izakaya",
+      "area": "Al Malqa",
+      "price_band": null,
+      "tier": "#7",
+      "position": 7,
+      "note": "Izakaya",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Neeraj",
+      "name_ar": null,
+      "cuisine": "Indian",
+      "area": "Prince Turki Bin Abdulaziz Al Awwal Rd",
+      "price_band": null,
+      "tier": "#8",
+      "position": 8,
+      "note": "Indian",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}

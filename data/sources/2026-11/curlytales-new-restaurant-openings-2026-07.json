@@ -1,0 +1,109 @@
+{
+  "source_id": "curlytales-new-restaurant-openings-2026-07",
+  "source_name": "Curly Tales — Where to Eat This July: 8 New Restaurant Openings Across Saudi Arabia",
+  "publisher": "Curly Tales",
+  "source_type": "editorial",
+  "language": "en",
+  "url": "https://curlytales.com/middle-east/food/where-to-eat-this-july-new-restaurant-openings-across-saudi-arabia/",
+  "published_at": "2026-07-10",
+  "retrieved_at": "2026-11-10",
+  "coverage_note": "numbered openings round-up of 8 (listicle order); all 8 in Riyadh; paywall: no",
+  "entries": [
+    {
+      "name": "Franco's Cucina",
+      "name_ar": null,
+      "cuisine": "Italian",
+      "area": "InterContinental Durrat Al Riyadh",
+      "price_band": null,
+      "tier": "#1",
+      "position": 1,
+      "note": "Tuscan and Southern Italian",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "B+F",
+      "name_ar": null,
+      "cuisine": "Pan-American, live-fire grill",
+      "area": "Umm Al Hamam Al Gharbi (Laysen Valley)",
+      "price_band": null,
+      "tier": "#2",
+      "position": 2,
+      "note": "Live-fire grill",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sigo Tacos",
+      "name_ar": null,
+      "cuisine": "Mexican",
+      "area": "Hittin",
+      "price_band": null,
+      "tier": "#3",
+      "position": 3,
+      "note": "Taco house",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Cipriani Dolci",
+      "name_ar": null,
+      "cuisine": "Italian all-day café",
+      "area": "Al Safarat (Diplomatic Quarter)",
+      "price_band": null,
+      "tier": "#4",
+      "position": 4,
+      "note": "All-day café",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Berenjak Riyadh",
+      "name_ar": null,
+      "cuisine": "Persian",
+      "area": "VIA Riyadh, Al Hada",
+      "price_band": null,
+      "tier": "#5",
+      "position": 5,
+      "note": "London brand",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Sira",
+      "name_ar": null,
+      "cuisine": "Latin",
+      "area": "W Riyadh, Al Aqiq (KAFD)",
+      "price_band": null,
+      "tier": "#6",
+      "position": 6,
+      "note": "Latin dining concept",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Thurya Restaurant",
+      "name_ar": null,
+      "cuisine": "Lebanese",
+      "area": "Sofitel Riyadh Hotel & Convention Centre, Ar Rahmaniyyah",
+      "price_band": null,
+      "tier": "#7",
+      "position": 7,
+      "note": "Lebanese hotel restaurant",
+      "entry_url": null,
+      "branch": null
+    },
+    {
+      "name": "Bistro & Co",
+      "name_ar": null,
+      "cuisine": null,
+      "area": "Edge Riyadh Al Rabie, Ar Rabi",
+      "price_band": null,
+      "tier": "#8",
+      "position": 8,
+      "note": "All-day casual dining",
+      "entry_url": null,
+      "branch": null
+    }
+  ]
+}
